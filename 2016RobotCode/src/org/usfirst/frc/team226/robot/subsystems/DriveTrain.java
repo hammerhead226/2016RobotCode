@@ -20,6 +20,7 @@ public class DriveTrain extends Subsystem {
 	SpeedController frontRightMotor = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
 	SpeedController rearLeftMotor = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
 	SpeedController frontLeftMotor = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
+	
 	RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 
     public void initDefaultCommand() {
