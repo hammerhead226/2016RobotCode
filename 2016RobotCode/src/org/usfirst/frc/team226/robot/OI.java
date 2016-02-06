@@ -21,7 +21,7 @@ public class OI {
 	}
 	
 	public double getRightDriveSpeed() {
-		return driver.getRawAxis(5);
+		return driver.getRawAxis(5)*-1;
 	}
 	
 }
