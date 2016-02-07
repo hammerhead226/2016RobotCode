@@ -1,6 +1,11 @@
 package org.usfirst.frc.team226.robot;
 
+import org.usfirst.frc.team226.robot.commands.SetFourBarLinkageSetpoint;
+import org.usfirst.frc.team226.robot.subsystems.FourBarLinkageAuto;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -9,12 +14,18 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
 	
 	Joystick driver = new Joystick(0);
-	//Joystick manip = new Joystick(1);
-	//Button M1 = new JoystickButton(manip, 1);
-	//Button M2 = new JoystickButton(manip, 2);
-	//Button M3 = new JoystickButton(manip, 3);
-	//Button M4 = new JoystickButton(manip, 4);
+	Joystick manip = new Joystick(1);
+	Button M1 = new JoystickButton(manip, 1);
+	Button M2 = new JoystickButton(manip, 2);
+	Button M3 = new JoystickButton(manip, 3);
+	Button M4 = new JoystickButton(manip, 4);
 	
+	public OI() {
+		M1.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.ZERO));
+		M2.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.HALF));
+		M3.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.FULL));
+		M4.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.EXTENDED));
+	}
 	
 	public double getLeftDriveSpeed() {
 		return driver.getY();
@@ -22,6 +33,10 @@ public class OI {
 	
 	public double getRightDriveSpeed() {
 		return driver.getRawAxis(5)*-1;
+	}
+	
+	public double getRightManipAxis() {
+		return driver.getRawAxis(5);
 	}
 	
 }

@@ -1352,3 +1352,89 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-02-06 22:11:57.633
+!MESSAGE Failed to refresh projects from index changes
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:941)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1593)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob$1.run(Activator.java:446)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2241)
+	at org.eclipse.egit.ui.Activator$ResourceRefreshJob.run(Activator.java:431)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: The project description file (.project) for 'RemoteSystemsTempFiles' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 1 org.eclipse.core.resources 4 271 2016-02-06 22:11:57.634
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2016-02-06 22:11:57.634
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-06 22:23:01.673
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3720dba4, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@13d17701, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5db5190b, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@14674f57, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@25ab4b84, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3dda594f, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@485262be, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@66619114, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@19e91137, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@76163364, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2d0ae88a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4709350e, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@16b8e471, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@51f278d1, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2bc694dd, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@25e965ee, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@74a3964e, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@36d54cfb, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@292a4680]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-06 22:23:01.675
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@33d55c86, edu.wpi.first.wpilib.plugins.core.wizards.Tag@48b0123a, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1be36b12, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6f942437, edu.wpi.first.wpilib.plugins.core.wizards.Tag@76bc642f, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3ed59900, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3eeece33, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7015e045, edu.wpi.first.wpilib.plugins.core.wizards.Tag@659d6f74, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7792e75e, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3f4520c9, edu.wpi.first.wpilib.plugins.core.wizards.Tag@608df8ac, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6ee5cd06, edu.wpi.first.wpilib.plugins.core.wizards.Tag@ead7f93, edu.wpi.first.wpilib.plugins.core.wizards.Tag@18f845e7]
+
+!ENTRY org.eclipse.core.resources 2 2 2016-02-06 22:23:10.871
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2016-02-06 22:23:10.871
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 22:28:19.628
+!MESSAGE [org.usfirst.frc.team226.robot.subsystems [in src [in 2016RobotCode]]
+  [Working copy] DriveTrain.java
+    package org.usfirst.frc.team226.robot.subsystems
+    import org.usfirst.frc.team226.robot.RobotMap
+    import org.usfirst.frc.team226.robot.commands.DriveWithJoysticks
+    import edu.wpi.first.wpilibj.CANTalon
+    import edu.wpi.first.wpilibj.RobotDrive
+    import edu.wpi.first.wpilibj.SpeedController
+    import edu.wpi.first.wpilibj.command.Subsystem
+    class DriveTrain
+      SpeedController rearRightMotor
+      SpeedController frontRightMotor
+      SpeedController rearLeftMotor
+      SpeedController frontLeftMotor
+      RobotDrive drive
+      void initDefaultCommand()
+      void tankDrive(double, double)]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 22:28:19.629
+!MESSAGE class org.eclipse.jdt.internal.core.PackageFragment
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 22:28:19.644
+!MESSAGE initialize
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 22:28:19.646
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 22:29:16.944
+!MESSAGE Class: fourBarLift Package: org.usfirst.frc.team226.robot.subsystems
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 23:11:49.001
+!MESSAGE [org.usfirst.frc.team226.robot.commands [in src [in 2016RobotCode]]
+  [Working copy] DriveWithJoysticks.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
+    class DriveWithJoysticks
+      DriveWithJoysticks()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 23:11:49.002
+!MESSAGE class org.eclipse.jdt.internal.core.PackageFragment
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 23:11:49.008
+!MESSAGE initialize
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 23:11:49.009
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-06 23:12:09.001
+!MESSAGE Class: SetFourBarLinkageSetpoint Package: org.usfirst.frc.team226.robot.commands

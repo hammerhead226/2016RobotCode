@@ -2,6 +2,7 @@
 package org.usfirst.frc.team226.robot;
 
 import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team226.robot.subsystems.FourBarLinkageAuto;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -19,6 +20,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class Robot extends IterativeRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
+	public static final FourBarLinkageAuto fourBarLinkageAuto = new FourBarLinkageAuto();
 	public static OI oi;
 
     Command autonomousCommand;
