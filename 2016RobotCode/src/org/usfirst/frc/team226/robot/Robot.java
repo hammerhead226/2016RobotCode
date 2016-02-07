@@ -3,6 +3,8 @@ package org.usfirst.frc.team226.robot;
 
 import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBarLinkageAuto;
+import org.usfirst.frc.team226.robot.subsystems.IntakeWheels;
+import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -21,6 +23,8 @@ public class Robot extends IterativeRobot {
 
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final FourBarLinkageAuto fourBarLinkageAuto = new FourBarLinkageAuto();
+	public static final IntakeWheels intakeWheels = new IntakeWheels();
+	public static final ShooterWheels shooterWheels = new ShooterWheels();
 	public static OI oi;
 
     Command autonomousCommand;

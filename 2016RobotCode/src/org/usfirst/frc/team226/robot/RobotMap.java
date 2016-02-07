@@ -24,13 +24,12 @@ public class RobotMap {
 	public static final int LEFT_ARM_MOTOR = 5;
 	public static final int RIGHT_ARM_MOTOR = 6;
 	
-	//public static final int LEFT_LIFT_MOTOR = 0;
-	//public static final int RIGHT_LIFT_MOTOR = 0;
+	public static final int LEFT_LIFT_MOTOR = 7;
+	public static final int RIGHT_LIFT_MOTOR = 8;
 	
-	//public static final int LEFT_INTAKE_MOTOR = 0;
-	//public static final int RIGHT_INTAKE_MOTOR = 0;
+	public static final int INTAKE_MOTOR = 9;
 	
-	//public static final int LEFT_OUTTAKE_MOTOR = 0;
-	//public static final int RIGHT_OUTTAKE_MOTOR = 0;
+	public static final int LEFT_SHOOTER_MOTOR = 10;
+	public static final int RIGHT_SHOOTER_MOTOR = 11;
 	
 }
