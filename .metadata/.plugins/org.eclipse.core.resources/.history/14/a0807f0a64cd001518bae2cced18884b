@@ -1,7 +1,6 @@
 package org.usfirst.frc.team226.robot;
 
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
-import org.usfirst.frc.team226.robot.commands.LiftServoOpen;
 import org.usfirst.frc.team226.robot.commands.SetFourBarLinkageSetpoint;
 import org.usfirst.frc.team226.robot.commands.Shoot;
 import org.usfirst.frc.team226.robot.subsystems.FourBarLinkageAuto;
@@ -24,8 +23,6 @@ public class OI {
 	Button M4 = new JoystickButton(manip, 4);
 	Button M5 = new JoystickButton(manip, 5);
 	Button M6 = new JoystickButton(manip, 6);
-	Button M7 = new JoystickButton(manip, 7);
-	Button M8 = new JoystickButton(manip, 8);
 	
 	public OI() {
 		M1.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.ZERO));
@@ -34,7 +31,6 @@ public class OI {
 		M4.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.EXTENDED));
 		M5.whileHeld(new IntakeWheelsForward());
 		M6.whenPressed(new Shoot());
-		M7.whenPressed(new LiftServoOpen());
 	}
 	
 	public double getLeftDriveSpeed() {
