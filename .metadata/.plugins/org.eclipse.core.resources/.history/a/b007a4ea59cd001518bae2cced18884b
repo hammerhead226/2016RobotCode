@@ -36,9 +36,7 @@ public class OI {
 	}
 	
 	public double getRightManipAxis() {
-		if (Math.abs(driver.getRawAxis(5)) > .1) 
-			return (driver.getRawAxis(5) *-1) + Robot.fourBarLinkageAuto.getSetpoint();
-		else return Robot.fourBarLinkageAuto.getSetpoint();
+		return driver.getRawAxis(5);
 	}
 	
 }

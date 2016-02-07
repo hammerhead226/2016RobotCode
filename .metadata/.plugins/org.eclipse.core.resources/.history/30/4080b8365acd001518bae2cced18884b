@@ -1,0 +1,39 @@
+package org.usfirst.frc.team226.robot.subsystems;
+
+import org.usfirst.frc.team226.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ *
+ */
+public class FourBarLinkageManual extends Subsystem {
+    
+	SpeedController leftArmMotor = new CANTalon(RobotMap.LEFT_ARM_MOTOR);
+	SpeedController rightArmMotor = new CANTalon(RobotMap.RIGHT_ARM_MOTOR);
+	
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new FourBarLinkageDoNotMove());
+    }
+    
+    public void moveUp(){
+    	leftArmMotor.set(-1);
+    	rightArmMotor.set(1);
+    }
+    public void moveDown(){
+    	leftArmMotor.set(1);
+    	rightArmMotor.set(-1);
+    }
+    public void doNotMove(){
+    	leftArmMotor.set(0);
+    	rightArmMotor.set(0);
+    }
+}
+

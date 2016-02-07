@@ -58,6 +58,6 @@ public class FourBarLinkageAuto extends PIDSubsystem {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
     	leftArmMotor.set(output);
-    	rightArmMotor.set(output *-1);
+    	rightArmMotor.set(output);
     }
 }

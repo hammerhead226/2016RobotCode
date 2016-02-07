@@ -11,10 +11,6 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  */
 public class FourBarLinkageAuto extends PIDSubsystem {
 
-
-	CANTalon leftArmMotor = new CANTalon(RobotMap.LEFT_ARM_MOTOR);
-	CANTalon rightArmMotor = new CANTalon(RobotMap.RIGHT_ARM_MOTOR);
-	
 	//PID Values
 	private static final double Kp = 0.0;
 	private static final double Ki = 0.0;
@@ -26,6 +22,8 @@ public class FourBarLinkageAuto extends PIDSubsystem {
 			FULL = 0.0,
 			EXTENDED = 0.0;
 	
+	CANTalon leftArmMotor = new CANTalon(RobotMap.LEFT_ARM_MOTOR);
+	CANTalon rightArmMotor = new CANTalon(RobotMap.RIGHT_ARM_MOTOR);
 	
     // Initialize your subsystem here
     public FourBarLinkageAuto() {
@@ -58,6 +56,6 @@ public class FourBarLinkageAuto extends PIDSubsystem {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
     	leftArmMotor.set(output);
-    	rightArmMotor.set(output *-1);
+    	rightArmMotor.set(output);
     }
 }
