@@ -3,6 +3,7 @@ package org.usfirst.frc.team226.robot.commands;
 import org.usfirst.frc.team226.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -22,7 +23,9 @@ public class DriveWithJoysticks extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed()*-1, Robot.oi.getRightDriveSpeed());
+    	Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed(), Robot.oi.getRightDriveSpeed());
+    	SmartDashboard.putNumber("LeftDS", Robot.oi.getLeftDriveSpeed());
+    	SmartDashboard.putNumber("RightDS", Robot.oi.getRightDriveSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
