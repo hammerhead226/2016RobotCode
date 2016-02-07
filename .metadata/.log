@@ -6277,3 +6277,915 @@ Java Model Exception: Java Model Status [No Project does not exist]
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:26:28.468
 !MESSAGE Class: ServoOpen Package: org.usfirst.frc.team226.robot.commands
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:39.357
+!MESSAGE [org.usfirst.frc.team226.robot.subsystems [in src [in 2016RobotCode]]
+  DriveTrain.java
+    package org.usfirst.frc.team226.robot.subsystems
+    import org.usfirst.frc.team226.robot.RobotMap
+    import org.usfirst.frc.team226.robot.commands.DriveWithJoysticks
+    import edu.wpi.first.wpilibj.CANTalon
+    import edu.wpi.first.wpilibj.RobotDrive
+    import edu.wpi.first.wpilibj.SpeedController
+    import edu.wpi.first.wpilibj.command.Subsystem
+    class DriveTrain
+      SpeedController rearRightMotor
+      SpeedController frontRightMotor
+      SpeedController rearLeftMotor
+      SpeedController frontLeftMotor
+      RobotDrive drive
+      void initDefaultCommand()
+      void tankDrive(double, double)
+  FourBarLinkageAuto.java
+    package org.usfirst.frc.team226.robot.subsystems
+    import org.usfirst.frc.team226.robot.RobotMap
+    import edu.wpi.first.wpilibj.CANTalon
+    import edu.wpi.first.wpilibj.CANTalon.TalonControlMode
+    import edu.wpi.first.wpilibj.command.PIDSubsystem
+    class FourBarLinkageAuto
+      CANTalon leftArmMotor
+      CANTalon rightArmMotor
+      double Kp
+      double Ki
+      double Kd
+      double ZERO
+      double HALF
+      double FULL
+      double EXTENDED
+      FourBarLinkageAuto()
+      void initDefaultCommand()
+      double returnPIDInput()
+      void usePIDOutput(double)
+  IntakeWheels.java
+    package org.usfirst.frc.team226.robot.subsystems
+    import org.usfirst.frc.team226.robot.RobotMap
+    import org.usfirst.frc.team226.robot.commands.IntakeWheelsDoNothing
+    import edu.wpi.first.wpilibj.CANTalon
+    import edu.wpi.first.wpilibj.SpeedController
+    import edu.wpi.first.wpilibj.command.Subsystem
+    class IntakeWheels
+      SpeedController intakeMotor
+      void initDefaultCommand()
+      void moveForward()
+      void moveBackward()
+      void doNotMove()
+  ShooterWheels.java
+    package org.usfirst.frc.team226.robot.subsystems
+    import org.usfirst.frc.team226.robot.RobotMap
+    import edu.wpi.first.wpilibj.CANTalon
+    import edu.wpi.first.wpilibj.CANTalon.TalonControlMode
+    import edu.wpi.first.wpilibj.command.PIDSubsystem
+    class ShooterWheels
+      double Kp
+      double Ki
+      double Kd
+      double OFF
+      double ON
+      CANTalon leftShooterMotor
+      CANTalon rightShooterMotor
+      ShooterWheels()
+      void initDefaultCommand()
+      double returnPIDInput()
+      void usePIDOutput(double)
+  [Working copy] LiftServo.java
+    package org.usfirst.frc.team226.robot.subsystems
+    import org.usfirst.frc.team226.robot.RobotMap
+    import org.usfirst.frc.team226.robot.commands.LiftServoDoNothing
+    import edu.wpi.first.wpilibj.Servo
+    import edu.wpi.first.wpilibj.command.Subsystem
+    class LiftServo
+      Servo servo
+      void initDefaultCommand()
+      void doNotMove()
+      void open()]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:39.358
+!MESSAGE class org.eclipse.jdt.internal.core.PackageFragment
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:39.364
+!MESSAGE initialize
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:39.365
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:39.365
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:39.366
+!MESSAGE Project: P/No Project
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2016-02-07 01:30:39.367
+!MESSAGE Error getting default package.
+!STACK 1
+Java Model Exception: Java Model Status [No Project does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:566)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:247)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:505)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:579)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:316)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:302)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:257)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.getDefaultPackage(FileTemplateWizardMainPage.java:200)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.dialogChanged(FileTemplateWizardMainPage.java:148)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.access$4(FileTemplateWizardMainPage.java:139)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$5.modifyText(FileTemplateWizardMainPage.java:116)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Text.wmCommandChild(Text.java:3071)
+	at org.eclipse.swt.widgets.Control.WM_COMMAND(Control.java:4824)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4679)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Text.callWindowProc(Text.java:260)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Text.windowProc(Text.java:2671)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.SetWindowTextW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.SetWindowText(OS.java:3473)
+	at org.eclipse.swt.widgets.Text.setText(Text.java:2296)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.initialize(FileTemplateWizardMainPage.java:132)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.createControl(FileTemplateWizardMainPage.java:120)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:175)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:705)
+	at org.eclipse.jface.wizard.WizardDialog.setWizard(WizardDialog.java:1153)
+	at org.eclipse.jface.wizard.WizardDialog.updateForPage(WizardDialog.java:1211)
+	at org.eclipse.jface.wizard.WizardDialog.access$4(WizardDialog.java:1208)
+	at org.eclipse.jface.wizard.WizardDialog$8.run(WizardDialog.java:1197)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.wizard.WizardDialog.showPage(WizardDialog.java:1194)
+	at org.eclipse.ui.internal.dialogs.NewWizardSelectionPage.advanceToNextPageOrFinish(NewWizardSelectionPage.java:71)
+	at org.eclipse.ui.internal.dialogs.NewWizardNewPage$1.doubleClick(NewWizardNewPage.java:361)
+	at org.eclipse.jface.viewers.StructuredViewer$1.run(StructuredViewer.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.viewers.StructuredViewer.fireDoubleClick(StructuredViewer.java:829)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleDoubleSelect(AbstractTreeViewer.java:1470)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetDefaultSelected(StructuredViewer.java:1263)
+	at org.eclipse.jface.util.OpenStrategy.fireDefaultSelectionEvent(OpenStrategy.java:252)
+	at org.eclipse.jface.util.OpenStrategy.access$0(OpenStrategy.java:249)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:311)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:343)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:160)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-02-07 01:30:39.367
+!MESSAGE No Project does not exist
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:41.970
+!MESSAGE Project: P/No Project
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2016-02-07 01:30:41.970
+!MESSAGE Error getting default package.
+!STACK 1
+Java Model Exception: Java Model Status [No Project does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:566)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:247)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:505)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:579)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:316)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:302)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:257)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.getDefaultPackage(FileTemplateWizardMainPage.java:200)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.dialogChanged(FileTemplateWizardMainPage.java:145)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.access$4(FileTemplateWizardMainPage.java:139)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$3.modifyText(FileTemplateWizardMainPage.java:92)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Combo.wmCommandChild(Combo.java:3169)
+	at org.eclipse.swt.widgets.Control.WM_COMMAND(Control.java:4824)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4679)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Combo.callWindowProc(Combo.java:476)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Combo.windowProc(Combo.java:2806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3767)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:343)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:160)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-02-07 01:30:41.971
+!MESSAGE No Project does not exist
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:41.972
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:30:41.977
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:31:02.596
+!MESSAGE Class: LiftWinch Package: org.usfirst.frc.team226.robot.subsystems
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:38.140
+!MESSAGE [org.usfirst.frc.team226.robot.commands [in src [in 2016RobotCode]]
+  DriveWithJoysticks.java (not open)
+  SetFourBarLinkageSetpoint.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class SetFourBarLinkageSetpoint
+      double setpoint
+      SetFourBarLinkageSetpoint(double)
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  IntakeWheelsDoNothing.java (not open)
+  IntakeWheelsForward.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class IntakeWheelsForward
+      IntakeWheelsForward()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  IntakeWheelsBackward.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class IntakeWheelsBackward
+      IntakeWheelsBackward()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  SetShooterWheelsSetpoint.java (not open)
+  Shoot.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.subsystems.ShooterWheels
+    import edu.wpi.first.wpilibj.command.CommandGroup
+    class Shoot
+      Shoot()
+  [Working copy] LiftServoDoNothing.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class LiftServoDoNothing
+      LiftServoDoNothing()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  [Working copy] LiftServoOpen.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class LiftServoOpen
+      LiftServoOpen()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:38.141
+!MESSAGE class org.eclipse.jdt.internal.core.PackageFragment
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:38.147
+!MESSAGE initialize
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:38.147
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:38.148
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:38.149
+!MESSAGE Project: P/No Project
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2016-02-07 01:34:38.149
+!MESSAGE Error getting default package.
+!STACK 1
+Java Model Exception: Java Model Status [No Project does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:566)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:247)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:505)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:579)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:316)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:302)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:257)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.getDefaultPackage(FileTemplateWizardMainPage.java:200)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.dialogChanged(FileTemplateWizardMainPage.java:148)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.access$4(FileTemplateWizardMainPage.java:139)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$5.modifyText(FileTemplateWizardMainPage.java:116)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Text.wmCommandChild(Text.java:3071)
+	at org.eclipse.swt.widgets.Control.WM_COMMAND(Control.java:4824)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4679)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Text.callWindowProc(Text.java:260)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Text.windowProc(Text.java:2671)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.SetWindowTextW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.SetWindowText(OS.java:3473)
+	at org.eclipse.swt.widgets.Text.setText(Text.java:2296)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.initialize(FileTemplateWizardMainPage.java:132)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.createControl(FileTemplateWizardMainPage.java:120)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:175)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:705)
+	at org.eclipse.jface.wizard.WizardDialog.setWizard(WizardDialog.java:1153)
+	at org.eclipse.jface.wizard.WizardDialog.updateForPage(WizardDialog.java:1211)
+	at org.eclipse.jface.wizard.WizardDialog.access$4(WizardDialog.java:1208)
+	at org.eclipse.jface.wizard.WizardDialog$8.run(WizardDialog.java:1197)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.wizard.WizardDialog.showPage(WizardDialog.java:1194)
+	at org.eclipse.ui.internal.dialogs.NewWizardSelectionPage.advanceToNextPageOrFinish(NewWizardSelectionPage.java:71)
+	at org.eclipse.ui.internal.dialogs.NewWizardNewPage$1.doubleClick(NewWizardNewPage.java:361)
+	at org.eclipse.jface.viewers.StructuredViewer$1.run(StructuredViewer.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.viewers.StructuredViewer.fireDoubleClick(StructuredViewer.java:829)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleDoubleSelect(AbstractTreeViewer.java:1470)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetDefaultSelected(StructuredViewer.java:1263)
+	at org.eclipse.jface.util.OpenStrategy.fireDefaultSelectionEvent(OpenStrategy.java:252)
+	at org.eclipse.jface.util.OpenStrategy.access$0(OpenStrategy.java:249)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:311)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:343)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:160)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-02-07 01:34:38.150
+!MESSAGE No Project does not exist
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:40.397
+!MESSAGE Project: P/No Project
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2016-02-07 01:34:40.398
+!MESSAGE Error getting default package.
+!STACK 1
+Java Model Exception: Java Model Status [No Project does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:566)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:247)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:505)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:579)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:316)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:302)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:257)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.getDefaultPackage(FileTemplateWizardMainPage.java:200)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.dialogChanged(FileTemplateWizardMainPage.java:145)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.access$4(FileTemplateWizardMainPage.java:139)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$3.modifyText(FileTemplateWizardMainPage.java:92)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Combo.wmCommandChild(Combo.java:3169)
+	at org.eclipse.swt.widgets.Control.WM_COMMAND(Control.java:4824)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4679)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Combo.callWindowProc(Combo.java:476)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Combo.windowProc(Combo.java:2806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3767)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:343)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:160)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-02-07 01:34:40.398
+!MESSAGE No Project does not exist
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:40.399
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:40.405
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:34:47.497
+!MESSAGE Class: LiftWinchDoNothing Package: org.usfirst.frc.team226.robot.commands
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:07.824
+!MESSAGE [org.usfirst.frc.team226.robot.commands [in src [in 2016RobotCode]]
+  DriveWithJoysticks.java (not open)
+  SetFourBarLinkageSetpoint.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class SetFourBarLinkageSetpoint
+      double setpoint
+      SetFourBarLinkageSetpoint(double)
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  IntakeWheelsDoNothing.java (not open)
+  IntakeWheelsForward.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class IntakeWheelsForward
+      IntakeWheelsForward()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  IntakeWheelsBackward.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class IntakeWheelsBackward
+      IntakeWheelsBackward()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  SetShooterWheelsSetpoint.java (not open)
+  Shoot.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.subsystems.ShooterWheels
+    import edu.wpi.first.wpilibj.command.CommandGroup
+    class Shoot
+      Shoot()
+  [Working copy] LiftServoDoNothing.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class LiftServoDoNothing
+      LiftServoDoNothing()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  [Working copy] LiftServoOpen.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class LiftServoOpen
+      LiftServoOpen()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  [Working copy] LiftWinchDoNothing.java
+    package org.usfirst.frc.team226.robot.commands
+    import org.usfirst.frc.team226.robot.Robot
+    import edu.wpi.first.wpilibj.command.Command
+    class LiftWinchDoNothing
+      LiftWinchDoNothing()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:07.862
+!MESSAGE class org.eclipse.jdt.internal.core.PackageFragment
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:07.873
+!MESSAGE initialize
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:07.874
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:07.876
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:07.877
+!MESSAGE Project: P/No Project
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2016-02-07 01:36:07.879
+!MESSAGE Error getting default package.
+!STACK 1
+Java Model Exception: Java Model Status [No Project does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:566)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:247)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:505)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:579)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:316)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:302)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:257)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.getDefaultPackage(FileTemplateWizardMainPage.java:200)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.dialogChanged(FileTemplateWizardMainPage.java:148)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.access$4(FileTemplateWizardMainPage.java:139)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$5.modifyText(FileTemplateWizardMainPage.java:116)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Text.wmCommandChild(Text.java:3071)
+	at org.eclipse.swt.widgets.Control.WM_COMMAND(Control.java:4824)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4679)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Text.callWindowProc(Text.java:260)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Text.windowProc(Text.java:2671)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.SetWindowTextW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.SetWindowText(OS.java:3473)
+	at org.eclipse.swt.widgets.Text.setText(Text.java:2296)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.initialize(FileTemplateWizardMainPage.java:132)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.createControl(FileTemplateWizardMainPage.java:120)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:175)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:705)
+	at org.eclipse.jface.wizard.WizardDialog.setWizard(WizardDialog.java:1153)
+	at org.eclipse.jface.wizard.WizardDialog.updateForPage(WizardDialog.java:1211)
+	at org.eclipse.jface.wizard.WizardDialog.access$4(WizardDialog.java:1208)
+	at org.eclipse.jface.wizard.WizardDialog$8.run(WizardDialog.java:1197)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.wizard.WizardDialog.showPage(WizardDialog.java:1194)
+	at org.eclipse.ui.internal.dialogs.NewWizardSelectionPage.advanceToNextPageOrFinish(NewWizardSelectionPage.java:71)
+	at org.eclipse.ui.internal.dialogs.NewWizardNewPage$1.doubleClick(NewWizardNewPage.java:361)
+	at org.eclipse.jface.viewers.StructuredViewer$1.run(StructuredViewer.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.viewers.StructuredViewer.fireDoubleClick(StructuredViewer.java:829)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleDoubleSelect(AbstractTreeViewer.java:1470)
+	at org.eclipse.jface.viewers.StructuredViewer$4.widgetDefaultSelected(StructuredViewer.java:1263)
+	at org.eclipse.jface.util.OpenStrategy.fireDefaultSelectionEvent(OpenStrategy.java:252)
+	at org.eclipse.jface.util.OpenStrategy.access$0(OpenStrategy.java:249)
+	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:311)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:343)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:160)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-02-07 01:36:07.880
+!MESSAGE No Project does not exist
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:10.360
+!MESSAGE Project: P/No Project
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2016-02-07 01:36:10.361
+!MESSAGE Error getting default package.
+!STACK 1
+Java Model Exception: Java Model Status [No Project does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:566)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:247)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:505)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:579)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:316)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:302)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:257)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.getDefaultPackage(FileTemplateWizardMainPage.java:200)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.dialogChanged(FileTemplateWizardMainPage.java:145)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.access$4(FileTemplateWizardMainPage.java:139)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$3.modifyText(FileTemplateWizardMainPage.java:92)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:179)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1118)
+	at org.eclipse.swt.widgets.Combo.wmCommandChild(Combo.java:3169)
+	at org.eclipse.swt.widgets.Control.WM_COMMAND(Control.java:4824)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4679)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(OS.java:2443)
+	at org.eclipse.swt.widgets.Combo.callWindowProc(Combo.java:476)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4774)
+	at org.eclipse.swt.widgets.Combo.windowProc(Combo.java:2806)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5063)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2549)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3767)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:343)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:160)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2016-02-07 01:36:10.362
+!MESSAGE No Project does not exist
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:10.363
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:10.367
+!MESSAGE Project: P/2016RobotCode
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-07 01:36:18.810
+!MESSAGE Class: LiftWinchRetract Package: org.usfirst.frc.team226.robot.commands
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-07 01:38:08.817
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3d74092c, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1ae72ad3, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@47e375e2, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@9bc7e9d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@141c3bef, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@370e3a0d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6b9e056b, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1bcd613, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@748a5688, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3292c446, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@29bc2a22, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4e577d48, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@68cf5c1c, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4cdb05b7, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@47edb34, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@71365bce, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@638bd648, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@77e99133, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5bc5381]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-07 01:38:08.818
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@461790d3, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7b1337cf, edu.wpi.first.wpilib.plugins.core.wizards.Tag@40c85197, edu.wpi.first.wpilib.plugins.core.wizards.Tag@270f3254, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5d64af6e, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3f2b5642, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3dedfcd9, edu.wpi.first.wpilib.plugins.core.wizards.Tag@632ee4a2, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1bc93876, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7e35e40b, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2cecd420, edu.wpi.first.wpilib.plugins.core.wizards.Tag@38733eeb, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6a2bbb1b, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3bef1fe9, edu.wpi.first.wpilib.plugins.core.wizards.Tag@71689160]
