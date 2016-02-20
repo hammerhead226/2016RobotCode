@@ -6,7 +6,7 @@ How to set up a Raspberry Pi 2B for use with `SharkCV` for FRC Stronghold.
 #### Distro Installation
 1. Format your SD card with SD Association's SD Formatter 4.0 (https://www.sdcard.org/downloads/formatter_4).
 2. Download and copy NOOBS to the root of your SD card (https://www.raspberrypi.org/downloads/noobs).
-3. Power on your Raspberry Pi. Install Ubuntu and only Ubuntu. Wait for NOOBS to finish and reboot into Ubuntu.
+3. Power on your Raspberry Pi. Install Debian and only Debian. Wait for NOOBS to finish and reboot into Debian.
 4. Run through `raspi-config` and set hostname, username, password, locale, keyboard, and SSH options.
 
 #### Update Packages
@@ -20,10 +20,10 @@ sudo apt-get dist-upgrade
 #### Build mjpg-streamer (Optional)
 If you want to stream a webcam attached to the Raspberry Pi you will need to install `mjpg-streamer`:
 ```bash
-sudo apt-get install cmake libraspberrypi-dev libjpeg8-dev imagemagick libv4l-dev
+sudo apt-get install cmake libjpeg8-dev
 git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
-cmake mjpg-streamer input_uvc.so output_http.so
+make mjpg_streamer input_uvc.so output_http.so
 ```
 
 #### Install Display-O-Tron 3000 (Optional)
