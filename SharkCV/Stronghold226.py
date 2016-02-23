@@ -1,11 +1,19 @@
 '''
 Running on a Raspberry Pi 2B:
 - /proc/cpuinfo Revision a01041
-- /proc/cpuinfo Max 900MHz
+- lscpu Max 900MHz
 - Ubuntu 15.04/3.18.0-25-rpi2 (2015/07/05)
 Including all OpenCV and NetworkTable processing this averages:
 - 7 FPS with Microsoft LifeCam HD 3000 (-vw 640 -vh 480)
 - 29 FPS with Microsoft LifeCam HD 3000 (-vw 320 -vh 240)
+
+Running on a Raspberry Pi 2B:
+- /proc/cpuinfo Revision a21041
+- lscpu Max 900MHz
+- Raspbian Jessie 4.1.17-v7+ #838 (2016/02/09)
+Including all OpenCV and NetworkTable processing this averages:
+- 5 FPS with Microsoft LifeCam HD 3000 (-vw 640 -vh 480)
+- 20 FPS with Microsoft LifeCam HD 3000 (-vw 320 -vh 240)
 '''
 
 import copy
