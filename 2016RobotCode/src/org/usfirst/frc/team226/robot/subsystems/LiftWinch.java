@@ -1,7 +1,7 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
 import org.usfirst.frc.team226.robot.RobotMap;
-import org.usfirst.frc.team226.robot.commands.LiftWinchDoNothing;
+import org.usfirst.frc.team226.robot.commands.MoveWinch;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -21,16 +21,12 @@ public class LiftWinch extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new LiftWinchDoNothing());
+    	setDefaultCommand(new MoveWinch());
     }
-    public void doNotMove(){
-    	leftLiftMotor.set(0);
-    	rightLiftMotor.set(0);
-    }
-    public void retractWinch(){
-    	leftLiftMotor.set(-1);
-    	rightLiftMotor.set(1);
-    }
+    public void moveWinch(double leftJoystick) {
+		leftLiftMotor.set(leftJoystick);
+		rightLiftMotor.set(leftJoystick);
+	}
     
 }
 

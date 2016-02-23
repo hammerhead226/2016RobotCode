@@ -23,10 +23,10 @@ public class IntakeWheels extends Subsystem {
     	setDefaultCommand(new IntakeWheelsDoNothing());
     }
     public void moveForward(){
-    	intakeMotor.set(1);
+    	intakeMotor.set(-1);
     }
     public void moveBackward(){
-    	intakeMotor.set(-1);
+    	intakeMotor.set(1);
     }
     public void doNotMove(){
     	intakeMotor.set(0);

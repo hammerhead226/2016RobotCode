@@ -23,7 +23,7 @@ public class DriveWithEncoder extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.leftEncoder.reset();
+    	//Robot.driveTrain.leftEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -34,7 +34,8 @@ public class DriveWithEncoder extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.driveTrain.encoderDriveIsFinished(count);
+    	return true;
+        //return Robot.driveTrain.encoderDriveIsFinished(count);
     }
 
     // Called once after isFinished returns true

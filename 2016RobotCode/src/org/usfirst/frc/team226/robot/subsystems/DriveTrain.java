@@ -23,10 +23,10 @@ public class DriveTrain extends Subsystem {
 	SpeedController rearLeftMotor = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
 	SpeedController frontLeftMotor = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
 
-	public Encoder leftEncoder = new Encoder(RobotMap.LEFT_DT_ENCODER_CH1, RobotMap.LEFT_DT_ENCODER_CH2, false,
-			EncodingType.k4X);
-	public Encoder rightEncoder = new Encoder(RobotMap.RIGHT_DT_ENCODER_CH1, RobotMap.RIGHT_DT_ENCODER_CH2, true,
-			EncodingType.k4X);
+	//public Encoder leftEncoder = new Encoder(RobotMap.LEFT_DT_ENCODER_CH1, RobotMap.LEFT_DT_ENCODER_CH2, false,
+	//		EncodingType.k4X);
+	//public Encoder rightEncoder = new Encoder(RobotMap.RIGHT_DT_ENCODER_CH1, RobotMap.RIGHT_DT_ENCODER_CH2, true,
+	//		EncodingType.k4X);
 
 	RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 
@@ -40,13 +40,13 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(leftJoystick, rightJoystick);
 	}
 
-	public boolean encoderDriveIsFinished(int count) {
+	/*public boolean encoderDriveIsFinished(int count) {
 		int avg = (leftEncoder.get() + rightEncoder.get()) / 2;
 		if (avg < count) {
 			return false;
 		}
 		else {
 			return true;
-		}
-	}
+		} 
+	} */
 }
