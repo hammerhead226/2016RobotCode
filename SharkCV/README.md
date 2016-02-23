@@ -59,3 +59,19 @@ To make `SharkCV` run at startup add the following lines to `/etc/rc.local` (wil
 cd [/path/to/SharkCV/folder]
 nohup sudo python SharkCV.py [arguments] [module]
 ```
+
+
+## Game Manual Notes
+
+#### Section 4.1 (COTS)
+- The Raspberry Pi is considered a COTS item because it is an "unaltered component" "avaialable for purchase by all teams" from a "vendor".
+- A case for the Raspberry Pi also falls under the same COTS definition as long as it remains unaltered.
+
+#### Sections 4.2 - 4.12
+- R11 - The Raspberry Pi "complete assembly" does not exceed $400.
+- R18 - The Raspberry Pi does count against the 30 lbs competition withholding allowance.
+- R31 - A USB battery is permitted.
+- R41 - A USB battery power circuit would not exceed 24V.
+- R43 - The Raspberry Pi uses 5V not 12V, 5V 2A on the VRM is still available.
+- R49 - The VRM 2A circuits must use minimum 22 AWG wire.
+- R55 - A USB battery custom circuit would not "alter the power pathways" of the "robot control system"
