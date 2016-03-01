@@ -47,4 +47,8 @@ public class DriveTrain extends Subsystem {
 			return true;
 		} 
 	} */
+	
+	public void visionDrive(double centerValue) {
+		drive.tankDrive(Math.abs((centerValue-180)/180), Math.abs((centerValue-180)/180));
+	}
 }

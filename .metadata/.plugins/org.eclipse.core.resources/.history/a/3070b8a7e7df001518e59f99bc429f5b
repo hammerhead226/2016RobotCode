@@ -1,6 +1,5 @@
 package org.usfirst.frc.team226.robot;
 
-import org.usfirst.frc.team226.robot.commands.DriveWithVision;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
 import org.usfirst.frc.team226.robot.commands.ServoForward;
@@ -20,9 +19,6 @@ public class OI {
 	
 	Joystick driver = new Joystick(0);
 	Joystick manip = new Joystick(1);
-	
-	Button D1 = new JoystickButton(driver, 1);
-	
 	Button M1 = new JoystickButton(manip, 1);
 	Button M2 = new JoystickButton(manip, 2);
 	Button M3 = new JoystickButton(manip, 3);
@@ -31,11 +27,11 @@ public class OI {
 	Button M6 = new JoystickButton(manip, 6);
 	Button M7 = new JoystickButton(manip, 7);
 	Button M8 = new JoystickButton(manip, 8);
+	
 	Button M9 = new JoystickButton(manip, 9);
 	Button M10 = new JoystickButton(manip, 10);
 	
 	public OI() {
-		D1.whileHeld(new DriveWithVision());
 		//M1.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.ZERO));
 		//M2.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.HALF));
 		//M3.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.FULL));
