@@ -5,7 +5,7 @@ import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBar;
 import org.usfirst.frc.team226.robot.subsystems.FourBarLinkageAuto;
 import org.usfirst.frc.team226.robot.subsystems.IntakeWheels;
-import org.usfirst.frc.team226.robot.subsystems.LiftServo;
+import org.usfirst.frc.team226.robot.subsystems.CameraServo;
 import org.usfirst.frc.team226.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 
@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public static final FourBarLinkageAuto fourBarLinkageAuto = new FourBarLinkageAuto();
 	public static final IntakeWheels intakeWheels = new IntakeWheels();
 	public static final ShooterWheels shooterWheels = new ShooterWheels();
-	public static final LiftServo liftServo = new LiftServo();
+	public static final CameraServo cameraServo = new CameraServo();
 	public static final LiftWinch liftWinch = new LiftWinch();
 	public static final FourBar fourBar = new FourBar();	
 	public static OI oi;
@@ -84,7 +84,6 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-       
     }
 
     public void teleopInit() {
@@ -108,6 +107,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        //System.out.println(cameraServo.getAngle());
     }
     
     /**

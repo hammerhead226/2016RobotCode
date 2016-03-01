@@ -2,6 +2,8 @@ package org.usfirst.frc.team226.robot;
 
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
+import org.usfirst.frc.team226.robot.commands.ServoForward;
+import org.usfirst.frc.team226.robot.commands.ServoReverse;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsForward;
 
@@ -26,6 +28,9 @@ public class OI {
 	Button M7 = new JoystickButton(manip, 7);
 	Button M8 = new JoystickButton(manip, 8);
 	
+	Button M9 = new JoystickButton(manip, 9);
+	Button M10 = new JoystickButton(manip, 10);
+	
 	public OI() {
 		//M1.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.ZERO));
 		//M2.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.HALF));
@@ -34,23 +39,33 @@ public class OI {
 		M5.whileHeld(new IntakeWheelsForward());
 		M6.whileHeld(new ShooterWheelsForward());
 		M7.whileHeld(new IntakeWheelsBackward());
-		M8.whileHeld(new ShooterWheelsBackward());
+		M8.whileHeld(new ShooterWheelsBackward());	
+		M9.whenPressed(new ServoForward());
+		M10.whenPressed(new ServoReverse());
 	}
 	
 	public double getLeftDriveSpeed() {
-		return driver.getY()*-1;
+		if (Math.abs(driver.getY()) > .1 ){
+			return driver.getY()*-1;
+		}else return 0;
 	}
 	
 	public double getRightDriveSpeed() {
-		return driver.getRawAxis(5)*-1;
+		if (Math.abs(driver.getRawAxis(5)) > .1) {
+			return driver.getRawAxis(5)*-1;
+		}else return 0;
 	}
 	
 	public double getLeftManipAxis() {
-		return manip.getY()*-1;
+		if (Math.abs(manip.getY()) > .2) {
+			return manip.getY()*-1;
+		}else return 0;
 	}
 	
 	public double getRightManipAxis() {
-		return manip.getRawAxis(5) *-1;
+		if (Math.abs(manip.getRawAxis(5)) > .1){
+			return manip.getRawAxis(5)*-1;
+		}else return 0;
 	}
 	
 	/*public double getRightManipAxis() {

@@ -10,8 +10,14 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CANTalon.FeedbackDevice"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.subsystems.ShooterWheels"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.Shoot"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Servo"/>
-<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.Robot"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DigitalInput"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.RobotMap"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ShooterWheelsDoNothing"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ShooterWheelsForward"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.LiftServoOpen"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ServoReverse"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Servo"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ServoForward"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ServoDoNothing"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.Robot"/>
 </qualifiedTypeNameHistroy>
