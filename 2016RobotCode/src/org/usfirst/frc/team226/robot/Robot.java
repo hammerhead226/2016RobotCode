@@ -11,9 +11,12 @@ import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -36,12 +39,14 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     CameraServer server;
     
+    NetworkTable table;
+    
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
         //the camera name (ex "cam0") can be found through the roborio web interface
         server.startAutomaticCapture("cam0");
-        
+        table = NetworkTable.getTable("SharkCV/contours/0");
     }
 
     /**
@@ -52,6 +57,16 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
+		while(true) {
+			double areas = table.getNumber("area", -1);
+			double width = table.getNumber("width", -1);
+			double height = table.getNumber("height", -1);
+			double centerX = table.getNumber("centerX", -1);
+			double centerY = table.getNumber("centerY", -1);
+			SmartDashboard.putDouble("area", areas);
+			SmartDashboard.putDouble("width", width);
+			Timer.delay(1);
+		}
 		
     }
 	
