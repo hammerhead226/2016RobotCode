@@ -16,6 +16,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+<<<<<<< HEAD
+=======
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+>>>>>>> 5bd391061c98d3046fc26575506f4bbeeac4c25c
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -39,15 +43,22 @@ public class Robot extends IterativeRobot {
     CameraServer server;
     
     NetworkTable table;
+<<<<<<< HEAD
     public static double centerValue;
+=======
+>>>>>>> 5bd391061c98d3046fc26575506f4bbeeac4c25c
     
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
         //the camera name (ex "cam0") can be found through the roborio web interface
         server.startAutomaticCapture("cam0");
+<<<<<<< HEAD
      
+        table = NetworkTable.getTable("SharkCV/");
+=======
         table = NetworkTable.getTable("SharkCV/contours/0");
+>>>>>>> 5bd391061c98d3046fc26575506f4bbeeac4c25c
     }
 
     /**
@@ -58,9 +69,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
-		
-		/*
-		 * while(true) {
+		while(true) {
 			double areas = table.getNumber("area", -1);
 			double width = table.getNumber("width", -1);
 			double height = table.getNumber("height", -1);
@@ -70,7 +79,7 @@ public class Robot extends IterativeRobot {
 			SmartDashboard.putDouble("width", width);
 			Timer.delay(1);
 		}
-		*/
+		
     }
 	
 	public void disabledPeriodic() {
