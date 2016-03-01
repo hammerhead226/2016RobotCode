@@ -17,7 +17,7 @@ Including all OpenCV and NetworkTable processing this averages:
 '''
 
 import copy
-import time  # DEBUG
+import math
 
 from networktables import NetworkTable
 import logging
@@ -26,6 +26,9 @@ NetworkTable.setIPAddress("roboRIO-226-FRC.local")
 NetworkTable.setClientMode()
 NetworkTable.initialize()
 contours = NetworkTable.getTable("SharkCV")
+
+FOV_DIAGONAL = 68.5       # Microsoft LifeCam HD 3000
+DISTANCE_SIZE = [20, 14]  # 20x14in target
 
 def Stronghold226(frame):
 	orig = copy.deepcopy(frame)
@@ -50,6 +53,11 @@ def Stronghold226(frame):
 	table_frame = contours.getSubTable('frame')
 	table_frame.putNumber('width', mask.width)
 	table_frame.putNumber('height', mask.height)
+	
+	# DISTANCE - CALCULATE CAMERA VERTICAL AND HORIZONTAL FOV
+	ASPECT_RATIO = float(frame.width) / float(frame.height)
+	FOV_VERTICAL = FOV_DIAGONAL / math.sqrt(1 + math.pow(ASPECT_RATIO, 2))
+	FOV_HORIZONTAL = FOV_VERTICAL * ASPECT_RATIO
 
 	# PUBLISH ALL CONTOURS
 	for idx, cnt in enumerate(mask.contours):
@@ -59,5 +67,13 @@ def Stronghold226(frame):
 		table_cnt.putNumber('height', cnt.height)
 		table_cnt.putNumber('centerX', cnt.centerX)
 		table_cnt.putNumber('centerY', cnt.centerY)
+		
+		# DISTANCE - CALCULATE DISTANCE BASED ON WIDTH AND HEIGHT
+		RATIO_HEIGHT = float(cnt.height) / float(frame.height)
+		DISTANCE_HEIGHT = (DISTANCE_SIZE[1]/(2*RATIO_HEIGHT)) / math.tan((FOV_VERTICAL*(math.pi/180))/2)
+		table_cnt.putNumber('distanceHeight', DISTANCE_HEIGHT)
+		RATIO_WIDTH = float(cnt.width) / float(frame.width)
+		DISTANCE_WIDTH = (DISTANCE_SIZE[0]/(2*RATIO_WIDTH)) / math.tan((FOV_HORIZONTAL*(math.pi/180))/2)
+		table_cnt.putNumber('distanceWidth', DISTANCE_WIDTH)
 
 	return orig
