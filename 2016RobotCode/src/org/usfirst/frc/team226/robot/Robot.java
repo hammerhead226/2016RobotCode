@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -54,13 +55,14 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {
+    @SuppressWarnings({ "unused", "deprecation" })
+	public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
 		
-		/*
-		 * while(true) {
+		//Copied to Teleop Periodic as well
+		while(true) {
 			double areas = table.getNumber("area", -1);
 			double width = table.getNumber("width", -1);
 			double height = table.getNumber("height", -1);
@@ -70,7 +72,7 @@ public class Robot extends IterativeRobot {
 			SmartDashboard.putDouble("width", width);
 			Timer.delay(1);
 		}
-		*/
+		
     }
 	
 	public void disabledPeriodic() {
@@ -112,14 +114,9 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         //System.out.println(cameraServo.getAngle());
         
-        double[] defaultValue = new double[0];
         while(true) {
-        	double[] centers = table.getNumberArray("center",defaultValue);
-        	System.out.println("Center: ");
-        	for (double center: centers) {
-        		centerValue = center;
-        		System.out.println(center + " ");
-        	}
+        	double center = table.getNumber("centerX",-1);
+        	System.out.println("Center: " + center);
         	Timer.delay(1);
         }
     }
