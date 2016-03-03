@@ -41,6 +41,7 @@ public class Robot extends IterativeRobot {
     
     NetworkTable table;
     public static double centerValue;
+    double center;
     
     public Robot() {
     	server = CameraServer.getInstance();
@@ -62,16 +63,16 @@ public class Robot extends IterativeRobot {
        // autonomousCommand = new ExampleCommand();
 		
 		//Copied to Teleop Periodic as well
-		while(true) {
-			double areas = table.getNumber("area", -1);
-			double width = table.getNumber("width", -1);
-			double height = table.getNumber("height", -1);
-			double centerX = table.getNumber("centerX", -1);
-			double centerY = table.getNumber("centerY", -1);
-			SmartDashboard.putDouble("area", areas);
-			SmartDashboard.putDouble("width", width);
-			Timer.delay(1);
-		}
+//		while(true) {
+//			double areas = table.getNumber("area", -1);
+//			double width = table.getNumber("width", -1);
+//			double height = table.getNumber("height", -1);
+//			double centerX = table.getNumber("centerX", -1);
+//			double centerY = table.getNumber("centerY", -1);
+//			SmartDashboard.putDouble("area", areas);
+//			SmartDashboard.putDouble("width", width);
+//			Timer.delay(1);
+//		}
 		
     }
 	
@@ -112,14 +113,11 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        //System.out.println(cameraServo.getAngle());
         
-        while(true) {
-        	double center = table.getNumber("centerX",-1);
-        	System.out.println("Center: " + center);
-        	SmartDashboard.putDouble("Center", center);
-        	Timer.delay(1);
-        }
+        center = table.getNumber("centerX",-1);
+        System.out.println("Center: " + center);
+        SmartDashboard.putDouble("Center", center);
+        
     }
     
     /**

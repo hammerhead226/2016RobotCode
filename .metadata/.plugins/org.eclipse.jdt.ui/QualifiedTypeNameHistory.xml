@@ -23,4 +23,5 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Timer"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.Robot"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.DriveWithVision"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
 </qualifiedTypeNameHistroy>
