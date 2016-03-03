@@ -117,6 +117,7 @@ public class Robot extends IterativeRobot {
         while(true) {
         	double center = table.getNumber("centerX",-1);
         	System.out.println("Center: " + center);
+        	SmartDashboard.putDouble("Center", center);
         	Timer.delay(1);
         }
     }
