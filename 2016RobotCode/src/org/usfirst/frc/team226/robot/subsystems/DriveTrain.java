@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -49,6 +50,24 @@ public class DriveTrain extends Subsystem {
 	} */
 	
 	public void visionDrive(double centerValue) {
-		drive.tankDrive((Math.abs((centerValue-180)/180))/4, (Math.abs((centerValue-180)/180))/-4);
+		double left = ((centerValue-160)/160);
+		double right = ((centerValue-160)/160)/-1;
+		
+		if (left > 0.5) {
+			left = 0.5;
+		}
+		else if (left < -0.5) {
+			left = -0.5;
+		}
+		
+		if (right > 0.5) {
+			right = 0.5;
+		}
+		else if (right < -0.5) {
+			right = -0.5;
+		}
+
+		drive.tankDrive(left, right);
+//		SmartDashboard.putDouble("centervision", );
 	}
 }
