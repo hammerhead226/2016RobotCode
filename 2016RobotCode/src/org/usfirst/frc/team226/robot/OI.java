@@ -72,6 +72,18 @@ public class OI {
 		}else return 0;
 	}
 	
+	public boolean getLeftTriggerPulled() {
+		if (Math.abs(manip.getRawAxis(3)) > .5) {
+			return true;
+		}else return false;
+	}
+	
+	public boolean getRightTriggerPulled() {
+		if (manip.getRawAxis(3) < -.5) {
+			return true;
+		}else return false;
+	}
+	
 	/*public double getRightManipAxis() {
 		if (Math.abs(manip.getRawAxis(5)) > .1) 
 			return (manip.getRawAxis(5) *-1) + Robot.fourBarLinkageAuto.getSetpoint();
