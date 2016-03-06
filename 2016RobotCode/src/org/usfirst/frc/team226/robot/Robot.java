@@ -1,13 +1,14 @@
 
 package org.usfirst.frc.team226.robot;
 
+import org.usfirst.frc.team226.robot.subsystems.CameraServo;
 import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBar;
 import org.usfirst.frc.team226.robot.subsystems.FourBarLinkageAuto;
 import org.usfirst.frc.team226.robot.subsystems.IntakeWheels;
-import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 import org.usfirst.frc.team226.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
+import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -30,9 +31,10 @@ public class Robot extends IterativeRobot {
 	public static final FourBarLinkageAuto fourBarLinkageAuto = new FourBarLinkageAuto();
 	public static final IntakeWheels intakeWheels = new IntakeWheels();
 	public static final ShooterWheels shooterWheels = new ShooterWheels();
-	public static final WinchServo cameraServo = new WinchServo();
+	public static final WinchServo winchServo = new WinchServo();
 	public static final LiftWinch liftWinch = new LiftWinch();
 	public static final FourBar fourBar = new FourBar();	
+	public static final CameraServo cameraServo = new CameraServo();
 	public static OI oi;
 
     Command autonomousCommand;

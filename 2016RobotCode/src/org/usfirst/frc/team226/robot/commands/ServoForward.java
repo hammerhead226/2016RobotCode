@@ -12,7 +12,7 @@ public class ServoForward extends Command {
     public ServoForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.cameraServo);
+    	requires(Robot.winchServo);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class ServoForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cameraServo.forward();
+    	Robot.winchServo.forward();
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class WinchServo extends Subsystem {
     
-	Servo servo = new Servo(RobotMap.SERVO);
+	Servo servo = new Servo(RobotMap.WINCH_SERVO);
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
