@@ -53,17 +53,17 @@ public class DriveTrain extends Subsystem {
 		double right = ((centerValue-160)/160)/-1;
 		
 		if (left > 0.5) {
-			left = 0.5;
+			left = 0.8;
 		}
 		else if (left < -0.5) {
-			left = -0.5;
+			left = -0.8;
 		}
 		
 		if (right > 0.5) {
-			right = 0.5;
+			right = 0.8;
 		}
 		else if (right < -0.5) {
-			right = -0.5;
+			right = -0.8;
 		}
 
 		drive.tankDrive(left, right);

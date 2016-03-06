@@ -25,7 +25,7 @@ public class CameraServo extends Subsystem {
     	servo.setAngle(servo.getAngle());
     }
     public void forward(){
-    	servo.setAngle(180);
+    	servo.setAngle(120);
     }
     public void reverse() {
     	servo.setAngle(0);

@@ -35,9 +35,12 @@ public class RobotMap {
 	public static final int WINCH_SERVO = 0;
 	public static final int CAMERA_SERVO = 1;
 	
-	public static final int LEFT_DT_ENCODER_CH1 = 0;
-	public static final int LEFT_DT_ENCODER_CH2 = 1;
-	public static final int RIGHT_DT_ENCODER_CH1 = 2;
-	public static final int RIGHT_DT_ENCODER_CH2 = 3;
+//	public static final int LEFT_DT_ENCODER_CH1 = 0;
+//	public static final int LEFT_DT_ENCODER_CH2 = 1;
+//	public static final int RIGHT_DT_ENCODER_CH1 = 2;
+//	public static final int RIGHT_DT_ENCODER_CH2 = 3;
+	
+	public static final int LIFT_ENCODER_A = 8;
+	public static final int LIFT_ENCODER_B = 9;
 	
 }
