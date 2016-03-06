@@ -1,12 +1,14 @@
 package org.usfirst.frc.team226.robot;
 
+import org.usfirst.frc.team226.robot.commands.CameraServoForward;
+import org.usfirst.frc.team226.robot.commands.CameraServoReverse;
 import org.usfirst.frc.team226.robot.commands.DriveWithVision;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
-import org.usfirst.frc.team226.robot.commands.ServoForward;
-import org.usfirst.frc.team226.robot.commands.ServoReverse;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsForward;
+import org.usfirst.frc.team226.robot.commands.WinchServoForward;
+import org.usfirst.frc.team226.robot.commands.WinchServoReverse;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -22,6 +24,8 @@ public class OI {
 	Joystick manip = new Joystick(1);
 	
 	Button D1 = new JoystickButton(driver, 1);
+	Button D9 = new JoystickButton(driver, 9);
+	Button D10 = new JoystickButton(driver, 10);
 	
 	Button M1 = new JoystickButton(manip, 1);
 	Button M2 = new JoystickButton(manip, 2);
@@ -36,6 +40,8 @@ public class OI {
 	
 	public OI() {
 		D1.whileHeld(new DriveWithVision());
+		D9.whenPressed(new CameraServoForward());
+		D10.whenPressed(new CameraServoReverse());
 		//M1.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.ZERO));
 		//M2.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.HALF));
 		//M3.whenPressed(new SetFourBarLinkageSetpoint(FourBarLinkageAuto.FULL));
@@ -44,8 +50,8 @@ public class OI {
 		M6.whileHeld(new ShooterWheelsForward());
 		M7.whileHeld(new IntakeWheelsBackward());
 		M8.whileHeld(new ShooterWheelsBackward());	
-		M9.whenPressed(new ServoForward());
-		M10.whenPressed(new ServoReverse());
+		M9.whenPressed(new WinchServoForward());
+		M10.whenPressed(new WinchServoReverse());
 	}
 	
 	public double getLeftDriveSpeed() {

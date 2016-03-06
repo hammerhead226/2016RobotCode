@@ -1,7 +1,7 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
 import org.usfirst.frc.team226.robot.RobotMap;
-import org.usfirst.frc.team226.robot.commands.ServoDoNothing;
+import org.usfirst.frc.team226.robot.commands.WinchServoDoNothing;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,13 +19,13 @@ public class WinchServo extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new ServoDoNothing());
+    	setDefaultCommand(new WinchServoDoNothing());
     }
     public void doNothing() {
     	servo.setAngle(servo.getAngle());
     }
     public void forward(){
-    	servo.setAngle(180);
+    	servo.setAngle(90);
     }
     public void reverse() {
     	servo.setAngle(0);

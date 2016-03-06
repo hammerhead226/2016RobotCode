@@ -33,6 +33,7 @@ public class RobotMap {
 	public static final int RIGHT_SHOOTER_MOTOR = 11;
 	
 	public static final int WINCH_SERVO = 0;
+	public static final int CAMERA_SERVO = 1;
 	
 	public static final int LEFT_DT_ENCODER_CH1 = 0;
 	public static final int LEFT_DT_ENCODER_CH2 = 1;
