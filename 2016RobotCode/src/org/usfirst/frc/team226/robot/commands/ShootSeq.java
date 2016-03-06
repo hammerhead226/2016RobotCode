@@ -1,18 +1,13 @@
 package org.usfirst.frc.team226.robot.commands;
 
-import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class Shoot extends CommandGroup {
+public class ShootSeq extends CommandGroup {
     
-    public  Shoot() {
-    	addSequential(new IntakeWheelsBackward());
-    	addSequential(new SetShooterWheelsSetpoint(ShooterWheels.ON, 3));
-    	addSequential(new IntakeWheelsForward());
+    public  ShootSeq() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
