@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ServoReverse extends Command {
+public class CameraServoForward extends Command {
 
-    public ServoReverse() {
+    public CameraServoForward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.cameraServo);
@@ -21,7 +21,7 @@ public class ServoReverse extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cameraServo.reverse();
+    	Robot.cameraServo.forward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
