@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.TalonSRX"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.buttons.Button"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.subsystems.FourBarLinkage"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.SetFourBarLinkageSetpoint"/>
+<fullyQualifiedTypeName name="java.awt.Robot"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.IntakeWheelsForward"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CANTalon.TalonControlMode"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CANTalon.FeedbackDevice"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.subsystems.ShooterWheels"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.Shoot"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DigitalInput"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.RobotMap"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ShooterWheelsDoNothing"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ShooterWheelsForward"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.LiftServoOpen"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ServoReverse"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Servo"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ServoForward"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.ServoDoNothing"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.networktables.NetworkTable"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Timer"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.Robot"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team226.robot.commands.DriveWithVision"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
+</qualifiedTypeNameHistroy>
