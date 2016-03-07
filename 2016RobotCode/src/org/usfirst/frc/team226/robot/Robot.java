@@ -43,6 +43,8 @@ public class Robot extends IterativeRobot {
     NetworkTable table;
     public static double centerValue;
     
+    public static double liftSetPointValue;
+    
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
