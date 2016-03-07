@@ -46,9 +46,9 @@ public class Robot extends IterativeRobot {
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
+        
         //the camera name (ex "cam0") can be found through the roborio web interface
         server.startAutomaticCapture("cam0");
-     
         table = NetworkTable.getTable("SharkCV/contours/0");
     }
 
@@ -60,8 +60,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
-		
-		//Copied to Teleop Periodic as well
 		
     }
 	
@@ -106,6 +104,9 @@ public class Robot extends IterativeRobot {
         
         centerValue = table.getNumber("centerX",-1);
         SmartDashboard.putDouble("Center", centerValue);
+        
+        //Image frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+        //NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
         
     }
     

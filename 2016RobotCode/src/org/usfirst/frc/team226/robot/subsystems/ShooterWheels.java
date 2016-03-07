@@ -24,8 +24,8 @@ public class ShooterWheels extends Subsystem {
     	setDefaultCommand(new ShooterWheelsDoNothing());
     }
     public void moveForward(){
-    	leftShooterMotor.set(-1);
-    	rightShooterMotor.set(1);
+    	leftShooterMotor.set(-1); //Bottom wheels
+    	rightShooterMotor.set(1); //Top Wheels
     }
     public void moveBackward(){
     	leftShooterMotor.set(1);
