@@ -5,6 +5,7 @@ import org.usfirst.frc.team226.robot.commands.CameraServoReverse;
 import org.usfirst.frc.team226.robot.commands.DriveWithVision;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
+import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointFull;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointHalf;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointZero;
@@ -46,6 +47,7 @@ public class OI {
 		D9.whenPressed(new CameraServoForward());
 		D10.whenPressed(new CameraServoReverse());
 		M1.whileHeld(new MoveFourBarToSetpointZero());
+		M2.whenPressed(new MoveFourBarEncoderReset());
 		M3.whileHeld(new MoveFourBarToSetpointHalf());
 		M4.whileHeld(new MoveFourBarToSetpointFull());
 		M5.whileHeld(new IntakeWheelsForward());
@@ -81,13 +83,13 @@ public class OI {
 	}
 	
 	public boolean getLeftTriggerPulled() {
-		if (Math.abs(manip.getRawAxis(3)) > .5) {
+		if (Math.abs(driver.getRawAxis(3)) > .5) {
 			return true;
 		}else return false;
 	}
 	
 	public boolean getRightTriggerPulled() {
-		if (manip.getRawAxis(3) < -.5) {
+		if (driver.getRawAxis(3) < -.5) {
 			return true;
 		}else return false;
 	}

@@ -80,6 +80,9 @@ public class FourBar extends Subsystem {
     		rightArmMotor.set(0);
     	}
     }
+    public void resetEncoder() {
+    	encoder.reset();
+    }
     	
 }
 
