@@ -9,8 +9,8 @@ import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointFull;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointHalf;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointZero;
+import org.usfirst.frc.team226.robot.commands.ShootSeq;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
-import org.usfirst.frc.team226.robot.commands.ShooterWheelsForward;
 import org.usfirst.frc.team226.robot.commands.WinchServoForward;
 import org.usfirst.frc.team226.robot.commands.WinchServoReverse;
 
@@ -51,7 +51,10 @@ public class OI {
 		M3.whileHeld(new MoveFourBarToSetpointHalf());
 		M4.whileHeld(new MoveFourBarToSetpointFull());
 		M5.whileHeld(new IntakeWheelsForward());
-		M6.whileHeld(new ShooterWheelsForward());
+		
+		//M6.whileHeld(new ShooterWheelsForward());
+		M6.whenPressed(new ShootSeq());
+		
 		M7.whileHeld(new IntakeWheelsBackward());
 		M8.whileHeld(new ShooterWheelsBackward());	
 		M9.whenPressed(new WinchServoForward());
