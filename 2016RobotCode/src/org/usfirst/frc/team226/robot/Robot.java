@@ -122,9 +122,9 @@ public class Robot extends IterativeRobot {
         //Image frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
         //NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
         
-        camera.getImage(frame);
-        NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
-        CameraServer.getInstance().setImage(frame);
+//        camera.getImage(frame);
+//        NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
+//        CameraServer.getInstance().setImage(frame);
         
     }
     

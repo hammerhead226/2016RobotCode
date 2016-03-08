@@ -1,6 +1,5 @@
 package org.usfirst.frc.team226.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -9,12 +8,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ShootSeq extends CommandGroup {
     
     public  ShootSeq() {
-    	addSequential(new IntakeWheelsBackward());
-    	Timer.delay(2);
-    	addSequential(new ShooterWheelsForward());
-    	Timer.delay(5);
-    	addParallel(new IntakeWheelsForward());
-    	Timer.delay(3);
+    	addSequential(new IntakeWheelsBackward(.25));
+    	addSequential(new ShooterWheelsBackward(.25));
+    	addSequential(new IntakeWheelsDoNothing());
+    	addSequential(new ShooterWheelsForward(5));
+    	addSequential(new IntakeWheelsForward(1));
+    	addSequential(new ShooterWheelsDoNothing());
+    	addSequential(new IntakeWheelsDoNothing());
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
