@@ -59,6 +59,13 @@ public class Robot extends IterativeRobot {
 //        server.startAutomaticCapture("cam0");
 
         table = NetworkTable.getTable("SharkCV/contours/0");
+        
+//        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+//		camera = new USBCamera("cam0");
+//        camera.getImage(frame);
+//		NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
+//        CameraServer.getInstance().setImage(frame);
+        
     }
 
     /**
@@ -69,11 +76,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
-		
-		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-		camera = new USBCamera("cam0");
-		
-		
 		
     }
 	
@@ -118,13 +120,7 @@ public class Robot extends IterativeRobot {
         
         centerValue = table.getNumber("centerX",-1);
         SmartDashboard.putDouble("Center", centerValue);
-        
-        //Image frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-        //NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
-        
-//        camera.getImage(frame);
-//        NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
-//        CameraServer.getInstance().setImage(frame);
+        	
         
     }
     

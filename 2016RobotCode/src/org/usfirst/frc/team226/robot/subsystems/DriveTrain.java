@@ -49,21 +49,21 @@ public class DriveTrain extends Subsystem {
 	} */
 	
 	public void visionDrive(double centerValue) {
-		double left = ((centerValue-160)/160);
-		double right = ((centerValue-160)/160)/-1;
+		double left = ((centerValue-120)/120);
+		double right = ((centerValue-120)/120)*-1;
 		
-		if (left > 0.5) {
-			left = 0.5;
+		if (left > .1) {
+			left = .6;
 		}
-		else if (left < -0.5) {
-			left = -0.5;
+		else if (left < -.1) {
+			left = -.6;
 		}
-		
-		if (right > 0.5) {
-			right = 0.5;
+
+		else if (right > .1) {
+			right = .6;
 		}
-		else if (right < -0.5) {
-			right = -0.5;
+		else if (right < -.1) {
+			right = -.6;
 		}
 
 		drive.tankDrive(left, right);

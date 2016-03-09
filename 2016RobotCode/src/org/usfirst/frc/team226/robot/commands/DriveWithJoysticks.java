@@ -25,7 +25,7 @@ public class DriveWithJoysticks extends Command {
     	Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed(), Robot.oi.getRightDriveSpeed());
     	}
     	else if (Robot.oi.getLeftTriggerPulled() && !Robot.oi.getRightTriggerPulled()) {
-    		Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed()*-1, Robot.oi.getRightDriveSpeed()*-1);
+    		Robot.driveTrain.tankDrive(Robot.oi.getRightDriveSpeed()*-1, Robot.oi.getLeftDriveSpeed()*-1);
     	}
     	else if (!Robot.oi.getLeftTriggerPulled() && Robot.oi.getRightTriggerPulled()) {
     		Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed()*0.5, Robot.oi.getRightDriveSpeed()*0.5);
