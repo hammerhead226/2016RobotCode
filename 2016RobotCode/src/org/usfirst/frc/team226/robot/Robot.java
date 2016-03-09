@@ -9,10 +9,6 @@ import org.usfirst.frc.team226.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.FlipAxis;
-import com.ni.vision.NIVision.Image;
-
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -20,7 +16,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.vision.USBCamera;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -48,24 +43,13 @@ public class Robot extends IterativeRobot {
     
     public static double liftSetPointValue;
     
-    int session;
-    Image frame;
-    USBCamera camera;
-    
     public Robot() {
-//    	server = CameraServer.getInstance();
-//        server.setQuality(50);
-//        //the camera name (ex "cam0") can be found through the roborio web interface
-//        server.startAutomaticCapture("cam0");
+    	server = CameraServer.getInstance();
+        server.setQuality(50);
+        //the camera name (ex "cam0") can be found through the roborio web interface
+        server.startAutomaticCapture("cam0");
 
-        table = NetworkTable.getTable("SharkCV/contours/0");
-        
-//        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-//		camera = new USBCamera("cam0");
-//        camera.getImage(frame);
-//		NIVision.imaqFlip(frame, frame, FlipAxis.HORIZONTAL_AXIS);
-//        CameraServer.getInstance().setImage(frame);
-        
+        table = NetworkTable.getTable("SharkCV/contours/0");     
     }
 
     /**
@@ -120,8 +104,6 @@ public class Robot extends IterativeRobot {
         
         centerValue = table.getNumber("centerX",-1);
         SmartDashboard.putDouble("Center", centerValue);
-        	
-        
     }
     
     /**
