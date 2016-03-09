@@ -15,6 +15,8 @@ import org.usfirst.frc.team226.robot.commands.WinchServoForward;
 import org.usfirst.frc.team226.robot.commands.WinchServoReverse;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.Joystick.RumbleType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -51,14 +53,19 @@ public class OI {
 		M3.whileHeld(new MoveFourBarToSetpointHalf());
 		M4.whileHeld(new MoveFourBarToSetpointFull());
 		M5.whileHeld(new IntakeWheelsForward(.5));
-		
-		//M6.whileHeld(new ShooterWheelsForward());
 		M6.whenPressed(new ShootSeq());
-		
 		M7.whileHeld(new IntakeWheelsBackward(.5));
 		M8.whileHeld(new ShooterWheelsBackward(.5));	
 		M9.whenPressed(new WinchServoForward());
 		M10.whenPressed(new WinchServoReverse());
+	}
+	
+	public void turnRumbleOn(double time) {
+		driver.setRumble(RumbleType.kRightRumble, 1);
+		driver.setRumble(RumbleType.kLeftRumble, 1);
+		Timer.delay(time);
+		driver.setRumble(RumbleType.kRightRumble, 0);
+		driver.setRumble(RumbleType.kLeftRumble, 0);
 	}
 	
 	public double getLeftDriveSpeed() {
@@ -85,23 +92,20 @@ public class OI {
 		}else return 0;
 	}
 	
-	public boolean getLeftTriggerPulled() {
-		if (Math.abs(driver.getRawAxis(3)) > .5) {
-			return true;
-		}else return false;
-	}
-	
 	public boolean getRightTriggerPulled() {
-		if (driver.getRawAxis(3) < -.5) {
+		if (driver.getRawAxis(3) > .5) {
+			return true;
+		}else {
+			return false;
+		}
+	} 
+	
+	public boolean getLeftTriggerPulled() {
+		if (driver.getRawAxis(2) > .5) {
 			return true;
 		}else return false;
 	}
 	
-	/*public double getRightManipAxis() {
-		if (Math.abs(manip.getRawAxis(5)) > .1) 
-			return (manip.getRawAxis(5) *-1) + Robot.fourBarLinkageAuto.getSetpoint();
-		else return Robot.fourBarLinkageAuto.getSetpoint();
-	}*/
 	
 }
 

@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team226.robot;
 
+import org.usfirst.frc.team226.robot.commands.Auton;
 import org.usfirst.frc.team226.robot.subsystems.CameraServo;
 import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBar;
@@ -60,6 +61,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
+		autonomousCommand = new Auton();
 		
     }
 	

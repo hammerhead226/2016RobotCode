@@ -21,18 +21,19 @@ public class DriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (!Robot.oi.getLeftTriggerPulled() && !Robot.oi.getRightTriggerPulled()) {
-    	Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed(), Robot.oi.getRightDriveSpeed());
+    	double leftSpeed = Robot.oi.getLeftDriveSpeed();
+    	double rightSpeed = Robot.oi.getRightDriveSpeed();
+
+    	if (Robot.oi.getLeftTriggerPulled() && !Robot.oi.getRightTriggerPulled()) {
+    		leftSpeed = Robot.oi.getRightDriveSpeed() * -1;
+    		rightSpeed = Robot.oi.getLeftDriveSpeed() * -1;
     	}
-    	else if (Robot.oi.getLeftTriggerPulled() && !Robot.oi.getRightTriggerPulled()) {
-    		Robot.driveTrain.tankDrive(Robot.oi.getRightDriveSpeed()*-1, Robot.oi.getLeftDriveSpeed()*-1);
+    	if ((!Robot.oi.getLeftTriggerPulled()) && Robot.oi.getRightTriggerPulled()) {
+    		leftSpeed = leftSpeed/2;
+    		rightSpeed = rightSpeed/2;
     	}
-    	else if (!Robot.oi.getLeftTriggerPulled() && Robot.oi.getRightTriggerPulled()) {
-    		Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed()*0.5, Robot.oi.getRightDriveSpeed()*0.5);
-    	}
-    	else if (Robot.oi.getLeftTriggerPulled() && Robot.oi.getRightTriggerPulled()) {
-    		Robot.driveTrain.tankDrive(Robot.oi.getLeftDriveSpeed()*-0.5, Robot.oi.getRightDriveSpeed()*-0.5);
-    	}
+    	
+    	Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

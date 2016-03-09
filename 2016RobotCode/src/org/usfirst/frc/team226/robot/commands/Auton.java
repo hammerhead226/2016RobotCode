@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton extends CommandGroup {
     
     public  Auton() {
-    	addSequential(new DriveWithEncoder(0, .5, .5));
+    	addSequential(new DriveWithEncoder(500, .25, .25));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

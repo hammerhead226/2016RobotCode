@@ -1,9 +1,12 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
+import org.usfirst.frc.team226.robot.Robot;
 import org.usfirst.frc.team226.robot.RobotMap;
 import org.usfirst.frc.team226.robot.commands.DriveWithJoysticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,54 +24,94 @@ public class DriveTrain extends Subsystem {
 	SpeedController rearLeftMotor = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
 	SpeedController frontLeftMotor = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
 
-	
-	
-	//public Encoder leftEncoder = new Encoder(RobotMap.LEFT_DT_ENCODER_CH1, RobotMap.LEFT_DT_ENCODER_CH2, false,
-	//		EncodingType.k4X);
-	//public Encoder rightEncoder = new Encoder(RobotMap.RIGHT_DT_ENCODER_CH1, RobotMap.RIGHT_DT_ENCODER_CH2, true,
-	//		EncodingType.k4X);
-
 	RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 
+	public boolean isAlignedLeft, isAlignedRight;
+	
+	CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
+	CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
+	CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
+	CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
+	
+	
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 		setDefaultCommand(new DriveWithJoysticks());
 	}
 
+	public DriveTrain() {
+		//Master Talons
+		rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		rearLeft.changeControlMode(TalonControlMode.Position);
+		rearRight.changeControlMode(TalonControlMode.Position);
+		//Slave Talons
+		frontRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		frontLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		frontRight.changeControlMode(TalonControlMode.Follower);
+		frontLeft.changeControlMode(TalonControlMode.Follower);
+		frontRight.set(rearRight.getDeviceID());
+		frontLeft.set(rearLeft.getDeviceID());		
+	}
+	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
 		drive.tankDrive(leftJoystick, rightJoystick);
-		
 	}
 
-	/*public boolean encoderDriveIsFinished(int count) {
-		int avg = (leftEncoder.get() + rightEncoder.get()) / 2;
+	public void encoderDrive(double count, double lSpeed, double rSpeed) {
+		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
+		if (avg < count) {
+			drive.tankDrive(lSpeed, rSpeed);
+		}
+		else {
+			drive.tankDrive(0, 0);
+		} 
+	}
+	
+	public boolean encoderDriveIsFinished(int count) {
+		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
 		if (avg < count) {
 			return false;
 		}
 		else {
 			return true;
 		} 
-	} */
+	}
 	
 	public void visionDrive(double centerValue) {
-		double left = ((centerValue-120)/120);
-		double right = ((centerValue-120)/120)*-1;
+		double left = ((centerValue-125)/125);
+		double right = ((centerValue-125)/125)*-1;
 		
 		if (left > .1) {
-			left = .6;
+			left = .55;
+			isAlignedLeft = false;
 		}
 		else if (left < -.1) {
-			left = -.6;
+			left = -.55;
+			isAlignedLeft = false;
+		}
+		else {
+			isAlignedLeft = true;
 		}
 
 		if (right > .1) {
-			right = .6;
+			right = .55;
+			isAlignedRight = false;
 		}
 		else if (right < -.1) {
-			right = -.6;
+			right = -.55;
+			isAlignedRight = false;
+		}
+		else {
+			isAlignedRight = true;
+		}
+		
+		if (isAlignedRight && isAlignedLeft) {
+			Robot.oi.turnRumbleOn(1);
 		}
 
 		drive.tankDrive(left, right);
+		
 	}
 }
