@@ -1,11 +1,11 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
+import org.usfirst.frc.team226.robot.Robot;
 import org.usfirst.frc.team226.robot.RobotMap;
 import org.usfirst.frc.team226.robot.commands.MoveWinch;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -25,13 +25,14 @@ public class LiftWinch extends Subsystem {
     	setDefaultCommand(new MoveWinch());
     }
     public void moveWinch(double leftJoystick) {
-//    	if (winchDisabled()) {
-//    		
-//    	}
-//    	else {
+    	if (Robot.count.get() < 30) {
+    		leftLiftMotor.set(0);
+    		rightLiftMotor.set(0);
+    	}
+    	else {
 		leftLiftMotor.set(leftJoystick);
 		rightLiftMotor.set(leftJoystick);
-//    	}
+    	}
 	}
     
 //    public boolean winchDisabled(double seconds) {

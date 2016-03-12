@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     CameraServer server;
-    Timer count;
+    public static Timer count;
     
     NetworkTable table;
     public static double centerValue;
@@ -55,7 +55,6 @@ public class Robot extends IterativeRobot {
         table = NetworkTable.getTable("SharkCV/contours/0");  
         
         count = new Timer();
-        count.start();
     }
 
     /**
@@ -67,7 +66,7 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
        // autonomousCommand = new ExampleCommand();
 		autonomousCommand = new Auton();
-		
+		count.start();
     }
 	
 	public void disabledPeriodic() {
@@ -92,7 +91,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        System.out.println(count.get());
+        count.start();
     }
 
     /**
@@ -100,7 +99,8 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	count.reset();
+    	count.stop();
     }
 
     /**
@@ -112,6 +112,7 @@ public class Robot extends IterativeRobot {
         
         centerValue = table.getNumber("centerX",-1);
         SmartDashboard.putDouble("Center", centerValue);
+        SmartDashboard.putDouble("Timer", count.get());
     }
     
     /**

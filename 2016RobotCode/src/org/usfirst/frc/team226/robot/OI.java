@@ -53,7 +53,7 @@ public class OI {
 		M3.whileHeld(new MoveFourBarToSetpointHalf());
 		M4.whileHeld(new MoveFourBarToSetpointFull());
 		M5.whileHeld(new IntakeWheelsForward(.5));
-		M6.whenPressed(new ShootSeq());
+		M6.whenReleased(new ShootSeq());
 		M7.whileHeld(new IntakeWheelsBackward(.5));
 		M8.whileHeld(new ShooterWheelsBackward(.5));	
 		M9.whenPressed(new WinchServoForward());
@@ -92,6 +92,14 @@ public class OI {
 		}else return 0;
 	}
 	
+	/**
+     * Warning! getRightTrigger() and getLeftTrigger() both use getRawAxis(3).
+     * As getRawAxis(3) goes below zero, getRightTrigger() increases, and as
+     * getRawAxis(3) goes above zero, getLeftTrigger() increases. If both
+     * triggers are pressed, both of them will be treated as zero. You can only
+     * use one trigger at a time.
+     */
+	
 	public boolean getRightTriggerPulled() {
 		if (driver.getRawAxis(3) > .5) {
 			return true;
@@ -106,6 +114,13 @@ public class OI {
 		}else return false;
 	}
 	
+	public boolean getRightManipTrigger() {
+		if (manip.getRawAxis(3) > .5) {
+			return true;
+		}else {
+			return false;
+		}
+	} 
 	
 }
 

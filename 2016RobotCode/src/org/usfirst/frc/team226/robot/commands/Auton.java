@@ -12,10 +12,10 @@ public class Auton extends CommandGroup {
     
     public  Auton() {
     	addSequential(new DriveWithEncoder(500, .25, .25));
-    	while (!Robot.driveTrain.isAlignedLeft || !Robot.driveTrain.isAlignedRight) {
-    		Robot.driveTrain.visionDrive(Robot.centerValue);
-    		Timer.delay(.5);
-    	}
+//    	while (!Robot.driveTrain.isAlignedLeft || !Robot.driveTrain.isAlignedRight) {
+//    		Robot.driveTrain.visionDrive(Robot.centerValue);
+//    		Timer.delay(.5);
+//    	}
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
