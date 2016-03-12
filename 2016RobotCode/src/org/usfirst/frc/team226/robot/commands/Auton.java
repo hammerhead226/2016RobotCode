@@ -1,5 +1,8 @@
 package org.usfirst.frc.team226.robot.commands;
 
+import org.usfirst.frc.team226.robot.Robot;
+
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -9,6 +12,10 @@ public class Auton extends CommandGroup {
     
     public  Auton() {
     	addSequential(new DriveWithEncoder(500, .25, .25));
+    	while (!Robot.driveTrain.isAlignedLeft || !Robot.driveTrain.isAlignedRight) {
+    		Robot.driveTrain.visionDrive(Robot.centerValue);
+    		Timer.delay(.5);
+    	}
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

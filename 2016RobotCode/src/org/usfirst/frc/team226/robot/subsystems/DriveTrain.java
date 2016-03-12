@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -52,7 +53,12 @@ public class DriveTrain extends Subsystem {
 		frontRight.changeControlMode(TalonControlMode.Follower);
 		frontLeft.changeControlMode(TalonControlMode.Follower);
 		frontRight.set(rearRight.getDeviceID());
-		frontLeft.set(rearLeft.getDeviceID());		
+		frontLeft.set(rearLeft.getDeviceID());	
+		
+		rearLeft.enable();
+		rearRight.enable();
+		frontLeft.enable();
+		frontRight.enable();
 	}
 	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
@@ -61,6 +67,7 @@ public class DriveTrain extends Subsystem {
 
 	public void encoderDrive(double count, double lSpeed, double rSpeed) {
 		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
+		SmartDashboard.putInt("avg", avg);
 		if (avg < count) {
 			drive.tankDrive(lSpeed, rSpeed);
 		}
@@ -80,8 +87,8 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void visionDrive(double centerValue) {
-		double left = ((centerValue-125)/125);
-		double right = ((centerValue-125)/125)*-1;
+		double left = ((centerValue-130)/130);
+		double right = ((centerValue-130)/130)*-1;
 		
 		if (left > .1) {
 			left = .55;

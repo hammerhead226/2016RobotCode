@@ -5,6 +5,7 @@ import org.usfirst.frc.team226.robot.commands.MoveWinch;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,9 +25,17 @@ public class LiftWinch extends Subsystem {
     	setDefaultCommand(new MoveWinch());
     }
     public void moveWinch(double leftJoystick) {
+//    	if (winchDisabled()) {
+//    		
+//    	}
+//    	else {
 		leftLiftMotor.set(leftJoystick);
 		rightLiftMotor.set(leftJoystick);
+//    	}
 	}
     
+//    public boolean winchDisabled(double seconds) {
+//    	
+//    }
 }
 

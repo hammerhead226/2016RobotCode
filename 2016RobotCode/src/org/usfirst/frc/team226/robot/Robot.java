@@ -12,6 +12,7 @@ import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -38,6 +39,7 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     CameraServer server;
+    Timer count;
     
     NetworkTable table;
     public static double centerValue;
@@ -50,7 +52,10 @@ public class Robot extends IterativeRobot {
         //the camera name (ex "cam0") can be found through the roborio web interface
         server.startAutomaticCapture("cam0");
 
-        table = NetworkTable.getTable("SharkCV/contours/0");     
+        table = NetworkTable.getTable("SharkCV/contours/0");  
+        
+        count = new Timer();
+        count.start();
     }
 
     /**
@@ -87,6 +92,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        System.out.println(count.get());
     }
 
     /**

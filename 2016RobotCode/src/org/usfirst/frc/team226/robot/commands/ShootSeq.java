@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ShootSeq extends CommandGroup {
     
     public  ShootSeq() {
-    	addSequential(new IntakeWheelsBackward(.25));
-    	addSequential(new ShooterWheelsBackward(.25));
+    	addSequential(new IntakeWheelsBackward(.20));
+    	addSequential(new ShooterWheelsBackward(.20));
     	addSequential(new IntakeWheelsDoNothing());
     	addSequential(new ShooterWheelsForward(5));
     	addSequential(new IntakeWheelsForward(1));

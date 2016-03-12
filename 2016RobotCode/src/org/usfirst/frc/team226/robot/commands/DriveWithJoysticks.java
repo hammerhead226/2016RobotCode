@@ -28,7 +28,7 @@ public class DriveWithJoysticks extends Command {
     		leftSpeed = Robot.oi.getRightDriveSpeed() * -1;
     		rightSpeed = Robot.oi.getLeftDriveSpeed() * -1;
     	}
-    	if ((!Robot.oi.getLeftTriggerPulled()) && Robot.oi.getRightTriggerPulled()) {
+    	if (!Robot.oi.getLeftTriggerPulled() && Robot.oi.getRightTriggerPulled()) {
     		leftSpeed = leftSpeed/2;
     		rightSpeed = rightSpeed/2;
     	}
