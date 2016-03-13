@@ -34,7 +34,6 @@ public class DriveTrain extends Subsystem {
 	CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
 	CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
 	
-	
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
@@ -65,9 +64,11 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(leftJoystick, rightJoystick);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void encoderDrive(double count, double lSpeed, double rSpeed) {
 		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
 		SmartDashboard.putInt("avg", avg);
+		System.out.println(avg);
 		if (avg < count) {
 			drive.tankDrive(lSpeed, rSpeed);
 		}
@@ -84,6 +85,10 @@ public class DriveTrain extends Subsystem {
 		else {
 			return true;
 		} 
+	}
+	
+	public void autonDrive(double leftSpeed, double rightSpeed) {
+		drive.tankDrive(leftSpeed, rightSpeed);
 	}
 	
 	public void visionDrive(double centerValue) {

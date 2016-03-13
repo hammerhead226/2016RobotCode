@@ -1,17 +1,21 @@
 package org.usfirst.frc.team226.robot;
 
+import org.usfirst.frc.team226.robot.commands.AutoPop;
 import org.usfirst.frc.team226.robot.commands.CameraServoForward;
 import org.usfirst.frc.team226.robot.commands.CameraServoReverse;
 import org.usfirst.frc.team226.robot.commands.DriveWithVision;
-import org.usfirst.frc.team226.robot.commands.IntakeWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointFull;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointHalf;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointZero;
+<<<<<<< HEAD
 import org.usfirst.frc.team226.robot.commands.MoveWinchFullSpeed;
 import org.usfirst.frc.team226.robot.commands.ShootSeq;
+=======
+>>>>>>> origin/master
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
+import org.usfirst.frc.team226.robot.commands.ShooterWheelsForward;
 import org.usfirst.frc.team226.robot.commands.WinchServoForward;
 import org.usfirst.frc.team226.robot.commands.WinchServoReverse;
 
@@ -56,9 +60,15 @@ public class OI {
 		M3.whileHeld(new MoveFourBarToSetpointHalf());
 		M4.whileHeld(new MoveFourBarToSetpointFull());
 		M5.whileHeld(new IntakeWheelsForward(.5));
+<<<<<<< HEAD
 		M6.whenReleased(new ShootSeq());
 		M7.whileHeld(new IntakeWheelsBackward(.5));
 		M8.whileHeld(new ShooterWheelsBackward(.5));
+=======
+		M6.whileHeld(new ShooterWheelsForward(.5));
+		M7.whenPressed(new AutoPop());
+		M8.whileHeld(new ShooterWheelsBackward(.5));	
+>>>>>>> origin/master
 		M9.whenPressed(new WinchServoForward());
 		M10.whenPressed(new WinchServoReverse());
 	}

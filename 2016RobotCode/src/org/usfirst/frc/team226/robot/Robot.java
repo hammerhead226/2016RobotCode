@@ -67,6 +67,7 @@ public class Robot extends IterativeRobot {
        // autonomousCommand = new ExampleCommand();
 		autonomousCommand = new Auton();
 		count.start();
+				
     }
 	
 	public void disabledPeriodic() {

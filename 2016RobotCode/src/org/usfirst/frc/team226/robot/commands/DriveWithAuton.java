@@ -7,18 +7,17 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveWithEncoder extends Command {
+public class DriveWithAuton extends Command {
+
+	double left, right, time;
 	
-	int count;
-	double lSpeed;
-	double rSpeed;
-    public DriveWithEncoder(int count, double lSpeed, double rSpeed) {
+    public DriveWithAuton(double time, double leftSpeed, double rightSpeed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
-    	this.count = count;
-    	this.lSpeed = lSpeed;
-    	this.rSpeed = rSpeed;
+    	setTimeout(time);
+    	left = leftSpeed;
+    	right = rightSpeed;
     }
 
     // Called just before this Command runs the first time
@@ -27,14 +26,13 @@ public class DriveWithEncoder extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.encoderDrive(count, lSpeed, rSpeed);
+    	Robot.driveTrain.autonDrive(left, right);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.driveTrain.encoderDriveIsFinished(count);
+        return isTimedOut();
     }
-    
 
     // Called once after isFinished returns true
     protected void end() {
