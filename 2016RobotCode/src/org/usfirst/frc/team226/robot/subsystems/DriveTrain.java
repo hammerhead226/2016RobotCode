@@ -5,8 +5,6 @@ import org.usfirst.frc.team226.robot.RobotMap;
 import org.usfirst.frc.team226.robot.commands.DriveWithJoysticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -29,10 +27,10 @@ public class DriveTrain extends Subsystem {
 
 	public boolean isAlignedLeft, isAlignedRight;
 	
-	CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
-	CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
-	CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
-	CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
+	CANTalon rearLeft = Robot.rearLeft;
+	CANTalon rearRight = Robot.rearRight;
+	CANTalon frontLeft = Robot.frontLeft;
+	CANTalon frontRight = Robot.frontRight;
 	
 	
 	public void initDefaultCommand() {
@@ -42,29 +40,31 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public DriveTrain() {
-		//Master Talons
-		rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		rearLeft.changeControlMode(TalonControlMode.Position);
-		rearRight.changeControlMode(TalonControlMode.Position);
-		//Slave Talons
-		frontRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		frontLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		frontRight.changeControlMode(TalonControlMode.Follower);
-		frontLeft.changeControlMode(TalonControlMode.Follower);
-		frontRight.set(rearRight.getDeviceID());
-		frontLeft.set(rearLeft.getDeviceID());	
-		
-		rearLeft.enable();
-		rearRight.enable();
-		frontLeft.enable();
-		frontRight.enable();
+		//*MOVE TO ROBOT INIT*
+//		//Master Talons
+//		rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+//		rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+//		rearLeft.changeControlMode(TalonControlMode.Position);
+//		rearRight.changeControlMode(TalonControlMode.Position);
+//		//Slave Talons
+//		frontRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+//		frontLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+//		frontRight.changeControlMode(TalonControlMode.Follower);
+//		frontLeft.changeControlMode(TalonControlMode.Follower);
+//		frontRight.set(rearRight.getDeviceID());
+//		frontLeft.set(rearLeft.getDeviceID());	
+//		
+//		rearLeft.enable();
+//		rearRight.enable();
+//		frontLeft.enable();
+//		frontRight.enable();
 	}
 	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
 		drive.tankDrive(leftJoystick, rightJoystick);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void encoderDrive(double count, double lSpeed, double rSpeed) {
 		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
 		SmartDashboard.putInt("avg", avg);

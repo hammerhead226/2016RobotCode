@@ -10,9 +10,12 @@ import org.usfirst.frc.team226.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -46,6 +49,11 @@ public class Robot extends IterativeRobot {
     
     public static double liftSetPointValue;
     
+    public static CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
+	public static CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
+	public static CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
+	public static CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
+    
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
@@ -67,6 +75,25 @@ public class Robot extends IterativeRobot {
        // autonomousCommand = new ExampleCommand();
 		autonomousCommand = new Auton();
 		count.start();
+		
+		//Master Talons
+		rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		rearLeft.changeControlMode(TalonControlMode.Position);
+		rearRight.changeControlMode(TalonControlMode.Position);
+		//Slave Talons
+		frontRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		frontLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		frontRight.changeControlMode(TalonControlMode.Follower);
+		frontLeft.changeControlMode(TalonControlMode.Follower);
+		frontRight.set(rearRight.getDeviceID());
+		frontLeft.set(rearLeft.getDeviceID());	
+		
+		rearLeft.enable();
+		rearRight.enable();
+		frontLeft.enable();
+		frontRight.enable();
+				
     }
 	
 	public void disabledPeriodic() {
