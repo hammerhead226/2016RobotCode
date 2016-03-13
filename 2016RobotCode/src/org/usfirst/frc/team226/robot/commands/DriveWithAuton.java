@@ -9,15 +9,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveWithAuton extends Command {
 
-	double left, right;
+	double left, right, time;
 	
-    public DriveWithAuton(double time, double left, double right) {
+    public DriveWithAuton(double time, double leftSpeed, double rightSpeed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
     	setTimeout(time);
-    	left = this.left;
-    	right = this.right;
+    	left = leftSpeed;
+    	right = rightSpeed;
     }
 
     // Called just before this Command runs the first time
