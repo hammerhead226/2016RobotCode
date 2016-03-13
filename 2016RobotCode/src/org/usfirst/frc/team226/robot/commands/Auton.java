@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton extends CommandGroup {
     
     public  Auton() {
-    	addSequential(new DriveWithEncoder(500, .25, .25));
+    	addSequential(new DriveWithAuton(2, .5, .5));
+//    	addSequential(new DriveWithEncoder(500, .25, .25));
 //    	while (!Robot.driveTrain.isAlignedLeft || !Robot.driveTrain.isAlignedRight) {
 //    		Robot.driveTrain.visionDrive(Robot.centerValue);
 //    		Timer.delay(.5);

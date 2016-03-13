@@ -32,6 +32,8 @@ public class DriveTrain extends Subsystem {
 	CANTalon frontLeft = Robot.frontLeft;
 	CANTalon frontRight = Robot.frontRight;
 	
+	double autonTimeOut = 0;
+	
 	
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
@@ -84,6 +86,10 @@ public class DriveTrain extends Subsystem {
 		else {
 			return true;
 		} 
+	}
+	
+	public void autonDrive(double leftSpeed, double rightSpeed) {
+		drive.tankDrive(leftSpeed, rightSpeed);
 	}
 	
 	public void visionDrive(double centerValue) {

@@ -20,7 +20,7 @@ public class FourBar extends Subsystem {
 	Encoder encoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B, false, Encoder.EncodingType.k4X);
 	
 	public static final double ZERO = 0.0,
-			HALF = 1200,
+			HALF = 900,
 			FULL = 2000;
 	
     // Put methods for controlling this subsystem
