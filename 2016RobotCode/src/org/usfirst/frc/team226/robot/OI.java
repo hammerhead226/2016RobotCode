@@ -9,14 +9,15 @@ import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointFull;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointHalf;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointZero;
+import org.usfirst.frc.team226.robot.commands.MoveWinchFullSpeed;
 import org.usfirst.frc.team226.robot.commands.ShootSeq;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.WinchServoForward;
 import org.usfirst.frc.team226.robot.commands.WinchServoReverse;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Joystick.RumbleType;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -25,14 +26,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
+
 	Joystick driver = new Joystick(0);
 	Joystick manip = new Joystick(1);
-	
+
 	Button D1 = new JoystickButton(driver, 1);
+	Button D6 = new JoystickButton(driver, 6);
 	Button D9 = new JoystickButton(driver, 9);
 	Button D10 = new JoystickButton(driver, 10);
-	
+
 	Button M1 = new JoystickButton(manip, 1);
 	Button M2 = new JoystickButton(manip, 2);
 	Button M3 = new JoystickButton(manip, 3);
@@ -43,9 +45,10 @@ public class OI {
 	Button M8 = new JoystickButton(manip, 8);
 	Button M9 = new JoystickButton(manip, 9);
 	Button M10 = new JoystickButton(manip, 10);
-	
+
 	public OI() {
 		D1.whileHeld(new DriveWithVision());
+		D6.whileHeld(new MoveWinchFullSpeed());
 		D9.whenPressed(new CameraServoForward());
 		D10.whenPressed(new CameraServoReverse());
 		M1.whileHeld(new MoveFourBarToSetpointZero());
@@ -55,11 +58,11 @@ public class OI {
 		M5.whileHeld(new IntakeWheelsForward(.5));
 		M6.whenReleased(new ShootSeq());
 		M7.whileHeld(new IntakeWheelsBackward(.5));
-		M8.whileHeld(new ShooterWheelsBackward(.5));	
+		M8.whileHeld(new ShooterWheelsBackward(.5));
 		M9.whenPressed(new WinchServoForward());
 		M10.whenPressed(new WinchServoReverse());
 	}
-	
+
 	public void turnRumbleOn(double time) {
 		driver.setRumble(RumbleType.kRightRumble, 1);
 		driver.setRumble(RumbleType.kLeftRumble, 1);
@@ -67,60 +70,63 @@ public class OI {
 		driver.setRumble(RumbleType.kRightRumble, 0);
 		driver.setRumble(RumbleType.kLeftRumble, 0);
 	}
-	
+
 	public double getLeftDriveSpeed() {
-		if (Math.abs(driver.getY()) > .1 ){
-			return driver.getY()*-1;
-		}else return 0;
+		if (Math.abs(driver.getY()) > .1) {
+			return driver.getY() * -1;
+		} else
+			return 0;
 	}
-	
+
 	public double getRightDriveSpeed() {
 		if (Math.abs(driver.getRawAxis(5)) > .1) {
-			return driver.getRawAxis(5)*-1;
-		}else return 0;
+			return driver.getRawAxis(5) * -1;
+		} else
+			return 0;
 	}
-	
+
 	public double getLeftManipAxis() {
 		if (Math.abs(manip.getY()) > .2) {
-			return manip.getY()*-1;
-		}else return 0;
+			return manip.getY() * -1;
+		} else
+			return 0;
 	}
-	
+
 	public double getRightManipAxis() {
-		if (Math.abs(manip.getRawAxis(5)) > .1){
-			return manip.getRawAxis(5)*-1;
-		}else return 0;
+		if (Math.abs(manip.getRawAxis(5)) > .1) {
+			return manip.getRawAxis(5) * -1;
+		} else
+			return 0;
 	}
-	
+
 	/**
-     * Warning! getRightTrigger() and getLeftTrigger() both use getRawAxis(3).
-     * As getRawAxis(3) goes below zero, getRightTrigger() increases, and as
-     * getRawAxis(3) goes above zero, getLeftTrigger() increases. If both
-     * triggers are pressed, both of them will be treated as zero. You can only
-     * use one trigger at a time.
-     */
-	
+	 * Warning! getRightTrigger() and getLeftTrigger() both use getRawAxis(3).
+	 * As getRawAxis(3) goes below zero, getRightTrigger() increases, and as
+	 * getRawAxis(3) goes above zero, getLeftTrigger() increases. If both
+	 * triggers are pressed, both of them will be treated as zero. You can only
+	 * use one trigger at a time.
+	 */
+
 	public boolean getRightTriggerPulled() {
 		if (driver.getRawAxis(3) > .5) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-	} 
-	
+	}
+
 	public boolean getLeftTriggerPulled() {
 		if (driver.getRawAxis(2) > .5) {
 			return true;
-		}else return false;
+		} else
+			return false;
 	}
-	
+
 	public boolean getRightManipTrigger() {
 		if (manip.getRawAxis(3) > .5) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-	} 
-	
+	}
 }
-

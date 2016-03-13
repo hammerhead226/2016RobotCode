@@ -25,18 +25,14 @@ public class LiftWinch extends Subsystem {
     	setDefaultCommand(new MoveWinch());
     }
     public void moveWinch(double leftJoystick) {
-    	if (Robot.count.get() < 30) {
-    		leftLiftMotor.set(0);
-    		rightLiftMotor.set(0);
-    	}
-    	else {
-		leftLiftMotor.set(leftJoystick);
-		rightLiftMotor.set(leftJoystick);
-    	}
+//    	if (Robot.count.get() < 30) {
+//    		leftLiftMotor.set(0);
+//    		rightLiftMotor.set(0);
+//    	}
+//    	else {
+		leftLiftMotor.set(leftJoystick/2);
+		rightLiftMotor.set(leftJoystick/2);
+//    	}
 	}
-    
-//    public boolean winchDisabled(double seconds) {
-//    	
-//    }
 }
 
