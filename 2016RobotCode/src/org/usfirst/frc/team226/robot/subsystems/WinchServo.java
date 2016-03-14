@@ -13,6 +13,7 @@ public class WinchServo extends Subsystem {
     
 	Servo servo = new Servo(RobotMap.WINCH_SERVO);
 	
+	public boolean toggleForward = true;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -26,9 +27,11 @@ public class WinchServo extends Subsystem {
     }
     public void forward(){
     	servo.setAngle(90);
+    	toggleForward = !toggleForward;
     }
     public void reverse() {
     	servo.setAngle(0);
+    	toggleForward = !toggleForward;
     }
     public double getAngle() {
     	return servo.getAngle();
