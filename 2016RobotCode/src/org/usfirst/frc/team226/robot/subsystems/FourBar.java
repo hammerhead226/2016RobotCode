@@ -89,6 +89,11 @@ public class FourBar extends Subsystem {
     public void resetEncoder() {
     	encoder.reset();
     }
+    
+    public void moveAuton(double speed) {
+    	leftArmMotor.set(speed * -1);
+    	rightArmMotor.set(speed);
+    }
     	
 }
 

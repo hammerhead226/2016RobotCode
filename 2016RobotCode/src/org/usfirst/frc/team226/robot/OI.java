@@ -12,8 +12,7 @@ import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointZero;
 import org.usfirst.frc.team226.robot.commands.MoveWinchFullSpeed;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsForward;
-import org.usfirst.frc.team226.robot.commands.WinchServoForward;
-import org.usfirst.frc.team226.robot.commands.WinchServoReverse;
+import org.usfirst.frc.team226.robot.commands.WinchServoToggle;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Joystick.RumbleType;
@@ -59,8 +58,7 @@ public class OI {
 		M6.whileHeld(new ShooterWheelsForward(.5));
 		M7.whenPressed(new AutoPop());
 		M8.whileHeld(new ShooterWheelsBackward(.5));
-		M9.whenPressed(new WinchServoForward());
-		M10.whenPressed(new WinchServoReverse());
+		M9.whenPressed(new WinchServoToggle());
 	}
 
 	public void turnRumbleOn(double time) {

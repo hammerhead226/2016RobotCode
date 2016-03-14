@@ -9,7 +9,18 @@ public class Auton extends CommandGroup {
     
     public  Auton() {
     	addSequential(new DriveWithAuton(4, .75, .75));
+    	addParallel(new MoveFourBarAuton(3, -.25));
+    	addSequential(new MoveFourBarEncoderReset());
     	addSequential(new DriveWithAuton(.9, .75, -.75));
+    	addParallel(new MoveFourBarToSetpointHalf());
+    	addParallel(new AutoPop());
+    	//addSequential(new DriveWithVision());
+    	addSequential(new ShooterWheelsForward(5));
+    	addSequential(new IntakeWheelsForward(2));
+    	addSequential(new IntakeWheelsDoNothing());
+    	addSequential(new ShooterWheelsDoNothing());
+    	
+    	
     	//addSequential(new DriveWithEncoder(100, .5, .5));
     	
     	//addSequential(new DriveWithAuton(2, .75, -.75));  90 Degree turn

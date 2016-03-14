@@ -7,12 +7,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class WinchServoForward extends Command {
+public class MoveFourBarAuton extends Command {
 
-    public WinchServoForward() {
+	double moveSpeed;
+	
+    public MoveFourBarAuton(double time, double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.winchServo);
+    	requires(Robot.fourBar);
+    	setTimeout(time);
+    	moveSpeed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +25,12 @@ public class WinchServoForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.winchServo.forward();
+    	Robot.fourBar.moveAuton(moveSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
