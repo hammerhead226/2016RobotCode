@@ -1,5 +1,7 @@
 package org.usfirst.frc.team226.robot.commands;
 
+import org.usfirst.frc.team226.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -8,13 +10,17 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton extends CommandGroup {
     
     public  Auton() {
+    	addSequential(new DriveWithAuton(1, .75, .75));
+    	addSequential(new MoveFourBarAuton(2, -.5));
+    	addSequential(new DriveWithAuton(3, .75, .75));
     	addSequential(new MoveFourBarEncoderReset());
-    	addSequential(new DriveWithAuton(4, .75, .75));
-    	addParallel(new MoveFourBarAuton(3, -.25));
-    	addSequential(new MoveFourBarEncoderReset());
+    	addSequential(new MoveFourBarAuton(1, 0));
     	addSequential(new DriveWithAuton(.9, .75, -.75));
-    	addParallel(new MoveFourBarToSetpointHalf());
-    	addParallel(new AutoPop());
+    	addSequential(new DriveWithAuton(1, 0, 0));
+    	//addSequential(new MoveFourBarToSetpointHalf());
+    	addSequential(new MoveFourBarAuton(1.5, .75));
+    	addSequential(new MoveFourBarAuton(1, 0));
+    	addSequential(new AutoPop());
     	//addSequential(new DriveWithVision());
     	addSequential(new ShooterWheelsForward(5));
     	addSequential(new IntakeWheelsForward(2));

@@ -11,6 +11,7 @@ import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -45,6 +46,8 @@ public class Robot extends IterativeRobot {
     public static double centerValue;
     
     public static double liftSetPointValue;
+    
+    public static double liftEncPos;	
     
     public Robot() {
     	server = CameraServer.getInstance();

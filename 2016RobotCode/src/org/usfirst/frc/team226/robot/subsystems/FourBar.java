@@ -18,6 +18,7 @@ public class FourBar extends Subsystem {
 	SpeedController rightArmMotor = new CANTalon(RobotMap.RIGHT_ARM_MOTOR);
 	
 	Encoder encoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B, false, Encoder.EncodingType.k4X);
+		
 	
 	public static final double ZERO = 0.0,
 			HALF = 900,
@@ -30,12 +31,7 @@ public class FourBar extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new MoveFourBar());
-    	encoder.setMaxPeriod(.1);
-		encoder.setMinRate(10);
-		encoder.setDistancePerPulse(5);
-		encoder.setReverseDirection(true);
-		encoder.setSamplesToAverage(5);
-		SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
+    	
     }
     @SuppressWarnings("deprecation")
 	public void moveFourBar(double rightJoystick) {
@@ -47,6 +43,14 @@ public class FourBar extends Subsystem {
     		leftArmMotor.set(rightJoystick *-1);
 			rightArmMotor.set(rightJoystick);
     	}
+    	
+    	encoder.setMaxPeriod(.1);
+		encoder.setMinRate(10);
+		encoder.setDistancePerPulse(5);
+		encoder.setReverseDirection(true);
+		encoder.setSamplesToAverage(5);
+		SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
+		
 	}
     
     public void setpointZero() {
@@ -87,9 +91,16 @@ public class FourBar extends Subsystem {
     	encoder.reset();
     }
     
-    public void moveAuton(double speed) {
+    public void moveAuton(double speed) {		
+    	encoder.setMaxPeriod(.1);
+		encoder.setMinRate(10);
+		encoder.setDistancePerPulse(5);
+		encoder.setReverseDirection(true);
+		encoder.setSamplesToAverage(5);
     	leftArmMotor.set(speed * -1);
     	rightArmMotor.set(speed);
+    	System.out.println("set speed to " + speed);
+    	SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
     }
     	
 }
