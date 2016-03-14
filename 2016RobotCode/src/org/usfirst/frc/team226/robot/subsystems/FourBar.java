@@ -30,6 +30,12 @@ public class FourBar extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new MoveFourBar());
+    	encoder.setMaxPeriod(.1);
+		encoder.setMinRate(10);
+		encoder.setDistancePerPulse(5);
+		encoder.setReverseDirection(true);
+		encoder.setSamplesToAverage(5);
+		SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
     }
     @SuppressWarnings("deprecation")
 	public void moveFourBar(double rightJoystick) {
@@ -41,15 +47,6 @@ public class FourBar extends Subsystem {
     		leftArmMotor.set(rightJoystick *-1);
 			rightArmMotor.set(rightJoystick);
     	}
-		
-		encoder.setMaxPeriod(.1);
-		encoder.setMinRate(10);
-		encoder.setDistancePerPulse(5);
-		encoder.setReverseDirection(true);
-		encoder.setSamplesToAverage(5);
-		
-		//Max Distance is 1271.25
-		SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
 	}
     
     public void setpointZero() {

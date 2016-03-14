@@ -27,11 +27,9 @@ public class WinchServo extends Subsystem {
     }
     public void forward(){
     	servo.setAngle(90);
-    	toggleForward = !toggleForward;
     }
     public void reverse() {
     	servo.setAngle(0);
-    	toggleForward = !toggleForward;
     }
     public double getAngle() {
     	return servo.getAngle();

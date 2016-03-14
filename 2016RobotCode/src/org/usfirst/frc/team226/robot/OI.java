@@ -58,7 +58,7 @@ public class OI {
 		M6.whileHeld(new ShooterWheelsForward(.5));
 		M7.whenPressed(new AutoPop());
 		M8.whileHeld(new ShooterWheelsBackward(.5));
-		M9.whenPressed(new WinchServoToggle());
+		M9.whenReleased(new WinchServoToggle());
 	}
 
 	public void turnRumbleOn(double time) {

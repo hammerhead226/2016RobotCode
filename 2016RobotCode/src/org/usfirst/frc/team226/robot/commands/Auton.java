@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton extends CommandGroup {
     
     public  Auton() {
+    	addSequential(new MoveFourBarEncoderReset());
     	addSequential(new DriveWithAuton(4, .75, .75));
     	addParallel(new MoveFourBarAuton(3, -.25));
     	addSequential(new MoveFourBarEncoderReset());
