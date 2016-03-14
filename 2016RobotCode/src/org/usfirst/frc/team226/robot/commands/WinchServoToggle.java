@@ -24,7 +24,7 @@ public class WinchServoToggle extends Command {
     	Robot.winchServo.forward();
     	Robot.winchServo.toggleForward = !Robot.winchServo.toggleForward;
     	}
-    	else if (!Robot.winchServo.toggleForward) {
+    	else {
     	Robot.winchServo.reverse();
     	Robot.winchServo.toggleForward = !Robot.winchServo.toggleForward;
     	}
