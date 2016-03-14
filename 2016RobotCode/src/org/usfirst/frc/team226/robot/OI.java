@@ -56,6 +56,7 @@ public class OI {
 		M3.whileHeld(new MoveFourBarToSetpointHalf());
 		M4.whileHeld(new MoveFourBarToSetpointFull());
 		M5.whileHeld(new IntakeWheelsForward(.5));
+		M6.whileHeld(new ShooterWheelsForward(.5));
 		M7.whenPressed(new AutoPop());
 		M8.whileHeld(new ShooterWheelsBackward(.5));
 		M9.whenPressed(new WinchServoForward());
