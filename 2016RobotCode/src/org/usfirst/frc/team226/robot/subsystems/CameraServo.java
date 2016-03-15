@@ -14,6 +14,8 @@ public class CameraServo extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	Servo servo = new Servo(RobotMap.CAMERA_SERVO);
+	
+	public boolean toggle = true;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

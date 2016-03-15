@@ -13,7 +13,7 @@ public class WinchServo extends Subsystem {
     
 	Servo servo = new Servo(RobotMap.WINCH_SERVO);
 	
-	public boolean toggleForward = true;
+	public boolean toggle = false;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 

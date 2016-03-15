@@ -20,13 +20,13 @@ public class WinchServoToggle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.winchServo.toggleForward) {
+    	if (Robot.winchServo.toggle) {
     	Robot.winchServo.forward();
-    	Robot.winchServo.toggleForward = !Robot.winchServo.toggleForward;
+    	Robot.winchServo.toggle = !Robot.winchServo.toggle;
     	}
     	else {
     	Robot.winchServo.reverse();
-    	Robot.winchServo.toggleForward = !Robot.winchServo.toggleForward;
+    	Robot.winchServo.toggle = !Robot.winchServo.toggle;
     	}
     }
 
