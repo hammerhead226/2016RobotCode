@@ -38,4 +38,5 @@ public class RobotMap {
 	public static final int LIFT_ENCODER_A = 8;
 	public static final int LIFT_ENCODER_B = 9;
 	
+	public static final int WINCH_DELAY = 120;
 }
