@@ -1,6 +1,7 @@
 package org.usfirst.frc.team226.robot.commands;
 
 import org.usfirst.frc.team226.robot.Robot;
+import org.usfirst.frc.team226.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -21,7 +22,7 @@ public class MoveWinch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.count.get() > 120) {
+    	if (Robot.count.get() > RobotMap.WINCH_DELAY) {
     	Robot.liftWinch.moveWinch(Robot.oi.getLeftManipAxis());
     	}
     }
