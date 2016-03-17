@@ -10,19 +10,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auton extends CommandGroup {
     
     public  Auton() {
-    	addSequential(new DriveWithAuton(1, .75, .75));
-    	addSequential(new MoveFourBarAuton(2, -.5));
-    	addSequential(new DriveWithAuton(3, .75, .75));
+    	addSequential(new DriveWithAuton(.5, .75, .75));
+    	addParallel(new MoveFourBarAuton(2, -.25));
+    	addSequential(new DriveWithAuton(3.5, .75, .75));
     	addSequential(new MoveFourBarEncoderReset());
     	addSequential(new MoveFourBarAuton(1, 0));
-    	addSequential(new DriveWithAuton(.9, .75, -.75));
-    	addSequential(new DriveWithAuton(1, 0, 0));
-    	//addSequential(new MoveFourBarToSetpointHalf());
-    	addSequential(new MoveFourBarAuton(1.5, .75));
-    	addSequential(new MoveFourBarAuton(1, 0));
     	addSequential(new AutoPop());
-    	//addSequential(new DriveWithVision());
-    	addSequential(new ShooterWheelsForward(5));
+    	addParallel(new ShooterWheelsForwardAuton());
+    	addSequential(new DriveWithAuton(.9, .75, -.75));
+    	addSequential(new DriveWithAuton(.1, 0, 0));
+    	addSequential(new MoveFourBarAuton(3, .5));
     	addSequential(new IntakeWheelsForward(2));
     	addSequential(new IntakeWheelsDoNothing());
     	addSequential(new ShooterWheelsDoNothing());
@@ -32,8 +29,6 @@ public class Auton extends CommandGroup {
     	
     	//addSequential(new DriveWithAuton(2, .75, -.75));  90 Degree turn
     	
-    	
-//    	addSequential(new DriveWithEncoder(500, .25, .25));
 //    	while (!Robot.driveTrain.isAlignedLeft || !Robot.driveTrain.isAlignedRight) {
 //    		Robot.driveTrain.visionDrive(Robot.centerValue);
 //    		Timer.delay(.5);

@@ -49,6 +49,8 @@ public class Robot extends IterativeRobot {
     
     public static double liftEncPos;	
     
+    public static boolean activateSetpoint = false;
+    
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
