@@ -25,8 +25,8 @@ public class LiftWinch extends Subsystem {
     	setDefaultCommand(new MoveWinch());
     }
     public void moveWinch(double leftJoystick) {
-		leftLiftMotor.set(leftJoystick/2);
-		rightLiftMotor.set(leftJoystick/2);
+		leftLiftMotor.set(leftJoystick);
+		rightLiftMotor.set(leftJoystick);
 	}
 }
 

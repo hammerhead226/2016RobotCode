@@ -22,9 +22,9 @@ public class MoveWinch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.count.get() > RobotMap.WINCH_DELAY) {
+//    	if (Robot.count.get() > RobotMap.WINCH_DELAY) {
     	Robot.liftWinch.moveWinch(Robot.oi.getLeftManipAxis());
-    	}
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

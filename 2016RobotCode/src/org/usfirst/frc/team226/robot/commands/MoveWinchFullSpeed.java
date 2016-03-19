@@ -21,7 +21,7 @@ public class MoveWinchFullSpeed extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.liftWinch.moveWinch(-1.8);
+    	Robot.liftWinch.moveWinch(-2);
     }
 
     // Make this return true when this Command no longer needs to run execute()
