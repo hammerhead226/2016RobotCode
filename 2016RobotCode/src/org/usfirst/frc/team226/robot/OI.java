@@ -4,6 +4,7 @@ import org.usfirst.frc.team226.robot.commands.AutoPop;
 import org.usfirst.frc.team226.robot.commands.CameraServoToggle;
 import org.usfirst.frc.team226.robot.commands.DriveWithVision;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
+import org.usfirst.frc.team226.robot.commands.LightSpikeToggle;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointFull;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointHalf;
@@ -29,6 +30,7 @@ public class OI {
 	Joystick manip = new Joystick(1);
 
 	Button D1 = new JoystickButton(driver, 1);
+	Button D5 = new JoystickButton(driver, 5);
 	Button D6 = new JoystickButton(driver, 6);
 	Button D9 = new JoystickButton(driver, 9);
 	Button M1 = new JoystickButton(manip, 1);
@@ -44,6 +46,7 @@ public class OI {
 
 	public OI() {
 		D1.whileHeld(new DriveWithVision());
+		D5.whenReleased(new LightSpikeToggle());
 		D6.whileHeld(new MoveWinchFullSpeed());
 		D9.whenPressed(new CameraServoToggle());
 		M1.whileHeld(new MoveFourBarToSetpointZero());

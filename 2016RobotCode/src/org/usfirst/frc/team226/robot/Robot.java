@@ -7,15 +7,14 @@ import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBar;
 import org.usfirst.frc.team226.robot.subsystems.IntakeWheels;
 import org.usfirst.frc.team226.robot.subsystems.LiftWinch;
+import org.usfirst.frc.team226.robot.subsystems.LightSpike;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -39,6 +38,7 @@ public class Robot extends IterativeRobot {
 	public static final LiftWinch liftWinch = new LiftWinch();
 	public static final FourBar fourBar = new FourBar();	
 	public static final CameraServo cameraServo = new CameraServo();
+	public static final LightSpike lightSpike = new LightSpike();
 	public static OI oi;
 
     Command autonomousCommand;
