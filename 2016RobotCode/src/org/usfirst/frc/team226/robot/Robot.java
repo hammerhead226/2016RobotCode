@@ -10,9 +10,12 @@ import org.usfirst.frc.team226.robot.subsystems.LiftWinch;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -51,6 +54,12 @@ public class Robot extends IterativeRobot {
     
     public static boolean activateSetpoint = false;
     
+    CANTalon rearLeft = new CANTalon(6);
+//	CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
+//	CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
+//	CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);	
+    int loops = 0;
+    
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
@@ -72,6 +81,20 @@ public class Robot extends IterativeRobot {
        // autonomousCommand = new ExampleCommand();
 		autonomousCommand = new Auton();
 		count.start();
+		
+		/* first choose the sensor */
+        rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        rearLeft.reverseSensor(false);
+
+        /* set the peak and nominal outputs, 12V means full */
+        rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
+        rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
+        /* set closed loop gains in slot0 */
+        rearLeft.setProfile(0);
+        rearLeft.setF(0.1097);
+        rearLeft.setP(0.22);
+        rearLeft.setI(0); 
+        rearLeft.setD(0);
 				
     }
 	
@@ -119,6 +142,14 @@ public class Robot extends IterativeRobot {
         centerValue = table.getNumber("centerX",-1);
         SmartDashboard.putDouble("Center", centerValue);
         SmartDashboard.putDouble("Timer", count.get());
+        
+        if(loops >= 10) {
+        	loops = 0;
+        	System.out.print(rearLeft.getEncVelocity());
+        }
+        else loops++;
+        
+        
     }
     
     /**
