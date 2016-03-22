@@ -32,7 +32,7 @@ public class DriveWithEncoder extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.driveTrain.encoderDriveIsFinished(count);
+    	return Robot.driveTrain.encoderDriveIsFinished();
     }
     
 

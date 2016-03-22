@@ -13,6 +13,7 @@ import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -54,10 +55,10 @@ public class Robot extends IterativeRobot {
     
     public static boolean activateSetpoint = false;
     
-    CANTalon rearLeft = new CANTalon(6);
-//	CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
-//	CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
-//	CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);	
+    CANTalon rearLeft = new CANTalon(2);
+    CANTalon rearRight = new CANTalon(6);
+    public static double leftDriveEncoderDistance;
+    public static double rightDriveEncoderDistance;
     int loops = 0;
     
     public Robot() {
@@ -82,20 +83,30 @@ public class Robot extends IterativeRobot {
 		autonomousCommand = new Auton();
 		count.start();
 		
-		/* first choose the sensor */
         rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-        rearLeft.reverseSensor(false);
-
-        /* set the peak and nominal outputs, 12V means full */
+        rearLeft.changeControlMode(TalonControlMode.Position);
+        rearLeft.reverseSensor(true);
         rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
         rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
-        /* set closed loop gains in slot0 */
         rearLeft.setProfile(0);
-        rearLeft.setF(0.1097);
-        rearLeft.setP(0.22);
+        rearLeft.setF(0);
+        rearLeft.setP(0);
         rearLeft.setI(0); 
         rearLeft.setD(0);
+        
+        rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        rearRight.changeControlMode(TalonControlMode.Position);
+        rearRight.reverseSensor(true);
+        rearRight.configNominalOutputVoltage(+0.0f, -0.0f);
+        rearRight.configPeakOutputVoltage(+12.0f, 0.0f);
+        rearRight.setProfile(0);
+        rearRight.setF(0);
+        rearRight.setP(0);
+        rearRight.setI(0); 
+        rearRight.setD(0);
 				
+        rearLeft.reset();
+        rearRight.reset();
     }
 	
 	public void disabledPeriodic() {
@@ -103,8 +114,13 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
+    	rearLeft.reset();
+        rearRight.reset();
+        rearLeft.set(0);
+        rearRight.set(0);
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        
     }
 
     /**
@@ -112,6 +128,14 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        if(loops >= 5) {
+        	loops = 0;
+        	System.out.print("Left : " + rearLeft.get()*-1);
+        	System.out.print("Right : " + rearRight.get());
+        	leftDriveEncoderDistance = rearLeft.get()*-1;
+        	rightDriveEncoderDistance = rearRight.get();
+        }
+        else loops++;
     }
 
     public void teleopInit() {
@@ -121,6 +145,8 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         count.start();
+        rearLeft.reset();
+        rearRight.reset();
     }
 
     /**
@@ -145,7 +171,10 @@ public class Robot extends IterativeRobot {
         
         if(loops >= 10) {
         	loops = 0;
-        	System.out.print(rearLeft.getEncVelocity());
+        	System.out.print("Left : " + rearLeft.get());
+        	System.out.print("Right : " + rearRight.get());
+        	leftDriveEncoderDistance = rearLeft.get();
+        	rightDriveEncoderDistance = rearRight.get();
         }
         else loops++;
         

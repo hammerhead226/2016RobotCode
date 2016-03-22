@@ -46,7 +46,7 @@ public class OI {
 
 	public OI() {
 		D1.whileHeld(new DriveWithVision());
-		D5.whenReleased(new LightSpikeToggle());
+		D5.whenPressed(new LightSpikeToggle());
 		D6.whileHeld(new MoveWinchFullSpeed());
 		D9.whenPressed(new CameraServoToggle());
 		M1.whileHeld(new MoveFourBarToSetpointZero());

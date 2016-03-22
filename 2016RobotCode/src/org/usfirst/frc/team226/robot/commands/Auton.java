@@ -11,7 +11,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Auton extends CommandGroup {
     
     public  Auton() {
+    	
+    	addSequential(new DriveWithEncoder(20, .5, .5));
+    	
     	//if (SmartDashboard.getBoolean("Auton Shoot")){
+/*   	
     	addSequential(new DriveWithAuton(.5, .75, .75));
     	addParallel(new IntakeWheelsForward(1));
     	addParallel(new MoveFourBarAuton(2, -.25));
@@ -24,15 +28,17 @@ public class Auton extends CommandGroup {
 //    		addSequential(new IntakeWheelsDoNothing());
 //    		addSequential(new ShooterWheelsDoNothing());
 //    	addParallel(new ShooterWheelsForwardAuton());
+    	
     	addSequential(new DriveWithAuton(1.15, .75, -.75));
     	addSequential(new DriveWithAuton(.1, 0, 0));
     	addSequential(new DriveWithAuton(.5, .5, .5));
+    	
 //    	addSequential(new MoveFourBarAuton(1, .75));
 //    	addParallel(new MoveFourBarAuton(2, .3));
 //    	addSequential(new IntakeWheelsForward(2));
 //    	addSequential(new IntakeWheelsDoNothing());
 //    	addSequential(new ShooterWheelsDoNothing());    	
-    	
+**/
     	//addSequential(new DriveWithEncoder(100, .5, .5));
     	
     	//addSequential(new DriveWithAuton(1.8, .75, -.75));  90 Degree turn

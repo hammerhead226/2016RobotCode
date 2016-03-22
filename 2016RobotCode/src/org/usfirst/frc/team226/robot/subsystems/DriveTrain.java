@@ -29,61 +29,51 @@ public class DriveTrain extends Subsystem {
 
 	public boolean isAlignedLeft, isAlignedRight;
 	
-	CANTalon rearLeft = new CANTalon(RobotMap.REAR_LEFT_DRIVE);
-	CANTalon rearRight = new CANTalon(RobotMap.REAR_RIGHT_DRIVE);
-	CANTalon frontLeft = new CANTalon(RobotMap.FRONT_LEFT_DRIVE);
-	CANTalon frontRight = new CANTalon(RobotMap.FRONT_RIGHT_DRIVE);
+	public double leftSpeed, rightSpeed;
+	public boolean leftDone = false;
+	public boolean rightDone = false;
 	
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 		setDefaultCommand(new DriveWithJoysticks());
 	}
-
-	public DriveTrain() {
-		//Master Talons
-		rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		rearLeft.changeControlMode(TalonControlMode.Position);
-		rearRight.changeControlMode(TalonControlMode.Position);
-		//Slave Talons
-		frontRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		frontLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		frontRight.changeControlMode(TalonControlMode.Follower);
-		frontLeft.changeControlMode(TalonControlMode.Follower);
-		frontRight.set(rearRight.getDeviceID());
-		frontLeft.set(rearLeft.getDeviceID());	
-		
-		rearLeft.enable();
-		rearRight.enable();
-		frontLeft.enable();
-		frontRight.enable();
-	}
 	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
 		drive.tankDrive(leftJoystick, rightJoystick);
 	}
 
-	@SuppressWarnings("deprecation")
-	public void encoderDrive(double count, double lSpeed, double rSpeed) {
-		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
-		SmartDashboard.putInt("avg", avg);
-		System.out.println(avg);
-		if (avg < count) {
-			drive.tankDrive(lSpeed, rSpeed);
+	public void encoderDrive(double distance, double lSpeed, double rSpeed) {
+//		int avg = (Robot.leftDriveEncoderDistance + rearRight.getEncPosition()) / 2;
+//		SmartDashboard.putInt("avg", avg);
+//		System.out.println(avg);
+//		if (avg < count) {
+//			drive.tankDrive(lSpeed, rSpeed);
+//		}
+//		else {
+//			drive.tankDrive(0, 0);
+//		} 
+		leftSpeed = lSpeed;
+		rightSpeed = rSpeed;
+		if (distance < Robot.leftDriveEncoderDistance) {
+			leftSpeed = 0;
+			leftDone = true;
 		}
-		else {
-			drive.tankDrive(0, 0);
-		} 
+		if (distance < Robot.rightDriveEncoderDistance) {
+			rightSpeed = 0;
+			rightDone = true;
+		}
+		drive.tankDrive(leftSpeed, rightSpeed);
+		
+		
 	}
 	
-	public boolean encoderDriveIsFinished(int count) {
-		int avg = (rearLeft.getEncPosition() + rearRight.getEncPosition()) / 2;
-		if (avg < count) {
-			return false;
+	public boolean encoderDriveIsFinished() {
+		if (leftDone && rightDone) {
+			return true;
 		}
 		else {
-			return true;
+			return false;
 		} 
 	}
 	
