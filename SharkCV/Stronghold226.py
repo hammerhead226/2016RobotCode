@@ -18,6 +18,7 @@ Including all OpenCV and NetworkTable processing this averages:
 
 import copy
 import math
+import time
 
 from networktables import NetworkTable
 import logging
@@ -25,7 +26,7 @@ logging.basicConfig(level=logging.DEBUG)  # for pynetworktables
 NetworkTable.setIPAddress("roboRIO-226-FRC.local")
 NetworkTable.setClientMode()
 NetworkTable.initialize()
-contours = NetworkTable.getTable("SharkCV")
+table = NetworkTable.getTable("SharkCV")
 
 FOV_DIAGONAL = 68.5       # Microsoft LifeCam HD 3000
 DISTANCE_SIZE = [20, 14]  # 20x14in target
@@ -41,16 +42,18 @@ def Stronghold226(frame):
 	mask.dilate(size=6, iterations=2)
 
 	# CONTOUR PROCESSING
-	mask.contoursFilter(area=(100,-1))
+	mask.contoursFilter(area=(100,-1), width=(20,-1))
 	mask.contoursSort('area')
 	if len(mask.contours) > 2:
 		mask.contoursFilter(area=(mask.contours[2].area,-1))
 
 	# DEBUG OUTPUT
-	# mask.contoursDraw(orig, color=(44,62,229))
+	# mask.contoursDraw(orig, start=0, end=0, color=(0,127,255))
+	# mask.contoursDraw(orig, start=1, end=2, color=(44,62,229))
 
-	# PUBLISH FRAME INFO
-	table_frame = contours.getSubTable('frame')
+	# PUBLISH INFO
+	table.putNumber('time', time.time())
+	table_frame = table.getSubTable('frame')
 	table_frame.putNumber('width', mask.width)
 	table_frame.putNumber('height', mask.height)
 	
@@ -61,7 +64,7 @@ def Stronghold226(frame):
 
 	# PUBLISH ALL CONTOURS
 	for idx, cnt in enumerate(mask.contours):
-		table_cnt = contours.getSubTable('contours/'+str(idx))
+		table_cnt = table.getSubTable('contours/'+str(idx))
 		table_cnt.putNumber('area', cnt.area)
 		table_cnt.putNumber('width', cnt.width)
 		table_cnt.putNumber('height', cnt.height)
