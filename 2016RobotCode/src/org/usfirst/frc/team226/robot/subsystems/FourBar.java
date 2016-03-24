@@ -21,8 +21,8 @@ public class FourBar extends Subsystem {
 		
 	
 	public static final double ZERO = 0.0,
-			HALF = 900,
-			FULL = 2000;
+			HALF = 700,
+			FULL = 1400;
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

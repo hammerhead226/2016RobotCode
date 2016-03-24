@@ -171,14 +171,14 @@ public class Robot extends IterativeRobot {
         
         if(loops >= 10) {
         	loops = 0;
-        	System.out.print("Left : " + rearLeft.get());
-        	System.out.print("Right : " + rearRight.get());
+        	System.out.print("Left : " + rearLeft.get() + "\n");
+        	System.out.print("Right : " + rearRight.get() + "\n");
         	leftDriveEncoderDistance = rearLeft.get();
         	rightDriveEncoderDistance = rearRight.get();
         }
         else loops++;
         
-        
+
     }
     
     /**
