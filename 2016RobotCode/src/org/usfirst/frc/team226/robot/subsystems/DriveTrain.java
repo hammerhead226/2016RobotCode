@@ -63,14 +63,14 @@ public class DriveTrain extends Subsystem {
 		rightSpeed = rSpeed;
 		
 		if (this.set) {
-			lCount = leftCount + (rearLeft.get() * -1);
+			lCount = (rearLeft.get()*-1) + leftCount;
 			rCount = rightCount + rearRight.get();
 			this.set = false;
 			System.out.println("Encoder set to : " + lCount + " , " + rCount);
 		}
 		
 		
-		if (lCount <= (rearLeft.get() * -1)) {
+		if (lCount <= rearLeft.get() *-1) {
 			leftSpeed = 0;
 			leftDone = true;
 			System.out.println("Left Side Done");
@@ -96,6 +96,7 @@ public class DriveTrain extends Subsystem {
 		if ((leftDone == true) && (rightDone == true)) {
 			leftDone = false;
 			rightDone = false;
+			this.set = true;
 			System.out.println("True");
 			return true;
 			

@@ -81,6 +81,8 @@ public class Robot extends IterativeRobot {
 		autonomousCommand = new Auton();
 		count.start();
 		
+		cameraServo.forward();
+		
         driveTrain.rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
         driveTrain.rearLeft.changeControlMode(TalonControlMode.Position);
         driveTrain.rearLeft.reverseSensor(true);

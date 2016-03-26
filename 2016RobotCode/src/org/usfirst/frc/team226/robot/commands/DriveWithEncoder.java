@@ -13,7 +13,7 @@ public class DriveWithEncoder extends Command {
 	double lSpeed;
 	double rSpeed;
 	boolean reset;
-    public DriveWithEncoder(double leftCount, double rightCount, double lSpeed, double rSpeed, boolean reset) {
+    public DriveWithEncoder(double leftCount, double rightCount, double lSpeed, double rSpeed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
@@ -21,7 +21,6 @@ public class DriveWithEncoder extends Command {
     	this.rightCount = rightCount;
     	this.lSpeed = lSpeed;
     	this.rSpeed = rSpeed;
-    	this.reset = reset;
     }
 
     // Called just before this Command runs the first time

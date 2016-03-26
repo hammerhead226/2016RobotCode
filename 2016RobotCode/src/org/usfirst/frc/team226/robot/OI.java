@@ -30,6 +30,7 @@ public class OI {
 	Joystick manip = new Joystick(1);
 
 	Button D1 = new JoystickButton(driver, 1);
+	Button D3 = new JoystickButton(driver, 3);
 	Button D5 = new JoystickButton(driver, 5);
 	Button D6 = new JoystickButton(driver, 6);
 	Button D9 = new JoystickButton(driver, 9);
@@ -46,7 +47,7 @@ public class OI {
 
 	public OI() {
 		D1.whileHeld(new DriveWithVision());
-		D5.whenPressed(new LightSpikeToggle());
+		D3.whenPressed(new LightSpikeToggle());
 		D6.whileHeld(new MoveWinchFullSpeed());
 		D9.whenPressed(new CameraServoToggle());
 		M1.whileHeld(new MoveFourBarToSetpointZero());
