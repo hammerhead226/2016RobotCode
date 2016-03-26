@@ -162,16 +162,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putDouble("Center", centerValue);
         SmartDashboard.putDouble("Timer", count.get());
         
-        if(loops >= 20) {
-        	loops = 0;
-        	System.out.print("Left : " + driveTrain.rearLeft.get());
-        	System.out.print("Right : " + driveTrain.rearRight.get());
-        	leftDriveEncoderDistance = driveTrain.rearLeft.get();
-        	rightDriveEncoderDistance = driveTrain.rearRight.get();
-        }
-        else loops++;
         
-        
+
     }
     
     /**

@@ -17,7 +17,7 @@ public class Auton extends CommandGroup {
     	//addSequential(new DriveWithEncoder(10, .75, .75, true));
     	
     	//if (SmartDashboard.getBoolean("Auton Shoot")){
-/*   	
+  	
     	addSequential(new DriveWithAuton(.5, .75, .75));
     	addParallel(new IntakeWheelsForward(1));
     	addParallel(new MoveFourBarAuton(2, -.25));
@@ -40,7 +40,7 @@ public class Auton extends CommandGroup {
 //    	addSequential(new IntakeWheelsForward(2));
 //    	addSequential(new IntakeWheelsDoNothing());
 //    	addSequential(new ShooterWheelsDoNothing());    	
-**/
+
     	//addSequential(new DriveWithEncoder(100, .5, .5));
     	
     	//addSequential(new DriveWithAuton(1.8, .75, -.75));  90 Degree turn
