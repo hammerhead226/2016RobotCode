@@ -55,8 +55,6 @@ public class Robot extends IterativeRobot {
     
     public static boolean activateSetpoint = false;
     
-    CANTalon rearLeft = new CANTalon(2);
-    CANTalon rearRight = new CANTalon(6);
     public static double leftDriveEncoderDistance;
     public static double rightDriveEncoderDistance;
     int loops = 0;
@@ -72,8 +70,8 @@ public class Robot extends IterativeRobot {
         count = new Timer();
     }
 
-    /**
-     * This function is run when the robot is first started up and should be
+	    /**
+	     * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
 	public void robotInit() {
@@ -83,30 +81,30 @@ public class Robot extends IterativeRobot {
 		autonomousCommand = new Auton();
 		count.start();
 		
-        rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-        rearLeft.changeControlMode(TalonControlMode.Position);
-        rearLeft.reverseSensor(true);
-        rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
-        rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
-        rearLeft.setProfile(0);
-        rearLeft.setF(0);
-        rearLeft.setP(0);
-        rearLeft.setI(0); 
-        rearLeft.setD(0);
+        driveTrain.rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        driveTrain.rearLeft.changeControlMode(TalonControlMode.Position);
+        driveTrain.rearLeft.reverseSensor(true);
+        driveTrain.rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
+        driveTrain.rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
+        driveTrain.rearLeft.setProfile(0);
+        driveTrain.rearLeft.setF(0);
+        driveTrain.rearLeft.setP(0);
+        driveTrain.rearLeft.setI(0); 
+        driveTrain.rearLeft.setD(0);
         
-        rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-        rearRight.changeControlMode(TalonControlMode.Position);
-        rearRight.reverseSensor(true);
-        rearRight.configNominalOutputVoltage(+0.0f, -0.0f);
-        rearRight.configPeakOutputVoltage(+12.0f, 0.0f);
-        rearRight.setProfile(0);
-        rearRight.setF(0);
-        rearRight.setP(0);
-        rearRight.setI(0); 
-        rearRight.setD(0);
+        driveTrain.rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        driveTrain.rearRight.changeControlMode(TalonControlMode.Position);
+        driveTrain.rearRight.reverseSensor(true);
+        driveTrain.rearRight.configNominalOutputVoltage(+0.0f, -0.0f);
+        driveTrain.rearRight.configPeakOutputVoltage(+12.0f, 0.0f);
+        driveTrain.rearRight.setProfile(0);
+        driveTrain.rearRight.setF(0);
+        driveTrain.rearRight.setP(0);
+        driveTrain.rearRight.setI(0); 
+        driveTrain.rearRight.setD(0);
 				
-        rearLeft.reset();
-        rearRight.reset();
+        driveTrain.rearLeft.reset();
+        driveTrain.rearRight.reset();
     }
 	
 	public void disabledPeriodic() {
@@ -114,11 +112,8 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-    	rearLeft.reset();
-        rearRight.reset();
-        rearLeft.set(0);
-        rearRight.set(0);
         // schedule the autonomous command (example)
+    	Robot.driveTrain.set = true;
         if (autonomousCommand != null) autonomousCommand.start();
         
     }
@@ -128,14 +123,14 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        if(loops >= 5) {
+        if(loops >= 10) {
         	loops = 0;
-        	System.out.print("Left : " + rearLeft.get()*-1);
-        	System.out.print("Right : " + rearRight.get());
-        	leftDriveEncoderDistance = rearLeft.get()*-1;
-        	rightDriveEncoderDistance = rearRight.get();
+        	System.out.print("Left : " + driveTrain.rearLeft.get()*-1);
+        	System.out.print("Right : " + driveTrain.rearRight.get());
         }
         else loops++;
+        leftDriveEncoderDistance = driveTrain.rearLeft.get()*-1;
+    	rightDriveEncoderDistance = driveTrain.rearRight.get();
     }
 
     public void teleopInit() {
@@ -145,8 +140,6 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         count.start();
-        rearLeft.reset();
-        rearRight.reset();
     }
 
     /**
@@ -169,12 +162,12 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putDouble("Center", centerValue);
         SmartDashboard.putDouble("Timer", count.get());
         
-        if(loops >= 10) {
+        if(loops >= 20) {
         	loops = 0;
-        	System.out.print("Left : " + rearLeft.get());
-        	System.out.print("Right : " + rearRight.get());
-        	leftDriveEncoderDistance = rearLeft.get();
-        	rightDriveEncoderDistance = rearRight.get();
+        	System.out.print("Left : " + driveTrain.rearLeft.get());
+        	System.out.print("Right : " + driveTrain.rearRight.get());
+        	leftDriveEncoderDistance = driveTrain.rearLeft.get();
+        	rightDriveEncoderDistance = driveTrain.rearRight.get();
         }
         else loops++;
         

@@ -32,6 +32,12 @@ public class DriveTrain extends Subsystem {
 	public double leftSpeed, rightSpeed;
 	public boolean leftDone = false;
 	public boolean rightDone = false;
+	public double lCount = 0;
+	public double rCount = 0;
+	public boolean set = true;
+	
+	public CANTalon rearLeft = new CANTalon(2);
+    public CANTalon rearRight = new CANTalon(6);
 	
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
@@ -43,7 +49,7 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(leftJoystick, rightJoystick);
 	}
 
-	public void encoderDrive(double distance, double lSpeed, double rSpeed) {
+	public void encoderDrive(double leftCount, double rightCount, double lSpeed, double rSpeed, boolean set) {
 //		int avg = (Robot.leftDriveEncoderDistance + rearRight.getEncPosition()) / 2;
 //		SmartDashboard.putInt("avg", avg);
 //		System.out.println(avg);
@@ -55,24 +61,47 @@ public class DriveTrain extends Subsystem {
 //		} 
 		leftSpeed = lSpeed;
 		rightSpeed = rSpeed;
-		if (distance < Robot.leftDriveEncoderDistance) {
+		
+		if (this.set) {
+			lCount = leftCount + (rearLeft.get() * -1);
+			rCount = rightCount + rearRight.get();
+			this.set = false;
+			System.out.println("Encoder set to : " + lCount + " , " + rCount);
+		}
+		
+		
+		if (lCount <= (rearLeft.get() * -1)) {
 			leftSpeed = 0;
 			leftDone = true;
+			System.out.println("Left Side Done");
 		}
-		if (distance < Robot.rightDriveEncoderDistance) {
+		if (rCount <= rearRight.get()) {
 			rightSpeed = 0;
 			rightDone = true;
+			System.out.println("Right Side Finished");
 		}
+//		if (reset) {
+//			rearLeft.reset();
+//			rearRight.reset();
+//			rearLeft.set(0);
+//			rearRight.set(0);
+//			
+//		}
 		drive.tankDrive(leftSpeed, rightSpeed);
 		
 		
 	}
 	
 	public boolean encoderDriveIsFinished() {
-		if (leftDone && rightDone) {
+		if ((leftDone == true) && (rightDone == true)) {
+			leftDone = false;
+			rightDone = false;
+			System.out.println("True");
 			return true;
+			
 		}
 		else {
+			System.out.println("False");
 			return false;
 		} 
 	}

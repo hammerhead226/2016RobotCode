@@ -11,8 +11,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Auton extends CommandGroup {
     
     public  Auton() {
-    	
-    	addSequential(new DriveWithEncoder(20, .5, .5));
+    	//addSequential(new DriveWithEncoder((Robot.leftDriveEncoderDistance + 10), (Robot.rightDriveEncoderDistance +10), .75, .75, true));
+    	addSequential(new DriveWithEncoder(10, 10, .75, .75, true));
+        
+    	//addSequential(new DriveWithEncoder(10, .75, .75, true));
     	
     	//if (SmartDashboard.getBoolean("Auton Shoot")){
 /*   	

@@ -9,16 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveWithEncoder extends Command {
 	
-	int count;
+	double leftCount, rightCount;
 	double lSpeed;
 	double rSpeed;
-    public DriveWithEncoder(int count, double lSpeed, double rSpeed) {
+	boolean reset;
+    public DriveWithEncoder(double leftCount, double rightCount, double lSpeed, double rSpeed, boolean reset) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveTrain);
-    	this.count = count;
+    	this.leftCount = leftCount; 
+    	this.rightCount = rightCount;
     	this.lSpeed = lSpeed;
     	this.rSpeed = rSpeed;
+    	this.reset = reset;
     }
 
     // Called just before this Command runs the first time
@@ -27,7 +30,7 @@ public class DriveWithEncoder extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.encoderDrive(count, lSpeed, rSpeed);
+    	Robot.driveTrain.encoderDrive(leftCount, rightCount, lSpeed, rSpeed, reset);
     }
 
     // Make this return true when this Command no longer needs to run execute()
