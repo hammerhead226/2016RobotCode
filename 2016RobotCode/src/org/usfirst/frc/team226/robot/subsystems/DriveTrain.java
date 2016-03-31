@@ -36,8 +36,8 @@ public class DriveTrain extends Subsystem {
 	public double rCount = 0;
 	public boolean set = true;
 	
-	public CANTalon rearLeft = new CANTalon(2);
-    public CANTalon rearRight = new CANTalon(6);
+	public CANTalon rearLeft = new CANTalon(RobotMap.LEFT_ENCODER);
+    public CANTalon rearRight = new CANTalon(RobotMap.RIGHT_ENCODER);
 	
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
@@ -109,6 +109,8 @@ public class DriveTrain extends Subsystem {
 	
 	public void autonDrive(double leftSpeed, double rightSpeed) {
 		drive.tankDrive(leftSpeed, rightSpeed);
+		System.out.println("LEFT: " + rearLeft.get());
+		System.out.println("RIGHT: " + rearRight.get());
 	}
 	
 	public void visionDrive(double centerValue) {

@@ -20,12 +20,10 @@ public class Auton extends CommandGroup {
 		// if (SmartDashboard.getBoolean("Auton Shoot")){
 
 		addParallel(new IntakeWheelsForward(2));
-		addParallel(new MoveFourBarAuton(2.5, -.3));
+		addParallel(new MoveFourBarAuton(2.5, -.4));
 		addSequential(new DriveWithEncoder(6.7, 6.7, .75, .75));
 		addSequential(new MoveFourBarEncoderReset());
 
-		
-		
 		addSequential(new DriveWithEncoder(2.45, 0, 1, .1));
 //		addSequential(new DriveWithAuton(.1, 0, 0));
 //		addSequential(new DriveWithAuton(.5, .5, .5));

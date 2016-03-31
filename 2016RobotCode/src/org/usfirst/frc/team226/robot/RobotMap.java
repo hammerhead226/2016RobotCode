@@ -41,4 +41,7 @@ public class RobotMap {
 	public static final int WINCH_DELAY = 120;
 	
 	public static final int LIGHT_SPIKE = 0;
+	
+	public static final int LEFT_ENCODER = 6;
+	public static final int RIGHT_ENCODER = 2;
 }
