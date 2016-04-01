@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class WinchServo extends Subsystem {
     
 	Servo servo = new Servo(RobotMap.WINCH_SERVO);
-	public boolean firstTime = true;
 	
 	public boolean toggle = false;
     // Put methods for controlling this subsystem

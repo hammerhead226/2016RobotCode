@@ -3,16 +3,16 @@ package org.usfirst.frc.team226.robot.commands;
 import org.usfirst.frc.team226.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class WinchServoToggle extends Command {
+public class CameraServoAuton extends Command {
 
-    public WinchServoToggle() {
+    public CameraServoAuton() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.cameraServo);
     }
 
     // Called just before this Command runs the first time
@@ -21,15 +21,7 @@ public class WinchServoToggle extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.winchServo.toggle) {
-    	Robot.winchServo.forward();
-    	Robot.winchServo.toggle = !Robot.winchServo.toggle;
-    	}
-    	else {
-    	Robot.winchServo.reverse();
-    	Robot.winchServo.toggle = !Robot.winchServo.toggle;
-    	
-    	}
+    	Robot.cameraServo.reverse();
     }
 
     // Make this return true when this Command no longer needs to run execute()

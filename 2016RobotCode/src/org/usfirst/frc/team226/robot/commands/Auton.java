@@ -19,17 +19,18 @@ public class Auton extends CommandGroup {
 
 		// if (SmartDashboard.getBoolean("Auton Shoot")){
 
-		addParallel(new IntakeWheelsForward(1));
-		addParallel(new MoveFourBarAuton(2.5, -.4));
-		addSequential(new DriveWithEncoder(6.7, 6.7, .75, .75));
+		addSequential(new CameraServoAuton());
+//		addParallel(new IntakeWheelsForward(1));
+		addParallel(new MoveFourBarAuton(1.5, -.75));
+		addSequential(new DriveWithEncoder(7, 7, .75, .75));
 		addSequential(new MoveFourBarEncoderReset());
 
-		addSequential(new DriveWithEncoder(2.2, 0, 1, .1));
+		addSequential(new DriveWithEncoder(1.9, 0, 1, .1));
 //		addSequential(new DriveWithAuton(.1, 0, 0));
 //		addSequential(new DriveWithAuton(.5, .5, .5));
 		// AutoPop
-				addSequential(new ShooterWheelsBackward(.35));
-				addSequential(new IntakeWheelsBackward(.30));
+				addSequential(new ShooterWheelsBackward(.25));
+				addSequential(new IntakeWheelsBackward(.20));
 				addSequential(new IntakeWheelsDoNothing());
 				addSequential(new ShooterWheelsDoNothing());
 		

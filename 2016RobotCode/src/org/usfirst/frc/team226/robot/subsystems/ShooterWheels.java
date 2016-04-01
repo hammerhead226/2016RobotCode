@@ -39,5 +39,9 @@ public class ShooterWheels extends Subsystem {
     	leftShooterMotor.set(0);
     	rightShooterMotor.set(0);
     }
+    public void moveBackIntake() {
+    	leftShooterMotor.set(.25);
+    	rightShooterMotor.set(-.25);
+    }
 }
 

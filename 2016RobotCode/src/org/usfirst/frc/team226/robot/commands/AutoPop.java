@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoPop extends CommandGroup {
     
     public  AutoPop() {
-    	addSequential(new ShooterWheelsBackward(.25));
-    	addSequential(new IntakeWheelsBackward(.25));
+    	addSequential(new ShooterWheelsBackward(.20));
+    	addSequential(new IntakeWheelsBackward(.20));
     	addSequential(new IntakeWheelsDoNothing());
     	addSequential(new ShooterWheelsDoNothing());
         // Add Commands here:

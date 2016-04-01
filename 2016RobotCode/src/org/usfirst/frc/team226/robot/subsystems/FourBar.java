@@ -37,14 +37,16 @@ public class FourBar extends Subsystem {
     }
     @SuppressWarnings("deprecation")
 	public void moveFourBar(double rightJoystick) {
-    	if (encoder.getDistance() < 500) {
-    		leftArmMotor.set(rightJoystick /-2);
-			rightArmMotor.set(rightJoystick/2);
-    	}
-    	else {
-    		leftArmMotor.set(rightJoystick *-1);
-			rightArmMotor.set(rightJoystick);
-    	}
+//    	if (encoder.getDistance() < 500) {
+//    		leftArmMotor.set(rightJoystick *-1);
+//			rightArmMotor.set(rightJoystick);
+//    	}
+//    	else {
+//    		leftArmMotor.set(rightJoystick *-1);
+//			rightArmMotor.set(rightJoystick);
+//    	}
+    	leftArmMotor.set(rightJoystick *-1);
+		rightArmMotor.set(rightJoystick);
     	
     	encoder.setMaxPeriod(.1);
 		encoder.setMinRate(10);

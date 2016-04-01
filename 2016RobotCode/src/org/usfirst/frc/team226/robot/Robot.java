@@ -164,6 +164,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putDouble("Center", centerValue);
         SmartDashboard.putDouble("Timer", count.get());
         
+        SmartDashboard.putBoolean("Winch", !winchServo.toggle);
+        //Down = true
         
 
     }
