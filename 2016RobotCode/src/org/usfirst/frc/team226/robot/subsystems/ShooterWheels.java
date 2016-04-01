@@ -1,5 +1,6 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
+import org.usfirst.frc.team226.robot.Robot;
 import org.usfirst.frc.team226.robot.RobotMap;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsDoNothing;
 
@@ -26,6 +27,9 @@ public class ShooterWheels extends Subsystem {
     public void moveForward(){
     	leftShooterMotor.set(-1); //Bottom wheels
     	rightShooterMotor.set(1); //Top Wheels
+    	
+    	Robot.cameraServo.toggle = false;
+    	Robot.cameraServo.reverse();
     }
     public void moveBackward(){
     	leftShooterMotor.set(1);

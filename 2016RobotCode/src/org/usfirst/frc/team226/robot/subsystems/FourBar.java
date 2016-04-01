@@ -23,8 +23,8 @@ public class FourBar extends Subsystem {
     public CANTalon rearRight = new CANTalon(6);
 	
 	public static final double ZERO = 0.0,
-			HALF = 700,
-			FULL = 1400;
+			HALF = 600,
+			FULL = 1200;
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -38,7 +38,7 @@ public class FourBar extends Subsystem {
     @SuppressWarnings("deprecation")
 	public void moveFourBar(double rightJoystick) {
     	if (encoder.getDistance() < 500) {
-    		leftArmMotor.set(rightJoystick *-2);
+    		leftArmMotor.set(rightJoystick /-2);
 			rightArmMotor.set(rightJoystick/2);
     	}
     	else {
@@ -57,8 +57,8 @@ public class FourBar extends Subsystem {
     
     public void setpointZero() {
     	if (encoder.getDistance() > 0) {
-    		leftArmMotor.set(Math.abs((1 - encoder.getDistance())/FULL)/2);
-    		rightArmMotor.set(Math.abs((1 - encoder.getDistance())/FULL) *-2);
+    		leftArmMotor.set(Math.abs((1 - encoder.getDistance())/FULL));
+    		rightArmMotor.set(Math.abs((1 - encoder.getDistance())/FULL) *-1);
     	}
     	else {
     		leftArmMotor.set(0);
@@ -67,12 +67,12 @@ public class FourBar extends Subsystem {
     }
     public void setpointHalf() {
     	if (encoder.getDistance() > HALF) {
-    		leftArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF));
-    		rightArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF)*-1);
+    		leftArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF)*1.5);
+    		rightArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF)*-1.5);
     	}
     	else if (encoder.getDistance() < HALF) {
-    		leftArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF)*-1);
-    		rightArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF));
+    		leftArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF)*-1.5);
+    		rightArmMotor.set((Math.abs(encoder.getDistance() - HALF)/HALF)*1.5);
     	}
     	else {
     		leftArmMotor.set(0);
@@ -81,8 +81,8 @@ public class FourBar extends Subsystem {
     }
     public void setpointFull() {
     	if (encoder.getDistance() < FULL) {
-    		leftArmMotor.set((Math.abs(encoder.getDistance() - FULL)/FULL)*-1);
-    		rightArmMotor.set((Math.abs(encoder.getDistance() - FULL)/FULL));
+    		leftArmMotor.set((Math.abs(encoder.getDistance() - FULL)/FULL)*-1.5);
+    		rightArmMotor.set((Math.abs(encoder.getDistance() - FULL)/FULL)*1.5);
     	}
     	else {
     		leftArmMotor.set(0);
