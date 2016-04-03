@@ -106,7 +106,6 @@ public class FourBar extends Subsystem {
 		encoder.setSamplesToAverage(5);
     	leftArmMotor.set(speed * -1);
     	rightArmMotor.set(speed);
-    	System.out.println("set speed to " + speed);
     	SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
     }
     	

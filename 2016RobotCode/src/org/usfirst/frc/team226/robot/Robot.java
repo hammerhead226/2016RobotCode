@@ -127,8 +127,6 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         if(loops >= 10) {
         	loops = 0;
-        	System.out.print("Left : " + driveTrain.rearLeft.get()*-1);
-        	System.out.print("Right : " + driveTrain.rearRight.get());
         }
         else loops++;
         leftDriveEncoderDistance = driveTrain.rearLeft.get()*-1;

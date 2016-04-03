@@ -21,26 +21,30 @@ public class Auton extends CommandGroup {
 
 		addSequential(new CameraServoAuton());
 //		addParallel(new IntakeWheelsForward(1));
-		addParallel(new MoveFourBarAuton(1.5, -.75));
+		addParallel(new MoveFourBarAuton(1.5, -.4));
 		addSequential(new DriveWithEncoder(7, 7, .75, .75));
 		addSequential(new MoveFourBarEncoderReset());
 
-		addSequential(new DriveWithEncoder(1.9, 0, 1, .1));
+		addSequential(new DriveWithEncoder(1.7, 0, 1, .1));
+		addSequential(new DriveWithEncoder(.5, .5, .75, .75));
 //		addSequential(new DriveWithAuton(.1, 0, 0));
 //		addSequential(new DriveWithAuton(.5, .5, .5));
 		// AutoPop
-				addSequential(new ShooterWheelsBackward(.25));
-				addSequential(new IntakeWheelsBackward(.20));
-				addSequential(new IntakeWheelsDoNothing());
-				addSequential(new ShooterWheelsDoNothing());
+//				addSequential(new ShooterWheelsBackward(.25));
+//				addSequential(new IntakeWheelsBackward(.20));
+//				addSequential(new IntakeWheelsDoNothing());
+//				addSequential(new ShooterWheelsDoNothing());
 		
-		 addSequential(new MoveFourBarAuton(.75, .75));
+		/* Shooting
+		 * 
+		addSequential(new MoveFourBarAuton(.75, .75));
 		 addParallel(new MoveFourBarAuton(4, .3));
 		 addSequential(new ShooterWheelsForward(4));
 		 addSequential(new IntakeWheelsForward(2));
 		 addSequential(new IntakeWheelsDoNothing());
 		 addSequential(new ShooterWheelsDoNothing());
-
+		*/
+		
 		// addSequential(new DriveWithEncoder(100, .5, .5));
 
 		// addSequential(new DriveWithAuton(1.8, .75, -.75)); 90 Degree turn

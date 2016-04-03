@@ -66,19 +66,16 @@ public class DriveTrain extends Subsystem {
 			lCount = (rearLeft.get()*-1) + leftCount;
 			rCount = rightCount + rearRight.get();
 			this.set = false;
-			System.out.println("Encoder set to : " + lCount + " , " + rCount);
 		}
 		
 		
 		if (lCount <= rearLeft.get() *-1) {
 			leftSpeed = 0;
 			leftDone = true;
-			System.out.println("Left Side Done");
 		}
 		if (rCount <= rearRight.get()) {
 			rightSpeed = 0;
 			rightDone = true;
-			System.out.println("Right Side Finished");
 		}
 //		if (reset) {
 //			rearLeft.reset();
@@ -97,20 +94,16 @@ public class DriveTrain extends Subsystem {
 			leftDone = false;
 			rightDone = false;
 			this.set = true;
-			System.out.println("True");
 			return true;
 			
 		}
 		else {
-			System.out.println("False");
 			return false;
 		} 
 	}
 	
 	public void autonDrive(double leftSpeed, double rightSpeed) {
 		drive.tankDrive(leftSpeed, rightSpeed);
-		System.out.println("LEFT: " + rearLeft.get());
-		System.out.println("RIGHT: " + rearRight.get());
 	}
 	
 	public void visionDrive(double centerValue) {
