@@ -29,36 +29,36 @@ public class OI {
 	Joystick driver = new Joystick(0);
 	Joystick manip = new Joystick(1);
 
-	Button D1 = new JoystickButton(driver, 1);
-	Button D3 = new JoystickButton(driver, 3);
-	Button D5 = new JoystickButton(driver, 5);
-	Button D6 = new JoystickButton(driver, 6);
-	Button D9 = new JoystickButton(driver, 9);
-	Button M1 = new JoystickButton(manip, 1);
-	Button M2 = new JoystickButton(manip, 2);
-	Button M3 = new JoystickButton(manip, 3);
-	Button M4 = new JoystickButton(manip, 4);
-	Button M5 = new JoystickButton(manip, 5);
-	Button M6 = new JoystickButton(manip, 6);
-	Button M7 = new JoystickButton(manip, 7);
-	Button M8 = new JoystickButton(manip, 8);
-	Button M9 = new JoystickButton(manip, 9);
-	Button M10 = new JoystickButton(manip, 10);
+	Button D_A = new JoystickButton(driver, 1);
+	Button D_X= new JoystickButton(driver, 3);
+	Button D_LB = new JoystickButton(driver, 5);
+	Button D_RB = new JoystickButton(driver, 6);
+	Button D_LS = new JoystickButton(driver, 9);
+	Button M_A = new JoystickButton(manip, 1);
+	Button M_B = new JoystickButton(manip, 2);
+	Button M_X = new JoystickButton(manip, 3);
+	Button M_Y = new JoystickButton(manip, 4);
+	Button M_LB = new JoystickButton(manip, 5);
+	Button M_RB = new JoystickButton(manip, 6);
+	Button M_SELECT = new JoystickButton(manip, 7);
+	Button M_START = new JoystickButton(manip, 8);
+	Button M_LS = new JoystickButton(manip, 9);
+	Button M_RS = new JoystickButton(manip, 10);
 
 	public OI() {
-		D1.whileHeld(new DriveWithVision());
-		D3.whenPressed(new LightSpikeToggle());
-		D6.whileHeld(new MoveWinchFullSpeed());
-		D9.whenPressed(new CameraServoToggle());
-		M1.whileHeld(new MoveFourBarToSetpointZero());
-		M2.whenPressed(new MoveFourBarEncoderReset());
-		M3.whileHeld(new MoveFourBarToSetpointHalf());
-		M4.whileHeld(new MoveFourBarToSetpointFull());
-		M5.whileHeld(new IntakeWheelsForward(.5));
-		M6.whileHeld(new ShooterWheelsForward(.5));
-		M7.whenPressed(new AutoPop());
-		M8.whileHeld(new ShooterWheelsBackward(.5));
-		M9.whenReleased(new WinchServoToggle());
+		D_A.whileHeld(new DriveWithVision());
+		D_X.whenPressed(new LightSpikeToggle());
+		D_RB.whileHeld(new MoveWinchFullSpeed());
+		D_LS.whenPressed(new CameraServoToggle());
+		M_A.whileHeld(new MoveFourBarToSetpointZero());
+		M_B.whenPressed(new MoveFourBarEncoderReset());
+		M_X.whileHeld(new MoveFourBarToSetpointHalf());
+		M_Y.whileHeld(new MoveFourBarToSetpointFull());
+		M_LB.whileHeld(new IntakeWheelsForward(.5));
+		M_RB.whileHeld(new ShooterWheelsForward(.5));
+		M_SELECT.whenPressed(new AutoPop());
+		M_START.whileHeld(new ShooterWheelsBackward(.5));
+		M_LS.whenReleased(new WinchServoToggle());
 	}
 
 	public void turnRumbleOn(double time) {
