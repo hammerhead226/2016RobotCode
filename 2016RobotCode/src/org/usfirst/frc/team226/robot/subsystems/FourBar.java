@@ -19,9 +19,6 @@ public class FourBar extends Subsystem {
 	
 	Encoder encoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B, false, Encoder.EncodingType.k4X);
 		
-	public CANTalon rearLeft = new CANTalon(2);
-    public CANTalon rearRight = new CANTalon(6);
-	
 	public static final double ZERO = 0.0,
 			HALF = 600,
 			FULL = 1200;
@@ -93,9 +90,6 @@ public class FourBar extends Subsystem {
     }
     public void resetEncoder() {
     	encoder.reset();
-    	rearLeft.reset();
-    	rearRight.reset();
-    	
     }
     
     public void moveAuton(double speed) {		
