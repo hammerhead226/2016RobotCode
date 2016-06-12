@@ -9,29 +9,30 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class IntakeWheelsBackward extends Command {
 
-    public IntakeWheelsBackward(double timeOut) {
+    public IntakeWheelsBackward(/*double timeOut*/) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.intakeWheels);
-    	setTimeout(timeOut);
+    	//setTimeout(timeOut);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.intakeWheels.moveBackward();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intakeWheels.moveBackward();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.intakeWheels.doNotMove();
     }
 
     // Called when another command which requires one or more of the same

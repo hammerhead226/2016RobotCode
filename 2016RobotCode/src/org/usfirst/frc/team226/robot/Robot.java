@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     CameraServer server;
     public static Timer count;
+    public static Timer shootercount;
     
     NetworkTable table;
     public static double centerValue;
@@ -68,6 +69,7 @@ public class Robot extends IterativeRobot {
         table = NetworkTable.getTable("SharkCV/contours/0");  
         
         count = new Timer();
+        shootercount = new Timer();
     }
 
 	    /**
@@ -159,13 +161,10 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
         centerValue = table.getNumber("centerX",-1);
-        SmartDashboard.putDouble("Center", centerValue);
-        SmartDashboard.putDouble("Timer", count.get());
-        
+        SmartDashboard.putNumber("Center Value", centerValue);
         SmartDashboard.putBoolean("Winch", !winchServo.toggle);
+    	SmartDashboard.putNumber("Timer", Robot.shootercount.get());
         //Down = true
-        
-
     }
     
     /**

@@ -44,4 +44,6 @@ public class RobotMap {
 	
 	public static final int LEFT_ENCODER = 6;
 	public static final int RIGHT_ENCODER = 2;
+	
+	public static final double SHOOTER_DELAY = 5.0;
 }

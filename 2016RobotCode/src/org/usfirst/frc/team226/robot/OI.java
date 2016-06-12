@@ -12,6 +12,7 @@ import org.usfirst.frc.team226.robot.commands.MoveFourBarToSetpointZero;
 import org.usfirst.frc.team226.robot.commands.MoveWinchFullSpeed;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsBackward;
 import org.usfirst.frc.team226.robot.commands.ShooterWheelsForward;
+import org.usfirst.frc.team226.robot.commands.ShooterWheelsForwardRelease;
 import org.usfirst.frc.team226.robot.commands.WinchServoToggle;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -54,10 +55,11 @@ public class OI {
 		M_B.whenPressed(new MoveFourBarEncoderReset());
 		M_X.whileHeld(new MoveFourBarToSetpointHalf());
 		M_Y.whileHeld(new MoveFourBarToSetpointFull());
-		M_LB.whileHeld(new IntakeWheelsForward(.5));
-		M_RB.whileHeld(new ShooterWheelsForward(.5));
+		M_LB.whileHeld(new IntakeWheelsForward());
+		M_RB.whenPressed(new ShooterWheelsForward());
+		M_RB.whenReleased(new ShooterWheelsForwardRelease());
 		M_SELECT.whenPressed(new AutoPop());
-		M_START.whileHeld(new ShooterWheelsBackward(.5));
+		M_START.whileHeld(new ShooterWheelsBackward());
 		M_LS.whenReleased(new WinchServoToggle());
 	}
 

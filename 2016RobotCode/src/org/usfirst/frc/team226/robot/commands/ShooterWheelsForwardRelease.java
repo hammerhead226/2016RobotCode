@@ -3,40 +3,27 @@ package org.usfirst.frc.team226.robot.commands;
 import org.usfirst.frc.team226.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class DriveWithJoysticks extends Command {
+public class ShooterWheelsForwardRelease extends Command {
 
-    public DriveWithJoysticks() {
+    public ShooterWheelsForwardRelease() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveTrain);
+    	requires(Robot.shooterWheels);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.shooterWheels.doNotMove();
+    	Robot.shootercount.stop();
+    	Robot.shootercount.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftSpeed = Robot.oi.getLeftDriveSpeed();
-    	double rightSpeed = Robot.oi.getRightDriveSpeed();
-
-    	if (Robot.oi.getRightTriggerPulled()) {
-    		leftSpeed = leftSpeed/2;
-    		rightSpeed = rightSpeed/2;
-    	}
-    	if (Robot.oi.getLeftTriggerPulled()) {
-    		leftSpeed = Robot.oi.getRightDriveSpeed() * -1;
-    		rightSpeed = Robot.oi.getLeftDriveSpeed() * -1;
-    	}
-    	
-    	Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
-    	SmartDashboard.putNumber("Left Encoder", Robot.driveTrain.rearLeft.get());
-    	SmartDashboard.putNumber("Right Encoder", Robot.driveTrain.rearRight.get());
     }
 
     // Make this return true when this Command no longer needs to run execute()
