@@ -92,7 +92,8 @@ public class FourBar extends Subsystem {
     	encoder.reset();
     }
     
-    public void moveAuton(double speed) {		
+    @SuppressWarnings("deprecation")
+	public void moveAuton(double speed) {		
     	encoder.setMaxPeriod(.1);
 		encoder.setMinRate(10);
 		encoder.setDistancePerPulse(5);
