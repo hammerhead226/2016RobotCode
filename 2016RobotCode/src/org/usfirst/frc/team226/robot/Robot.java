@@ -163,6 +163,8 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Center Value", centerValue);
         SmartDashboard.putBoolean("Winch", !winchServo.toggle);
     	SmartDashboard.putNumber("Timer", Robot.shootercount.get());
+//    	SmartDashboard.putNumber("Shooter Speed", Robot.shooterWheels.topEncoder.getSpeed());
+//    	SmartDashboard.putNumber("Encoder Vel", Robot.shooterWheels.topEncoder.getEncVelocity());
         //Down = true
     }
     
