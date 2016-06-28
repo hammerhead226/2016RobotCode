@@ -65,7 +65,9 @@ public class Robot extends IterativeRobot {
         //the camera name (ex "cam0") can be found through the roborio web interface
         server.startAutomaticCapture("cam0");
 
-        table = NetworkTable.getTable("SharkCV/contours/0");  
+        table = NetworkTable.getTable("SharkCV/contours/0"); 
+        
+        autonomousCommand = new Auton();
         
         count = new Timer();
         shootercount = new Timer();

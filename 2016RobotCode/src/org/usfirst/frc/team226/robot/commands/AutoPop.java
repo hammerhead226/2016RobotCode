@@ -9,7 +9,7 @@ public class AutoPop extends CommandGroup {
     
     public  AutoPop() {
     	addSequential(new ShooterWheelsBackwardAuton(.30));
-    	addSequential(new IntakeWheelsBackwardAuton(.27));
+    	addSequential(new IntakeWheelsBackwardAuton(.25));
 //    	addSequential(new IntakeWheelsDoNothing());
 //    	addSequential(new ShooterWheelsDoNothing());
         // Add Commands here:

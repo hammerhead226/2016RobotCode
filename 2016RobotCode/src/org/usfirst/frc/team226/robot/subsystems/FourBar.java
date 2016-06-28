@@ -20,7 +20,7 @@ public class FourBar extends Subsystem {
 	Encoder encoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B, false, Encoder.EncodingType.k4X);
 		
 	public static final double ZERO = 0.0,
-			HALF = 600,
+			HALF = 800,
 			FULL = 1200;
 	
     // Put methods for controlling this subsystem
@@ -43,7 +43,12 @@ public class FourBar extends Subsystem {
 //			rightArmMotor.set(rightJoystick);
 //    	}
     	leftArmMotor.set(rightJoystick *-1);
-		rightArmMotor.set(rightJoystick);
+    	if (rightJoystick > 0) {
+		rightArmMotor.set(rightJoystick*.935);
+    	}
+    	else {
+    		rightArmMotor.set(rightJoystick);
+    	}
     	
     	encoder.setMaxPeriod(.1);
 		encoder.setMinRate(10);

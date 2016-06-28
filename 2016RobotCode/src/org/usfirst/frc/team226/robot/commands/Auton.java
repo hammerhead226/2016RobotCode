@@ -19,10 +19,10 @@ public class Auton extends CommandGroup {
 		addSequential(new CameraServoAuton());
 //		addParallel(new IntakeWheelsForward(1));
 		addParallel(new MoveFourBarAuton(1.5, -.4));
-		addSequential(new DriveWithEncoder(7, 7, .75, .75));
+		addSequential(new DriveWithEncoder(7, 7, .70, .65));
 		addSequential(new MoveFourBarEncoderReset());
 
-		addSequential(new DriveWithEncoder(1.7, 0, 1, .1));
+		addSequential(new DriveWithEncoder(1.85, 0, 1, .1));
 		addSequential(new DriveWithEncoder(.5, .5, .75, .75));
 //		addSequential(new DriveWithAuton(.1, 0, 0));
 //		addSequential(new DriveWithAuton(.5, .5, .5));
