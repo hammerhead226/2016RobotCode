@@ -17,11 +17,11 @@ public class FourBar extends Subsystem {
 	SpeedController leftArmMotor = new CANTalon(RobotMap.LEFT_ARM_MOTOR);
 	SpeedController rightArmMotor = new CANTalon(RobotMap.RIGHT_ARM_MOTOR);
 	
-	Encoder encoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B, false, Encoder.EncodingType.k4X);
+	public Encoder encoder = new Encoder(RobotMap.LIFT_ENCODER_A, RobotMap.LIFT_ENCODER_B, false, Encoder.EncodingType.k4X);
 		
 	public static final double ZERO = 0.0,
 			HALF = 800,
-			FULL = 1200;
+			FULL = 1450;
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
