@@ -10,20 +10,31 @@ public class Auton extends CommandGroup {
 	public Auton() {
 		// addSequential(new DriveWithEncoder((Robot.leftDriveEncoderDistance +
 		// 10), (Robot.rightDriveEncoderDistance +10), .75, .75, true));
-		addSequential(new DriveWithEncoder(1, 1, .75, .75));
+		//nope
+//		addSequential(new DriveWithEncoder(1, 1, .75, .75));
 
 		// addSequential(new DriveWithEncoder(10, .75, .75, true));
 
 		// if (SmartDashboard.getBoolean("Auton Shoot")){
-
-		addSequential(new CameraServoAuton());
+		//nope
+//		addSequential(new CameraServoAuton());
 //		addParallel(new IntakeWheelsForward(1));
+		
+		//NEW
+		addSequential(new DriveWithAuton(4, .70, .65));
+		//END NEW
 		addParallel(new MoveFourBarAuton(1.5, -.4));
-		addSequential(new DriveWithEncoder(7, 7, .70, .65));
+		//nope
+//		addSequential(new DriveWithEncoder(5, 5, .70, .65));
 		addSequential(new MoveFourBarEncoderReset());
-
-		addSequential(new DriveWithEncoder(1.85, 0, 1, .1));
-		addSequential(new DriveWithEncoder(.5, .5, .75, .75));
+		
+		addSequential(new DriveWithAuton(0.5, 0.75, -0.75));
+		
+		//TURN
+//		addSequential(new DriveWithEncoder(1.85, 0, 1, .1));
+//		addSequential(new DriveWithEncoder(.5, .5, .75, .75));
+		//END TURN
+		
 //		addSequential(new DriveWithAuton(.1, 0, 0));
 //		addSequential(new DriveWithAuton(.5, .5, .5));
 		// AutoPop
