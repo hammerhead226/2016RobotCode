@@ -36,144 +36,132 @@ public class Robot extends IterativeRobot {
 	public static final ShooterWheels shooterWheels = new ShooterWheels();
 	public static final WinchServo winchServo = new WinchServo();
 	public static final LiftWinch liftWinch = new LiftWinch();
-	public static final FourBar fourBar = new FourBar();	
+	public static final FourBar fourBar = new FourBar();
 	public static final CameraServo cameraServo = new CameraServo();
 	public static final LightSpike lightSpike = new LightSpike();
 	public static OI oi;
 
-    Command autonomousCommand;
-    CameraServer server;
-    public static Timer count;
-    public static Timer shootercount;
-    
-    NetworkTable table;
-    public static double centerValue;
-    
-    public static double liftSetPointValue;
-    
-    public static double liftEncPos;	
-    
-    public static boolean activateSetpoint = false;
-    
-    public static double leftDriveEncoderDistance;
-    public static double rightDriveEncoderDistance;
-    int loops = 0;
-    
-    public Robot() {
-    	server = CameraServer.getInstance();
-        server.setQuality(50);
-        //the camera name (ex "cam0") can be found through the roborio web interface
-        server.startAutomaticCapture("cam0");
+	Command autonomousCommand;
+	CameraServer server;
+	NetworkTable table;
 
-        table = NetworkTable.getTable("SharkCV/contours/0"); 
-        
-        autonomousCommand = new Auton();
-        
-        count = new Timer();
-        shootercount = new Timer();
-    }
+	public static double centerValue;
+	public static double liftSetPointValue;
+	public static double liftEncPos;
+	public static boolean activateSetpoint = false;
+	public static double leftDriveEncoderDistance;
+	public static double rightDriveEncoderDistance;
+	int loops = 0;
 
-	    /**
-	     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
+	public Robot() {
+		server = CameraServer.getInstance();
+		server.setQuality(50);
+		// the camera name (ex "cam0") can be found through the roborio web
+		// interface
+		server.startAutomaticCapture("cam0");
+
+		table = NetworkTable.getTable("SharkCV/contours/0");
+
+		autonomousCommand = new Auton();
+
+	}
+
+	/**
+	 * This function is run when the robot is first started up and should be
+	 * used for any initialization code.
+	 */
 	public void robotInit() {
 		oi = new OI();
-        // instantiate the command used for the autonomous period
-       // autonomousCommand = new ExampleCommand();
+		// instantiate the command used for the autonomous period
+		// autonomousCommand = new ExampleCommand();
 		autonomousCommand = new Auton();
-		count.start();
-		
+
 		cameraServo.forward();
-		
-        driveTrain.rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-        driveTrain.rearLeft.changeControlMode(TalonControlMode.Position);
-        driveTrain.rearLeft.reverseSensor(true);
-        driveTrain.rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
-        driveTrain.rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
-        driveTrain.rearLeft.setProfile(0);
-        driveTrain.rearLeft.setF(0);
-        driveTrain.rearLeft.setP(0);
-        driveTrain.rearLeft.setI(0); 
-        driveTrain.rearLeft.setD(0);
-        
-        driveTrain.rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-        driveTrain.rearRight.changeControlMode(TalonControlMode.Position);
-        driveTrain.rearRight.reverseSensor(true);
-        driveTrain.rearRight.configNominalOutputVoltage(+0.0f, -0.0f);
-        driveTrain.rearRight.configPeakOutputVoltage(+12.0f, 0.0f);
-        driveTrain.rearRight.setProfile(0);
-        driveTrain.rearRight.setF(0);
-        driveTrain.rearRight.setP(0);
-        driveTrain.rearRight.setI(0); 
-        driveTrain.rearRight.setD(0);
-				
-        driveTrain.rearLeft.reset();
-        driveTrain.rearRight.reset();
-    }
-	
+
+		driveTrain.rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		driveTrain.rearLeft.changeControlMode(TalonControlMode.Position);
+		driveTrain.rearLeft.reverseSensor(true);
+		driveTrain.rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
+		driveTrain.rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
+		driveTrain.rearLeft.setProfile(0);
+		driveTrain.rearLeft.setF(0);
+		driveTrain.rearLeft.setP(0);
+		driveTrain.rearLeft.setI(0);
+		driveTrain.rearLeft.setD(0);
+
+		driveTrain.rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+		driveTrain.rearRight.changeControlMode(TalonControlMode.Position);
+		driveTrain.rearRight.reverseSensor(true);
+		driveTrain.rearRight.configNominalOutputVoltage(+0.0f, -0.0f);
+		driveTrain.rearRight.configPeakOutputVoltage(+12.0f, 0.0f);
+		driveTrain.rearRight.setProfile(0);
+		driveTrain.rearRight.setF(0);
+		driveTrain.rearRight.setP(0);
+		driveTrain.rearRight.setI(0);
+		driveTrain.rearRight.setD(0);
+
+		driveTrain.rearLeft.reset();
+		driveTrain.rearRight.reset();
+	}
+
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 	}
 
-    public void autonomousInit() {
-        // schedule the autonomous command (example)
-    	Robot.driveTrain.set = true;
-        if (autonomousCommand != null) autonomousCommand.start();
-        
-    }
+	public void autonomousInit() {
+		// schedule the autonomous command (example)
+		Robot.driveTrain.set = true;
+		if (autonomousCommand != null)
+			autonomousCommand.start();
 
-    /**
-     * This function is called periodically during autonomous
-     */
-    public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
-        if(loops >= 10) {
-        	loops = 0;
-        }
-        else loops++;
-        leftDriveEncoderDistance = driveTrain.rearLeft.get()*-1;
-    	rightDriveEncoderDistance = driveTrain.rearRight.get();
-    }
+	}
 
-    public void teleopInit() {
+	/**
+	 * This function is called periodically during autonomous
+	 */
+	public void autonomousPeriodic() {
+		Scheduler.getInstance().run();
+		if (loops >= 10) {
+			loops = 0;
+		} else
+			loops++;
+		leftDriveEncoderDistance = driveTrain.rearLeft.get() * -1;
+		rightDriveEncoderDistance = driveTrain.rearRight.get();
+	}
+
+	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
-        count.start();
-    }
+		// teleop starts running. If you want the autonomous to
+		// continue until interrupted by another command, remove
+		// this line or comment it out.
+		if (autonomousCommand != null) {
+			autonomousCommand.cancel();
+		}
+	}
 
-    /**
-     * This function is called when the disabled button is hit.
-     * You can use it to reset subsystems before shutting down.
-     */
-    public void disabledInit(){
-    	count.reset();
-    	count.stop();
-    }
+	/**
+	 * This function is called when the disabled button is hit. You can use it
+	 * to reset subsystems before shutting down.
+	 */
+	public void disabledInit() {
+	}
 
-    /**
-     * This function is called periodically during operator control
-     */
-    @SuppressWarnings("deprecation")
+	/**
+	 * This function is called periodically during operator control
+	 */
+	@SuppressWarnings("deprecation")
 	public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-        
-        centerValue = table.getNumber("centerX",-1);
-        SmartDashboard.putNumber("Center Value", centerValue);
-        SmartDashboard.putBoolean("Winch", !winchServo.toggle);
-    	SmartDashboard.putNumber("Timer", Robot.shootercount.get());
-//    	SmartDashboard.putNumber("Shooter Speed", Robot.shooterWheels.topEncoder.getSpeed());
-//    	SmartDashboard.putNumber("Encoder Vel", Robot.shooterWheels.topEncoder.getEncVelocity());
-        //Down = true
-    }
-    
-    /**
-     * This function is called periodically during test mode
-     */
-    public void testPeriodic() {
-        LiveWindow.run();
-    }
+		Scheduler.getInstance().run();
+		// centerValue = table.getNumber("centerX",-1);
+		// SmartDashboard.putNumber("Center Value", centerValue);
+		SmartDashboard.putBoolean("Winch", !winchServo.toggle); // Down = true
+		SmartDashboard.putNumber("4Bar Encoder", Robot.fourBar.encoder.getDistance());
+	}
+
+	/**
+	 * This function is called periodically during test mode
+	 */
+	public void testPeriodic() {
+		LiveWindow.run();
+	}
 }
