@@ -16,7 +16,7 @@ public class LiftWinch extends Subsystem {
 	SpeedController leftLiftMotor = new CANTalon(RobotMap.LEFT_LIFT_MOTOR);
 	SpeedController rightLiftMotor = new CANTalon(RobotMap.RIGHT_LIFT_MOTOR);
 
-	private double CONSTANT_SLOW_LIFT = 0.5;
+	private double CONSTANT_SLOW_LIFT = 0.3;
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 
@@ -32,7 +32,7 @@ public class LiftWinch extends Subsystem {
 			rightLiftMotor.set(leftJoystick);
 		}
 
-		else if (-0.6 < leftJoystick && leftJoystick < 0.0) {
+		else if (-0.85 < leftJoystick && leftJoystick < 0.0) {
 			leftJoystick *= CONSTANT_SLOW_LIFT;
 			leftLiftMotor.set(leftJoystick);
 			rightLiftMotor.set(leftJoystick);
