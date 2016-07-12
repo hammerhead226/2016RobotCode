@@ -3,7 +3,7 @@ Code for the 2016 season robot.
 
 ### Installation
 ##### National Instruments
-- Install "FRC 2016 Update Suite" - http://www.ni.com/download/first-robotics-software-2015/5773/en/
+- Install "FRC 2016 Update Suite" - http://www.ni.com/download/first-robotics-software-2016/5773/en/
 
 ##### Java and Eclipse
 - Install "Java SE Development Kit 8" (Windows x64) - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
