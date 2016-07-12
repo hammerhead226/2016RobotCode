@@ -21,14 +21,18 @@ public class Auton extends CommandGroup {
 //		addParallel(new IntakeWheelsForward(1));
 		
 		//NEW
-		addSequential(new DriveWithAuton(4, .70, .65));
+		addSequential(new DriveWithAuton(4, .70, .70));
 		//END NEW
 		addParallel(new MoveFourBarAuton(1.5, -.4));
 		//nope
 //		addSequential(new DriveWithEncoder(5, 5, .70, .65));
 		addSequential(new MoveFourBarEncoderReset());
 		
-		addSequential(new DriveWithAuton(0.5, 0.75, -0.75));
+		addSequential(new DriveWithAuton(0.7, -1, 1));
+		
+		addSequential(new DriveWithAuton(0.5, -.70, -.70));
+		
+		//addSequential(new DriveWithAuton(0.7, 0.9, -0.9));
 		
 		//TURN
 //		addSequential(new DriveWithEncoder(1.85, 0, 1, .1));
