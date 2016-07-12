@@ -7,7 +7,7 @@ Code for the 2016 season robot.
 
 ##### Java and Eclipse
 - Install "Java SE Development Kit 8" (Windows x64) - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-- Install "Eclipse IDE for C/C++ Developers" (Windows 64 bit) - http://www.eclipse.org/downloads/
+- Install "Eclipse IDE for C/C++ Developers" (Windows 64 bit) - https://www.eclipse.org/downloads/download.php?file=/oomph/epp/neon/R/eclipse-inst-win64.exe
 - Follow the WPILib ScreenSteps instructions starting with "Install Eclipse Java Development Tools" - http://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java
 
 ##### Setting up build path in Eclipse
