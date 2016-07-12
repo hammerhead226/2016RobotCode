@@ -18,8 +18,6 @@ public class ShooterWheelsForwardRelease extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.shooterWheels.doNotMove();
-    	Robot.shootercount.stop();
-    	Robot.shootercount.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run

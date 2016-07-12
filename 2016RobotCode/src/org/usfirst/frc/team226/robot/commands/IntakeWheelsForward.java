@@ -19,11 +19,7 @@ public class IntakeWheelsForward extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-//		while (Robot.intakeWheels.shoot) {
-			if (Robot.shootercount.get() > RobotMap.SHOOTER_DELAY || Robot.shootercount.get() == 0) {
 				Robot.intakeWheels.moveForward();
-			}
-//		}
 	}
 
 	// Called repeatedly when this Command is scheduled to run

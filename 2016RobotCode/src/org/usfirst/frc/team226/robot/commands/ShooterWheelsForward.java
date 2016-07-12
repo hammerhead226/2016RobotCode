@@ -20,7 +20,6 @@ public class ShooterWheelsForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.shootercount.start();
     	Robot.shooterWheels.moveForward();
     }
 
@@ -35,9 +34,6 @@ public class ShooterWheelsForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shootercount.stop();
-    	//Robot.shooterWheels.doNotMove();
-    	//Robot.shootercount.reset();
     }
 
     // Called when another command which requires one or more of the same
