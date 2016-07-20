@@ -34,7 +34,10 @@ public class DriveWithJoysticks extends Command {
     		rightSpeed = Robot.oi.getLeftDriveSpeed() * -1;
     	}
     	
-    	Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
+    	/*ROBOCON COMMENT
+    	 * Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);
+    	 */
+    	Robot.driveTrain.tankDrive(0.5*leftSpeed, 0.5*rightSpeed);
     	SmartDashboard.putNumber("Left Encoder", Robot.driveTrain.rearLeft.get());
     	SmartDashboard.putNumber("Right Encoder", Robot.driveTrain.rearRight.get());
     }
