@@ -28,9 +28,11 @@ public class Auton extends CommandGroup {
 //		addSequential(new DriveWithEncoder(5, 5, .70, .65));
 		addSequential(new MoveFourBarEncoderReset());
 		
-		addSequential(new DriveWithAuton(0.7, -1, 1));
+		/*ROBOCON TURN COMMENT
+		 * addSequential(new DriveWithAuton(0.7, -1, 1));
 		
 		addSequential(new DriveWithAuton(0.5, -.70, -.70));
+		 */
 		
 		//addSequential(new DriveWithAuton(0.7, 0.9, -0.9));
 		
