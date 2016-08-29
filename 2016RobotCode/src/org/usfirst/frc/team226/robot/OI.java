@@ -3,6 +3,7 @@ package org.usfirst.frc.team226.robot;
 import org.usfirst.frc.team226.robot.commands.AutoPop;
 import org.usfirst.frc.team226.robot.commands.CameraServoToggle;
 import org.usfirst.frc.team226.robot.commands.DriveWithVision;
+import org.usfirst.frc.team226.robot.commands.EnableDemoTankDrive;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
 import org.usfirst.frc.team226.robot.commands.LightSpikeToggle;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
@@ -29,12 +30,15 @@ public class OI {
 
 	Joystick driver = new Joystick(0);
 	Joystick manip = new Joystick(1);
+	Joystick trainingwheel = new Joystick(2);
 
 	Button D_A = new JoystickButton(driver, 1);
+	Button D_B = new JoystickButton(driver, 2);
 	Button D_X= new JoystickButton(driver, 3);
 	Button D_LB = new JoystickButton(driver, 5);
 	Button D_RB = new JoystickButton(driver, 6);
 	Button D_LS = new JoystickButton(driver, 9);
+	
 	Button M_A = new JoystickButton(manip, 1);
 	Button M_B = new JoystickButton(manip, 2);
 	Button M_X = new JoystickButton(manip, 3);
@@ -45,9 +49,10 @@ public class OI {
 	Button M_START = new JoystickButton(manip, 8);
 	Button M_LS = new JoystickButton(manip, 9);
 	Button M_RS = new JoystickButton(manip, 10);
-
+	
 	public OI() {
 		D_A.whileHeld(new DriveWithVision());
+		D_B.whileHeld(new EnableDemoTankDrive());
 		D_X.whenPressed(new LightSpikeToggle());
 		D_RB.whileHeld(new MoveWinchFullSpeed());
 		D_LS.whenPressed(new CameraServoToggle());
@@ -61,6 +66,7 @@ public class OI {
 		M_SELECT.whenPressed(new AutoPop());
 		M_START.whileHeld(new ShooterWheelsBackward());
 		M_LS.whenReleased(new WinchServoToggle());
+		
 	}
 
 	public void turnRumbleOn(double time) {
@@ -95,6 +101,29 @@ public class OI {
 	public double getRightManipAxis() {
 		if (Math.abs(manip.getRawAxis(5)) > .1) {
 			return manip.getRawAxis(5) * -1;
+		} else
+			return 0;
+	}
+	
+	public double getRightJoystick_X() {
+		if (Math.abs(driver.getRawAxis(4)) > 0.2) {
+			//Correct inversion -- stick left returns 1.0
+			return -driver.getRawAxis(4);
+		} else {
+			return 0;
+		}
+	}
+	
+	public double getTrainingWheelLeftDriveSpeed() {
+		if (Math.abs(trainingwheel.getY()) > .1) {
+			return driver.getY() * -1;
+		} else
+			return 0;
+	}
+
+	public double getTrainingWheelRightDriveSpeed() {
+		if (Math.abs(trainingwheel.getRawAxis(5)) > .1) {
+			return driver.getRawAxis(5) * -1;
 		} else
 			return 0;
 	}
