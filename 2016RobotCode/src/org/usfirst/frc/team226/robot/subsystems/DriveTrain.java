@@ -2,7 +2,6 @@ package org.usfirst.frc.team226.robot.subsystems;
 
 import org.usfirst.frc.team226.robot.Robot;
 import org.usfirst.frc.team226.robot.RobotMap;
-import org.usfirst.frc.team226.robot.commands.DriveWithJoysticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -39,11 +38,20 @@ public class DriveTrain extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
-		setDefaultCommand(new DriveWithJoysticks());
 	}
 	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
 		drive.tankDrive(leftJoystick, rightJoystick);
+	}
+	
+	public void demoTankDrive(double leftJoystick, double rightJoystick) {
+		leftJoystick *= 0.5;
+		rightJoystick *= 0.5;
+		drive.tankDrive(leftJoystick, rightJoystick);
+	}
+	
+	public void arcadeDrive(double throttle, double turn, boolean squaredInputs) {
+		drive.arcadeDrive(throttle, turn, squaredInputs);
 	}
 
 	public void encoderDrive(double leftCount, double rightCount, double lSpeed, double rSpeed, boolean set) {
