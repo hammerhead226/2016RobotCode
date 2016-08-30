@@ -46,12 +46,6 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(leftJoystick, rightJoystick);
 	}
 	
-	public void demoTankDrive(double leftJoystick, double rightJoystick) {
-		leftJoystick *= 0.5;
-		rightJoystick *= 0.5;
-		drive.tankDrive(leftJoystick, rightJoystick);
-	}
-	
 	public void arcadeDrive(double throttle, double turn, boolean squaredInputs) {
 		drive.arcadeDrive(throttle, turn, squaredInputs);
 	}

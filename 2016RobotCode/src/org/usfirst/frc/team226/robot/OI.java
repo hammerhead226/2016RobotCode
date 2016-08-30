@@ -3,7 +3,6 @@ package org.usfirst.frc.team226.robot;
 import org.usfirst.frc.team226.robot.commands.AutoPop;
 import org.usfirst.frc.team226.robot.commands.CameraServoToggle;
 import org.usfirst.frc.team226.robot.commands.DriveWithVision;
-import org.usfirst.frc.team226.robot.commands.EnableDemoTankDrive;
 import org.usfirst.frc.team226.robot.commands.IntakeWheelsForward;
 import org.usfirst.frc.team226.robot.commands.LightSpikeToggle;
 import org.usfirst.frc.team226.robot.commands.MoveFourBarEncoderReset;
@@ -30,7 +29,6 @@ public class OI {
 
 	Joystick driver = new Joystick(0);
 	Joystick manip = new Joystick(1);
-	Joystick trainingwheel = new Joystick(2);
 
 	Button D_A = new JoystickButton(driver, 1);
 	Button D_B = new JoystickButton(driver, 2);
@@ -52,7 +50,6 @@ public class OI {
 	
 	public OI() {
 		D_A.whileHeld(new DriveWithVision());
-		D_B.whileHeld(new EnableDemoTankDrive());
 		D_X.whenPressed(new LightSpikeToggle());
 		D_RB.whileHeld(new MoveWinchFullSpeed());
 		D_LS.whenPressed(new CameraServoToggle());
@@ -66,7 +63,6 @@ public class OI {
 		M_SELECT.whenPressed(new AutoPop());
 		M_START.whileHeld(new ShooterWheelsBackward());
 		M_LS.whenReleased(new WinchServoToggle());
-		
 	}
 
 	public void turnRumbleOn(double time) {
@@ -114,20 +110,6 @@ public class OI {
 		}
 	}
 	
-	public double getTrainingWheelLeftDriveSpeed() {
-		if (Math.abs(trainingwheel.getY()) > .1) {
-			return driver.getY() * -1;
-		} else
-			return 0;
-	}
-
-	public double getTrainingWheelRightDriveSpeed() {
-		if (Math.abs(trainingwheel.getRawAxis(5)) > .1) {
-			return driver.getRawAxis(5) * -1;
-		} else
-			return 0;
-	}
-
 	/**
 	 * Warning! getRightTrigger() and getLeftTrigger() both use getRawAxis(3).
 	 * As getRawAxis(3) goes below zero, getRightTrigger() increases, and as
