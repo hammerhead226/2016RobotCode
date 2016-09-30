@@ -29,6 +29,7 @@ public class OI {
 
 	Joystick driver = new Joystick(0);
 	Joystick manip = new Joystick(1);
+	public LogitechF310Controller cDriver = new LogitechF310Controller(2);
 
 	Button D_A = new JoystickButton(driver, 1);
 	Button D_B = new JoystickButton(driver, 2);

@@ -1,8 +1,9 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
+import org.usfirst.frc.team226.robot.CulverDrive;
 import org.usfirst.frc.team226.robot.Robot;
 import org.usfirst.frc.team226.robot.RobotMap;
-import org.usfirst.frc.team226.robot.commands.XboxCheesyDrive;
+import org.usfirst.frc.team226.robot.commands.HybridDrive;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -39,7 +40,7 @@ public class DriveTrain extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
-		setDefaultCommand(new XboxCheesyDrive());
+		setDefaultCommand(new HybridDrive());
 	}
 	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
@@ -48,6 +49,10 @@ public class DriveTrain extends Subsystem {
 	
 	public void arcadeDrive(double throttle, double turn, boolean squaredInputs) {
 		drive.arcadeDrive(throttle, turn, squaredInputs);
+	}
+	
+	public void culverDrive(double throttle, double x, double y, boolean quickTurn) {
+		CulverDrive.culverDrive(drive, throttle, x, y, quickTurn);
 	}
 
 	public void encoderDrive(double leftCount, double rightCount, double lSpeed, double rSpeed, boolean set) {

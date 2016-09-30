@@ -2,6 +2,7 @@
 package org.usfirst.frc.team226.robot;
 
 import org.usfirst.frc.team226.robot.commands.Auton;
+import org.usfirst.frc.team226.robot.commands.HybridDrive;
 import org.usfirst.frc.team226.robot.subsystems.CameraServo;
 import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBar;
@@ -156,6 +157,7 @@ public class Robot extends IterativeRobot {
 		// SmartDashboard.putNumber("Center Value", centerValue);
 		SmartDashboard.putBoolean("Winch", !winchServo.toggle); // Down = true
 		SmartDashboard.putNumber("4Bar Encoder", Robot.fourBar.encoder.getDistance());
+		SmartDashboard.putBoolean("CD Enabled", HybridDrive.cd);
 	}
 
 	/**
