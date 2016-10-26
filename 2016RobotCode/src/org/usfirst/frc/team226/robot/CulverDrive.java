@@ -1,7 +1,6 @@
 package org.usfirst.frc.team226.robot;
 
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * A Java implementation of Team 33's Culver Drive.
@@ -9,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * Credit goes to Team 33's Bryan Culver for original idea and math.
  * 
  * @author Alec Minchington
- * @version 1.5
+ * @version 1.6
  */
 
 public final class CulverDrive {
@@ -35,8 +34,8 @@ public final class CulverDrive {
 
 	// CULVER DRIVE CONSTANTS
 
-	private static final double CULVER_DRIVE_RADIUS_GAIN = 2; // Tune this
-	private static final double CULVER_DRIVE_RAW_GAIN = 1.5; // and this
+	private static final double CULVER_DRIVE_RADIUS_GAIN = 1; // Tune this
+	private static final double CULVER_DRIVE_RAW_GAIN = 1; // and this
 	private static final double CULVER_DRIVE_ALT_RAW_GAIN = 1; // and this
 
 	private static final double ONE_NINTIETH = 0.011111;
@@ -72,16 +71,20 @@ public final class CulverDrive {
 			left += raw;
 			right -= raw;
 		} else {
-			left += radius;
-			right -= radius;
+			if (throttle < 0) {
+				left -= radius;
+				right += radius;
+				}
+				else {
+					left += radius;
+					right -= radius;
+				}
 		}
 
 		// System.out.println("left: " + limitMotorOutput(left));
 		// System.out.println("right: " + limitMotorOutput(right));
 
 		rd.tankDrive(limit(left), limit(right));
-		SmartDashboard.putNumber("Right side CD", limit(right));
-		SmartDashboard.putNumber("Left side CD", limit(left));
 	}
 
 	/**

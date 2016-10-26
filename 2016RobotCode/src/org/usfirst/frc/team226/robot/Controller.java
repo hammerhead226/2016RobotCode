@@ -5,26 +5,29 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
- * A robot Java wrapper class for the Logitech F310 controller.
+ * A robot Java wrapper class for the Xbox 360 and Logitech F310 controllers.
+ * Includes built-in variable joystick deadband.
  * <p>
  * 
  * @author Alec Minchington
+ * 
  * @version 1.1
  */
 
-public class LogitechF310Controller extends Joystick {
+public class Controller extends Joystick {
+	
+	private final double DEFAULT_DEADBAND = 0.1;
+	private double deadband;
 
-	public LogitechF310Controller(int usbPort) {
+	public Controller(int usbPort) {
 		super(usbPort);
-		this.deadband = 0.2;
+		this.deadband = DEFAULT_DEADBAND;
 	}
 
-	public LogitechF310Controller(int usbPort, double deadband) {
+	public Controller(int usbPort, double deadband) {
 		super(usbPort);
 		this.deadband = deadband;
 	}
-
-	private double deadband;
 
 	private Button A = new JoystickButton(this, 1);
 	private Button B = new JoystickButton(this, 2);
@@ -58,23 +61,23 @@ public class LogitechF310Controller extends Joystick {
 	public Button getLBButton() {
 		return LB;
 	}
-	
+
 	public Button getRBButton() {
 		return RB;
 	}
-	
+
 	public Button getBACKButton() {
 		return BACK;
 	}
-	
+
 	public Button getSTARTButton() {
 		return START;
 	}
-	
+
 	public Button getLSButton() {
 		return LS;
 	}
-	
+
 	public Button getRSButton() {
 		return RS;
 	}

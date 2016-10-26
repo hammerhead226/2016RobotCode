@@ -21,7 +21,7 @@ public class MoveWinch extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.liftWinch.moveWinch(Robot.oi.getLeftManipAxis());
+		Robot.liftWinch.moveWinch(Robot.oi.manip.getLeftJoystick_Y());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

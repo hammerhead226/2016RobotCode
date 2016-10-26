@@ -22,16 +22,16 @@ public class DriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftSpeed = Robot.oi.getLeftDriveSpeed();
-    	double rightSpeed = Robot.oi.getRightDriveSpeed();
+    	double leftSpeed = Robot.oi.driver.getLeftJoystick_Y();
+    	double rightSpeed = Robot.oi.driver.getRightJoystick_Y();
 
-    	if (Robot.oi.getRightTriggerPulled()) {
+    	if (Robot.oi.driver.getRightTrigger() > 0.5) {
     		leftSpeed = leftSpeed/2;
     		rightSpeed = rightSpeed/2;
     	}
-    	if (Robot.oi.getLeftTriggerPulled()) {
-    		leftSpeed = Robot.oi.getRightDriveSpeed() * -1;
-    		rightSpeed = Robot.oi.getLeftDriveSpeed() * -1;
+    	if (Robot.oi.driver.getLeftTrigger() > 0.5) {
+    		leftSpeed = Robot.oi.driver.getLeftJoystick_Y() * 1;
+        	rightSpeed = Robot.oi.driver.getRightJoystick_Y() * 1;
     	}
     	
     	Robot.driveTrain.tankDrive(leftSpeed, rightSpeed);

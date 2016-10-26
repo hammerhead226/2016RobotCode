@@ -141,7 +141,7 @@ public class DriveTrain extends Subsystem {
 		}
 		
 		if (isAlignedRight && isAlignedLeft) {
-			Robot.oi.turnRumbleOn(1);
+//			Robot.oi.turnRumbleOn(1);
 		}
 
 		drive.tankDrive(left, right);

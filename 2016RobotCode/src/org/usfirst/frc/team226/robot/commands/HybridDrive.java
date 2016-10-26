@@ -25,19 +25,20 @@ public class HybridDrive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if (Robot.oi.cDriver.getBButtonPressed()) {
+		if (Robot.oi.driver.getBButtonPressed()) {
 			cd = !cd;
+			Timer.delay(0.25);
 		}
 
 		if (cd) {
-			double throttle = Robot.oi.cDriver.getLeftJoystick_Y();
-			double x = Robot.oi.cDriver.getRightJoystick_X();
-			double y = Robot.oi.cDriver.getRightJoystick_Y();
-			boolean quickTurn = Robot.oi.cDriver.getRBButtonPressed();
+			double throttle = Robot.oi.driver.getLeftJoystick_Y();
+			double x = Robot.oi.driver.getRightJoystick_X();
+			double y = Robot.oi.driver.getRightJoystick_Y();
+			boolean quickTurn = Robot.oi.driver.getRBButtonPressed();
 			Robot.driveTrain.culverDrive(throttle, x, y, quickTurn);
 		} else {
-			double throttle = Robot.oi.cDriver.getLeftJoystick_Y();
-			double turn = Robot.oi.cDriver.getRightJoystick_X();
+			double throttle = Robot.oi.driver.getLeftJoystick_Y();
+			double turn = Robot.oi.driver.getRightJoystick_X();
 			Robot.driveTrain.arcadeDrive(throttle, turn, true);
 		}
 	}
