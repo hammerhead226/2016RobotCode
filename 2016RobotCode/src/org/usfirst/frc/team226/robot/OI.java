@@ -33,7 +33,6 @@ public class OI {
 	public OI() {
 		driver.getAButton().whileHeld(new DriveWithVision());
 		driver.getXButton().whenPressed(new LightSpikeToggle());
-		driver.getRBButton().whileHeld(new MoveWinchFullSpeed());
 		driver.getLSButton().whenPressed(new CameraServoToggle());
 		manip.getAButton().whileHeld(new MoveFourBarToSetpointZero());
 		manip.getBButton().whenPressed(new MoveFourBarEncoderReset());
