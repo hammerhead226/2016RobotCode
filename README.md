@@ -2,12 +2,13 @@
 Code for the 2016 season robot.
 
 ## Development Software
-#### Installing JDK and Eclipse
+#### Installing JDK, Eclipse, and FRC Driver Station
 1. Install the latest [Java SE Development Kit 8 (Windows x64)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 2. Install the latest [Eclipse IDE for Java Developers (64 bit)](https://eclipse.org/downloads/eclipse-packages/).
 3. Follow the [2016 FRC Control System](https://wpilib.screenstepslive.com/s/4485/m/13809/l/599681-installing-eclipse-c-java) Eclipse setup instructions.
     1. The code deployment error "roboRIO Image does not match plugin, allowed image version: ##" means you need to update your Eclipse plugins.
     2. Numerous "(class) cannot be resolved to a type" errors may indicate a bad project build path, you should re-create the project.
+4. Open FRC Driver Station and set your team number on the Setup tab.
 
 #### Installing National Instruments Software
 1. Strongly consider uninstalling all existing National Instruments products from the "National Instruments Software" installer.
