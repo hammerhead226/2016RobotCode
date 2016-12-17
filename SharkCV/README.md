@@ -12,25 +12,25 @@ How to set up a Raspberry Pi 2B for use with `SharkCV` for FRC Stronghold.
 #### Update Packages
 It is a good idea to perform a full software update before doing anything else. It may be a good idea to hold off on updates during competition season unless you have a significant amount of time to test stability.
 ```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get dist-upgrade
 ```
 
 #### Build mjpg-streamer (Optional)
 If you want to stream a webcam attached to the Raspberry Pi you will need to install `mjpg-streamer`:
 ```bash
-sudo apt-get install cmake libjpeg8-dev
-git clone https://github.com/jacksonliam/mjpg-streamer.git
-cd mjpg-streamer/mjpg-streamer-experimental
-make mjpg_streamer input_uvc.so output_http.so
+$ sudo apt-get install cmake libjpeg8-dev
+$ git clone https://github.com/jacksonliam/mjpg-streamer.git
+$ cd mjpg-streamer/mjpg-streamer-experimental
+$ make mjpg_streamer input_uvc.so output_http.so
 ```
 
 #### Install Display-O-Tron 3000 (Optional)
 If you want to use the dot3k display for Python debugging output you will need to run the following:
 ```bash
-sudo apt-get install python-dev python-smbus
-sudo pip install RPi.GPIO dot3k
+$ sudo apt-get install python-dev python-smbus
+$ sudo pip install RPi.GPIO dot3k
 ```
 You will also need to enable SPI and I2C with `raspi-config`.
 
@@ -49,19 +49,19 @@ PowerLine Fr.:  60 Hz
 ## SharkCV
 Grab the latest version of `SharkCV`:
 ```bash
-git clone https://github.com/hammerhead226/SharkCV.git
+$ git clone https://github.com/hammerhead226/SharkCV.git
 ```
 Follow the dependancy installation instructions in the README file.
 
 ## Linux Startup
 To make `SharkCV` run at startup add the following lines to `/etc/rc.local` (will require root).
 ```bash
-cd [/path/to/SharkCV/folder]
-nohup sudo python SharkCV.py [arguments] [module]
+$ cd [/path/to/SharkCV/folder]
+$ nohup sudo python SharkCV.py [arguments] [module]
 ```
 
 
-## Game Manual Notes
+## 2016 Game Manual Notes
 
 #### COTS Rules
 - Section 4.1 - The Raspberry Pi is considered a COTS item because it is an "unaltered component" "avaialable for purchase by all teams" from a "vendor".
