@@ -1,8 +1,6 @@
 
 package org.usfirst.frc.team226.robot;
 
-import org.usfirst.frc.team226.robot.commands.Auton;
-import org.usfirst.frc.team226.robot.commands.HybridDrive;
 import org.usfirst.frc.team226.robot.subsystems.CameraServo;
 import org.usfirst.frc.team226.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team226.robot.subsystems.FourBar;
@@ -12,16 +10,12 @@ import org.usfirst.frc.team226.robot.subsystems.LightSpike;
 import org.usfirst.frc.team226.robot.subsystems.ShooterWheels;
 import org.usfirst.frc.team226.robot.subsystems.WinchServo;
 
-import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -63,8 +57,6 @@ public class Robot extends IterativeRobot {
 
 		table = NetworkTable.getTable("SharkCV/contours/0");
 
-		autonomousCommand = new Auton();
-
 	}
 
 	/**
@@ -75,34 +67,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		// instantiate the command used for the autonomous period
 		// autonomousCommand = new ExampleCommand();
-		autonomousCommand = new Auton();
-
 		cameraServo.forward();
-
-		driveTrain.rearLeft.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		driveTrain.rearLeft.changeControlMode(TalonControlMode.Position);
-		driveTrain.rearLeft.reverseSensor(true);
-		driveTrain.rearLeft.configNominalOutputVoltage(+0.0f, -0.0f);
-		driveTrain.rearLeft.configPeakOutputVoltage(+12.0f, 0.0f);
-		driveTrain.rearLeft.setProfile(0);
-		driveTrain.rearLeft.setF(0);
-		driveTrain.rearLeft.setP(0);
-		driveTrain.rearLeft.setI(0);
-		driveTrain.rearLeft.setD(0);
-
-		driveTrain.rearRight.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-		driveTrain.rearRight.changeControlMode(TalonControlMode.Position);
-		driveTrain.rearRight.reverseSensor(true);
-		driveTrain.rearRight.configNominalOutputVoltage(+0.0f, -0.0f);
-		driveTrain.rearRight.configPeakOutputVoltage(+12.0f, 0.0f);
-		driveTrain.rearRight.setProfile(0);
-		driveTrain.rearRight.setF(0);
-		driveTrain.rearRight.setP(0);
-		driveTrain.rearRight.setI(0);
-		driveTrain.rearRight.setD(0);
-
-		driveTrain.rearLeft.reset();
-		driveTrain.rearRight.reset();
 	}
 
 	public void disabledPeriodic() {
@@ -155,9 +120,11 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		// centerValue = table.getNumber("centerX",-1);
 		// SmartDashboard.putNumber("Center Value", centerValue);
-		SmartDashboard.putBoolean("Winch", !winchServo.toggle); // Down = true
-		SmartDashboard.putNumber("4Bar Encoder", Robot.fourBar.encoder.getDistance());
-		SmartDashboard.putBoolean("CD Enabled", HybridDrive.cd);
+//		SmartDashboard.putBoolean("Winch", !winchServo.toggle); // Down = true
+//		SmartDashboard.putNumber("4Bar Encoder", Robot.fourBar.encoder.getDistance());
+//		SmartDashboard.putBoolean("CD Enabled", HybridDrive.cd);
+//		SmartDashboard.putNumber("ENCODERRRRRRR", Robot.driveTrain.rearRight.get());
+
 	}
 
 	/**

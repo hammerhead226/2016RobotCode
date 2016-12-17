@@ -42,9 +42,9 @@ public class FourBar extends Subsystem {
 //    		leftArmMotor.set(rightJoystick *-1);
 //			rightArmMotor.set(rightJoystick);
 //    	}
-    	leftArmMotor.set(rightJoystick *-1);
+    	leftArmMotor.set(rightJoystick *-0.7);
     	if (rightJoystick > 0) {
-		rightArmMotor.set(rightJoystick*.935);
+		rightArmMotor.set(rightJoystick);
     	}
     	else {
     		rightArmMotor.set(rightJoystick);
@@ -55,7 +55,7 @@ public class FourBar extends Subsystem {
 		encoder.setDistancePerPulse(5);
 		encoder.setReverseDirection(true);
 		encoder.setSamplesToAverage(5);
-		SmartDashboard.putDouble("Encoder Distance", encoder.getDistance());
+		SmartDashboard.putDouble("4Bar Encoder Distance", encoder.getDistance());
 		
 	}
     

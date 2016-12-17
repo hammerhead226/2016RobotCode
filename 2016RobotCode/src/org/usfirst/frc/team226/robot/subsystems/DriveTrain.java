@@ -1,9 +1,7 @@
 package org.usfirst.frc.team226.robot.subsystems;
 
-import org.usfirst.frc.team226.robot.CulverDrive;
-import org.usfirst.frc.team226.robot.Robot;
 import org.usfirst.frc.team226.robot.RobotMap;
-import org.usfirst.frc.team226.robot.commands.HybridDrive;
+import org.usfirst.frc.team226.robot.commands.DriveWithJoysticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -40,7 +38,7 @@ public class DriveTrain extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
-		setDefaultCommand(new HybridDrive());
+		setDefaultCommand(new DriveWithJoysticks());
 	}
 	
 	public void tankDrive(double leftJoystick, double rightJoystick) {
@@ -51,10 +49,6 @@ public class DriveTrain extends Subsystem {
 		drive.arcadeDrive(throttle, turn, squaredInputs);
 	}
 	
-	public void culverDrive(double throttle, double x, double y, boolean quickTurn) {
-		CulverDrive.culverDrive(drive, throttle, x, y, quickTurn);
-	}
-
 	public void encoderDrive(double leftCount, double rightCount, double lSpeed, double rSpeed, boolean set) {
 //		int avg = (Robot.leftDriveEncoderDistance + rearRight.getEncPosition()) / 2;
 //		SmartDashboard.putInt("avg", avg);
